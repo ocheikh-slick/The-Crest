@@ -1,0 +1,985 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="CREST CITY by Crest Development Group: Signature Villas, apartments and a commercial street in a gated, solar-powered community in Djibouti.">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#13294B">
+<link rel="icon" type="image/png" href="icons/favicon-64.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="CREST CITY">
+<meta property="og:title" content="CREST CITY">
+<meta property="og:description" content="Signature Villas, apartments and a commercial street in a gated, solar-powered community in Djibouti.">
+<meta property="og:image" content="img/gate.jpg">
+<script>window.CREST_PWA=true;</script>
+<style>:root{color-scheme:light}body{margin:0}[hidden]{display:none!important}</style>
+<title>CREST CITY</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Belleza&family=Lato:wght@300;400;700&display=swap">
+<style>
+
+:root{
+  color-scheme:light;
+  --bg:#FFFFFF; --paper:#F5F5F3; --ink:#0A0A0A; --text:#1E1E1E; --muted:#6A6A6A; --line:#D4D4D0; --line2:#E8E8E4;
+  --navy:#13294B; --navy-d:#0B1A33;
+  --st-av:#2F7D52; --st-re:#C08A24; --st-so:#9C3A3A;
+  --hf:Optima,"Optima nova","Optima LT Std",Belleza,Candara,"Segoe UI",sans-serif;
+  --bf:Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --wrap:1480px; --gut:clamp(16px,5vw,72px); --hdr:72px;
+}
+*{box-sizing:border-box}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+body{background:var(--bg);color:var(--text);font-family:var(--bf);font-weight:300;font-size:18px;line-height:28px;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img,video{display:block;max-width:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3,h4{font-family:var(--hf);font-weight:400;color:var(--ink);margin:0;text-wrap:balance}
+p{margin:0}
+:focus-visible{outline:1px solid var(--ink);outline-offset:4px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--gut)}
+
+/* type */
+.h-xl{font-size:clamp(30px,3.4vw,46px);line-height:1.26;text-transform:uppercase;letter-spacing:.01em}
+.h-l{font-size:clamp(24px,2.4vw,32px);line-height:1.3;text-transform:uppercase;letter-spacing:.01em}
+.sub{font-size:clamp(15px,1.3vw,18px);line-height:1.6;text-transform:uppercase;letter-spacing:.01em;color:var(--ink)}
+.cap{font-family:var(--bf);font-weight:400;font-size:15px;line-height:1.75;text-transform:uppercase;letter-spacing:.14em;color:var(--ink)}
+.small{font-size:13px;line-height:1.6;letter-spacing:.16em;text-transform:uppercase;font-weight:400;color:var(--muted)}
+.body{max-width:none}
+.body p+p{margin-top:14px}
+.muted{color:var(--muted)}
+.eyebrow{display:flex;align-items:center;gap:18px;font-size:14px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.eyebrow::after{content:"";width:min(130px,18vw);height:1px;background:var(--line)}
+.on-dark .eyebrow{color:rgba(255,255,255,.8)}
+.on-dark .eyebrow::after{background:rgba(255,255,255,.5)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 30px;background:var(--navy);color:#fff;border:1px solid var(--navy);font-family:var(--bf);font-weight:400;font-size:14px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.btn:hover{background:var(--navy-d);border-color:var(--navy-d)}
+.btn.line{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.line:hover{background:var(--ink);color:#fff}
+.btn.white{background:transparent;color:#fff;border-color:rgba(255,255,255,.85)}
+.btn.white:hover{background:#fff;color:var(--ink)}
+.btn.full{width:100%}
+.tlink{display:inline-flex;align-items:center;gap:12px;font-weight:400;font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);cursor:pointer;background:none;border:0;padding:0}
+.tlink::after{content:"";width:28px;height:1px;background:currentColor;transition:width .3s}
+.tlink:hover::after{width:44px}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+
+/* header */
+header.hdr{position:fixed;left:0;right:0;top:0;z-index:50;padding-top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--line2);transition:background .35s,border-color .35s,color .35s}
+header.hdr .in{display:flex;align-items:stretch;height:var(--hdr);max-width:none;padding-inline:var(--gut)}
+.logo{display:flex;align-items:center;cursor:pointer;flex:0 0 auto}
+.logo img{height:40px;width:auto}
+.logo .lw{display:none}
+nav.main{display:flex;align-items:center;gap:clamp(18px,2.2vw,40px);margin-left:auto;margin-right:clamp(18px,2.4vw,44px)}
+nav.main a{font-weight:400;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);position:relative;padding:6px 0;cursor:pointer}
+nav.main a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:currentColor;transition:right .3s}
+nav.main a:hover::after,nav.main a.on::after{right:0}
+.tools{display:flex;align-items:center;gap:clamp(14px,1.6vw,26px)}
+.tools .lang{font-weight:400;font-size:14px;letter-spacing:.14em}
+.ic{position:relative;display:grid;place-items:center;width:32px;height:32px;background:none;border:0;cursor:pointer;color:var(--ink);padding:0}
+.ic svg{width:22px;height:22px}
+.ic .n{position:absolute;top:-2px;right:-6px;font-size:10px;line-height:16px;min-width:16px;height:16px;border-radius:8px;background:var(--navy);color:#fff;text-align:center;font-weight:700;padding:0 4px}
+.ic .n[data-n="0"]{display:none}
+.hdr .cta{height:auto;align-self:stretch;margin-left:clamp(8px,1vw,16px);padding:0 clamp(18px,1.8vw,30px)}
+.burger{display:none}
+body[data-hero="1"] header.hdr:not(.solid){background:transparent;border-bottom-color:transparent;color:#fff}
+body[data-hero="1"] header.hdr:not(.solid) nav.main a,body[data-hero="1"] header.hdr:not(.solid) .ic,body[data-hero="1"] header.hdr:not(.solid) .lang{color:#fff}
+body[data-hero="1"] header.hdr:not(.solid) .logo .lc{display:none}
+body[data-hero="1"] header.hdr:not(.solid) .logo .lw{display:block}
+body[data-hero="1"] header.hdr:not(.solid)::before{content:"";position:absolute;inset:0 0 -40px;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,0));pointer-events:none;z-index:-1}
+body:not([data-hero="1"]) #app{padding-top:calc(var(--hdr) + env(safe-area-inset-top,0px))}
+@media (max-width:1180px){nav.main{display:none}.burger{display:grid}.tools{margin-left:auto}.tools .lang,.tools .film-ic{display:none}.hdr .cta{display:none}}
+@media (max-width:600px){:root{--hdr:62px}.logo img{height:32px}.tools .wa-ic{display:none}}
+.drawer{position:fixed;inset:0;z-index:60;background:var(--bg);padding:calc(env(safe-area-inset-top,0px) + 18px) var(--gut) 40px;overflow:auto}
+.drawer .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.drawer .top img{height:34px}
+.drawer a.dl{display:block;font-family:var(--hf);font-size:26px;text-transform:uppercase;color:var(--ink);padding:16px 0;border-bottom:1px solid var(--line2);cursor:pointer}
+.drawer .btn{margin-top:28px;width:100%}
+
+/* hero slider */
+.slider{position:relative;height:100vh;height:100svh;min-height:560px;max-height:1100px;background:#0d0d0d;overflow:hidden;color:#fff;outline:none}
+.slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity 1.6s ease,visibility 0s linear 1.6s;z-index:1}
+.slide.on{opacity:1;visibility:visible;transition:opacity 1.6s ease;z-index:2}
+.slide.prev{visibility:visible;z-index:1}
+.slide .ph{position:absolute;inset:0;overflow:hidden}
+.slide .ph img{width:100%;height:100%;object-fit:cover;transform-origin:var(--ox,50% 50%);will-change:transform}
+.slide.zi.on .ph img,.slide.zi.prev .ph img{animation:kbIn 9s ease-out forwards}
+.slide.zo.on .ph img,.slide.zo.prev .ph img{animation:kbOut 9s ease-out forwards}
+.slider.paused .slide .ph img{animation-play-state:paused}
+@keyframes kbIn{from{transform:scale(1)}to{transform:scale(1.12)}}
+@keyframes kbOut{from{transform:scale(1.14)}to{transform:scale(1)}}
+.slide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.32) 0%,rgba(0,0,0,0) 26%,rgba(0,0,0,0) 40%,rgba(0,0,0,.72) 100%),linear-gradient(90deg,rgba(0,0,0,.42) 0%,rgba(0,0,0,0) 62%);pointer-events:none}
+.scap{text-shadow:0 1px 18px rgba(0,0,0,.35)}
+.scap{position:absolute;left:0;right:0;bottom:clamp(96px,15vh,150px);z-index:3}
+.scap .wrap{display:grid;gap:14px;justify-items:start}
+.scap .kick{font-weight:400;font-size:14px;letter-spacing:.2em;text-transform:uppercase;opacity:.92}
+.stitle{color:#fff;font-size:clamp(36px,5.2vw,76px);line-height:1.08;text-transform:uppercase;letter-spacing:.02em;max-width:18ch}
+.sdesc{font-size:clamp(16px,1.3vw,19px);line-height:1.6;max-width:46ch;color:rgba(255,255,255,.92)}
+.scap .kick,.stitle,.sdesc,.scap .tlink{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease}
+.slide.on .scap .kick{opacity:.92;transform:none;transition-delay:.5s}
+.slide.on .stitle{opacity:1;transform:none;transition-delay:.65s}
+.slide.on .sdesc{opacity:1;transform:none;transition-delay:.8s}
+.slide.on .scap .tlink{opacity:1;transform:none;transition-delay:.95s}
+.tlink.white{color:#fff;margin-top:6px}
+.sl-ui{position:absolute;left:0;right:0;bottom:clamp(26px,5vh,48px);z-index:4}
+.sl-ui .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px}
+.bars{display:flex;align-items:center;gap:10px}
+.bar{width:clamp(34px,4.4vw,64px);height:24px;padding:0;background:none;border:0;cursor:pointer;display:flex;align-items:center}
+.bar i{display:block;width:100%;height:1px;background:#fff;transform:scaleX(0);transform-origin:left;box-shadow:0 0 0 .5px rgba(255,255,255,.0)}
+.bar{background:linear-gradient(rgba(255,255,255,.35),rgba(255,255,255,.35)) center/100% 1px no-repeat}
+.bar.done i{transform:scaleX(1)}
+.count{white-space:nowrap;font-weight:400;font-size:14px;letter-spacing:.18em;margin-left:14px;color:rgba(255,255,255,.8);font-variant-numeric:tabular-nums}
+.count b{font-weight:400;color:#fff}
+.sl-ui .ctrl{display:flex;gap:12px}
+.sl-ui .round{width:48px;height:48px;border:1px solid rgba(255,255,255,.6);border-radius:50%;display:grid;place-items:center;background:transparent;color:#fff;cursor:pointer;transition:background .25s,color .25s}
+.sl-ui .round:hover{background:#fff;color:var(--ink)}
+.sl-ui .round svg{width:16px;height:16px}
+.sl-ui .round svg.ar{width:26px;height:10px}
+@media (max-width:600px){.sl-ui .round[data-sdir]{display:none}.scap{bottom:104px}.bar{width:26px}.bars{gap:6px}}
+@media (prefers-reduced-motion:reduce){.slide .ph img{animation:none!important}}
+
+/* page hero */
+.phero{position:relative;height:clamp(420px,62vh,640px);background:#111;color:#fff;overflow:hidden}
+.phero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.phero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,.55) 100%)}
+.phero .wrap{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:clamp(32px,6vh,64px)}
+.phero .crumb{font-weight:400;font-size:13px;letter-spacing:.18em;text-transform:uppercase;opacity:.85;margin-bottom:14px}
+.phero h1{color:#fff;font-size:clamp(32px,4.2vw,58px);line-height:1.15;text-transform:uppercase;max-width:22ch}
+
+/* sections */
+.sec{padding-block:clamp(64px,8vw,120px)}
+.sec.tight{padding-block:clamp(40px,5vw,72px)}
+.sec.paper{background:var(--paper)}
+.sec+.sec:not(.paper){padding-top:0}
+.sec.paper+.sec{padding-top:clamp(64px,8vw,120px)}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(28px,3vw,44px)}
+.head .l{display:grid;gap:10px;max-width:980px}
+.intro .h-xl{max-width:24ch;margin-bottom:22px}
+.intro .body{color:var(--ink)}
+
+/* search */
+.search{display:grid;grid-template-columns:repeat(3,1fr) auto;gap:0 clamp(18px,2.4vw,40px);align-items:end;margin-top:clamp(36px,4vw,56px)}
+.fld{display:grid;gap:4px}
+.fld label{font-weight:400;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.fld select,.fld input,.fld textarea{border:0;border-bottom:1px solid var(--ink);background:transparent;height:48px;padding:0 26px 0 0;font-size:17px;font-weight:300;color:var(--ink);border-radius:0;width:100%}
+.fld select{appearance:none;-webkit-appearance:none;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-position:calc(100% - 9px) 52%,calc(100% - 4px) 52%;background-size:5px 5px;background-repeat:no-repeat}
+.fld textarea{height:110px;padding-top:12px;resize:vertical}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;border-bottom-width:2px}
+@media (max-width:820px){.search{grid-template-columns:1fr;gap:18px}.search .btn{width:100%}}
+
+/* two column film + news */
+.duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,4vw,64px)}
+@media (max-width:980px){.duo{grid-template-columns:minmax(0,1fr)}}
+.duo .h-xl{margin-bottom:6px}
+.duo .sub{margin-bottom:28px}
+.filmcard{border:1px solid var(--line);cursor:pointer;display:block;background:var(--bg)}
+.filmcard .m{position:relative;aspect-ratio:16/9;overflow:hidden;background:#111}
+.filmcard img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.filmcard:hover img{transform:scale(1.04)}
+.play{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;border:1px solid rgba(255,255,255,.9);display:grid;place-items:center;color:#fff;background:rgba(0,0,0,.38)}
+.play svg{width:20px;height:20px;margin-left:3px}
+.filmcard .cap{padding:22px 24px 26px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2vw,36px)}
+@media (max-width:560px){.pair{grid-template-columns:1fr}}
+
+/* story card */
+.story{display:grid;gap:18px;align-content:start;cursor:pointer}
+.story .m{aspect-ratio:16/9;overflow:hidden;background:var(--paper)}
+.story img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.story:hover img{transform:scale(1.04)}
+.story .more{display:none;font-size:16px;line-height:1.7}
+.story.open .more{display:block}
+
+/* carousel */
+.car-nav{display:flex;gap:22px}
+.car-nav button{background:none;border:0;cursor:pointer;padding:8px 0;color:var(--ink)}
+.car-nav svg{width:58px;height:16px}
+.car-nav button:disabled{opacity:.3;cursor:default}
+.track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 3 * 28px) / 3.6);gap:28px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
+.track::-webkit-scrollbar{display:none}
+.track>*{scroll-snap-align:start}
+@media (max-width:1100px){.track{grid-auto-columns:calc((100% - 28px) / 2.3)}}
+@media (max-width:640px){.track{grid-auto-columns:82%;gap:18px}}
+.comm{display:grid;gap:16px;text-align:center;cursor:pointer}
+.comm .m{aspect-ratio:16/9.2;overflow:hidden;background:var(--paper)}
+.comm img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.comm:hover img{transform:scale(1.05)}
+.comm h3{font-size:clamp(22px,2vw,30px);text-transform:uppercase;line-height:1.25;margin-top:8px}
+.comm .cap{font-size:13.5px;color:var(--text)}
+
+/* unit card */
+.ucard{display:grid;gap:14px;align-content:start}
+.ucard .m{position:relative;aspect-ratio:16/10.5;overflow:hidden;background:var(--paper);cursor:pointer}
+.ucard img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.ucard:hover img{transform:scale(1.04)}
+.ucard h3{font-size:24px;text-transform:uppercase;line-height:1.25;cursor:pointer}
+.ucard .cap{font-size:13px;color:var(--text)}
+.st{display:inline-flex;align-items:center;gap:10px;font-weight:400;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.st::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c,var(--muted))}
+.st.available{--c:var(--st-av)}.st.reserved{--c:var(--st-re)}.st.sold{--c:var(--st-so)}
+.save{position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.92);border:0;display:grid;place-items:center;cursor:pointer;color:var(--ink)}
+.save svg{width:18px;height:18px}
+.save.on svg{fill:var(--ink)}
+.ugrid{display:grid;grid-template-columns:repeat(3,1fr);gap:56px 28px}
+@media (max-width:1000px){.ugrid{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.ugrid{grid-template-columns:1fr;gap:40px}}
+
+/* feature split */
+.feature{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(32px,5vw,96px);align-items:center}
+.feature.rev{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr)}
+.feature.rev .m{order:2}
+.feature .m{aspect-ratio:4/3;overflow:hidden;background:var(--paper)}
+.feature .m img{width:100%;height:100%;object-fit:cover}
+.feature .t{display:grid;gap:22px;align-content:start}
+@media (max-width:900px){.feature,.feature.rev{grid-template-columns:minmax(0,1fr)}.feature.rev .m{order:0}}
+dl.specs{margin:0;display:grid;border-top:1px solid var(--line)}
+dl.specs div{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+dl.specs dt{font-weight:400;font-size:13.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+dl.specs dd{margin:0;color:var(--ink);text-align:right;font-variant-numeric:tabular-nums}
+
+/* banner */
+.banner{position:relative;min-height:clamp(420px,56vw,640px);display:flex;align-items:center;justify-content:center;text-align:center;background:#111;overflow:hidden;color:#fff}
+.banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.banner::after{content:"";position:absolute;inset:0;background:rgba(8,12,20,.6)}
+.banner .wrap{position:relative;z-index:2;display:grid;gap:22px;justify-items:center;max-width:980px}
+.banner h2{color:#fff}
+.banner p{color:rgba(255,255,255,.92);max-width:56ch}
+
+/* register band */
+.reg{text-align:center;display:grid;gap:20px;justify-items:center;max-width:860px;margin:0 auto}
+.reg .eyebrow{justify-content:center}
+.reg .eyebrow::before{content:"";width:min(130px,18vw);height:1px;background:var(--line)}
+
+/* lists */
+.amen{display:grid;grid-template-columns:repeat(4,1fr);gap:0 clamp(20px,2.4vw,40px)}
+.amen div{border-top:1px solid var(--line);padding:24px 0 36px;display:grid;gap:10px;align-content:start}
+.amen h3{font-size:22px;text-transform:uppercase;line-height:1.3}
+.amen p{font-size:16px;line-height:1.65;color:var(--text)}
+@media (max-width:1000px){.amen{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.amen{grid-template-columns:1fr}}
+.plain{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(20px,3vw,48px)}
+.plain li{border-bottom:1px solid var(--line);padding:14px 0;font-size:17px}
+@media (max-width:620px){.plain{grid-template-columns:1fr}}
+.words{display:grid;grid-template-columns:repeat(3,1fr);gap:0 clamp(20px,3vw,56px)}
+.words div{border-top:1px solid var(--ink);padding-top:26px;display:grid;gap:14px;align-content:start}
+.words b{font-family:var(--hf);font-weight:400;font-size:clamp(34px,3.6vw,54px);text-transform:uppercase;color:var(--ink);line-height:1}
+@media (max-width:760px){.words{grid-template-columns:1fr;gap:36px}}
+.miles{display:grid;grid-template-columns:repeat(4,1fr);gap:0 clamp(18px,2vw,36px)}
+.miles div{border-top:1px solid var(--line);padding-top:22px;display:grid;gap:8px;align-content:start}
+.miles small{font-weight:400;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.miles b{font-family:var(--hf);font-weight:400;font-size:24px;text-transform:uppercase;color:var(--ink);line-height:1.25}
+.miles p{font-size:16px;line-height:1.6}
+@media (max-width:900px){.miles{grid-template-columns:1fr 1fr;gap:32px 24px}}
+@media (max-width:520px){.miles{grid-template-columns:1fr}}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0 clamp(18px,2vw,36px);margin-top:clamp(36px,4vw,56px)}
+.stats div{border-top:1px solid var(--line);padding-top:18px}
+.stats b{display:block;font-family:var(--hf);font-weight:400;font-size:clamp(30px,3vw,44px);color:var(--ink);line-height:1.2;font-variant-numeric:tabular-nums}
+.stats span{font-weight:400;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:760px){.stats{grid-template-columns:1fr 1fr;gap:26px 18px}}
+
+/* filters */
+.filters{display:grid;grid-template-columns:repeat(5,1fr);gap:18px clamp(16px,2vw,32px);margin-bottom:26px}
+@media (max-width:1000px){.filters{grid-template-columns:1fr 1fr 1fr}}
+@media (max-width:620px){.filters{grid-template-columns:1fr 1fr}}
+.resline{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:40px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.empty{padding:64px 0;text-align:center;display:grid;gap:18px;justify-items:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+/* detail */
+.crumbs{display:flex;gap:10px;flex-wrap:wrap;font-weight:400;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding-block:28px 22px}
+.crumbs a{cursor:pointer}
+.crumbs a:hover{color:var(--ink)}
+.detail{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);gap:clamp(28px,4vw,72px);align-items:start}
+@media (max-width:1000px){.detail{grid-template-columns:minmax(0,1fr)}}
+.gal .main{aspect-ratio:16/10;overflow:hidden;background:var(--paper)}
+.gal .main img{width:100%;height:100%;object-fit:cover}
+.gal .th{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:10px}
+.gal .th button{padding:0;border:0;background:none;cursor:pointer;aspect-ratio:4/3;overflow:hidden;opacity:.55;transition:opacity .2s}
+.gal .th button.on,.gal .th button:hover{opacity:1}
+.gal .th img{width:100%;height:100%;object-fit:cover}
+.aside{position:sticky;top:calc(var(--hdr) + 28px);display:grid;gap:22px}
+.aside h1{font-size:clamp(28px,2.6vw,38px);text-transform:uppercase;line-height:1.2}
+.aside .price{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--ink);padding-top:16px}
+.aside .price b{font-family:var(--hf);font-weight:400;font-size:24px;color:var(--ink);text-transform:uppercase}
+@media (max-width:1000px){.aside{position:static}}
+.dsec{padding-top:clamp(48px,5vw,72px);display:grid;gap:20px}
+.plan{background:#fff;border:1px solid var(--line);padding:14px}
+
+/* masterplan */
+.tabs{display:flex;gap:clamp(16px,2.4vw,36px);flex-wrap:wrap;border-bottom:1px solid var(--line);margin-bottom:28px}
+.tabs button{background:none;border:0;border-bottom:1px solid transparent;margin-bottom:-1px;padding:12px 0;cursor:pointer;font-weight:400;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:10px}
+.tabs button.on{color:var(--ink);border-bottom-color:var(--ink)}
+.tabs i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.mp-layout{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:clamp(24px,3vw,48px);align-items:start}
+@media (max-width:1100px){.mp-layout{grid-template-columns:minmax(0,1fr)}}
+.mp-scroll{overflow-x:auto}
+.mp{position:relative;width:100%;aspect-ratio:1440/849;background:#111;overflow:hidden}
+.mp img,.mp svg{position:absolute;inset:0;width:100%;height:100%}
+@media (max-width:640px){.mp{min-width:620px}}
+.mp .lot{cursor:pointer}
+.mp .lot rect{stroke:#fff;stroke-width:1.5;transition:fill-opacity .2s,stroke-width .2s}
+.mp .lot:hover rect,.mp .lot.sel rect{stroke-width:5;fill-opacity:.9}
+.mp .lot.dim{opacity:.12}
+.mp .zone{font-family:Lato,Arial,sans-serif;font-weight:400;letter-spacing:.14em;font-size:14px}
+.mp .lotlbl{font-family:Lato,Arial,sans-serif;font-size:14px;font-weight:700;fill:#fff;pointer-events:none;paint-order:stroke;stroke:rgba(0,0,0,.4);stroke-width:3px}
+.mp-tip{position:absolute;z-index:4;pointer-events:none;background:#fff;color:var(--ink);padding:8px 12px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:400;white-space:nowrap;transform:translate(-50%,calc(-100% - 12px));box-shadow:0 6px 20px rgba(0,0,0,.18)}
+.legend{display:flex;gap:26px;flex-wrap:wrap;margin-top:16px}
+.note{font-size:14px;line-height:1.6;color:var(--muted);font-style:italic;margin-top:10px}
+.mside{display:grid;gap:18px}
+.mside .m{aspect-ratio:16/10;overflow:hidden;background:var(--paper)}
+.mside .m img{width:100%;height:100%;object-fit:cover}
+.mside h3{font-size:30px;text-transform:uppercase}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(32px,6vw,112px);align-items:start}
+@media (max-width:900px){.contact{grid-template-columns:1fr}}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:28px clamp(18px,2.4vw,36px)}
+.form .full{grid-column:1/-1}
+@media (max-width:620px){.form{grid-template-columns:1fr}}
+.err{font-size:15px;color:var(--st-so)}
+.done{border-top:1px solid var(--ink);padding-top:26px;display:grid;gap:14px}
+.cinfo{display:grid;gap:30px}
+.cinfo div{border-top:1px solid var(--line);padding-top:18px;display:grid;gap:6px}
+.copy{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.copy code{font-family:var(--bf);font-size:17px;color:var(--ink);user-select:all}
+.copy button{background:none;border:0;border-bottom:1px solid var(--ink);padding:0 0 2px;cursor:pointer;font-weight:400;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+
+/* footer */
+footer.ftr{background:var(--paper);color:var(--text);font-size:16px;line-height:1.7}
+.ftr .top{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:40px;padding-block:clamp(56px,6vw,88px) 48px}
+.ftr .top img{height:42px;width:auto}
+.ftr h4{font-family:var(--bf);font-weight:400;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);margin-bottom:18px}
+.ftr ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.ftr a{cursor:pointer}
+.ftr a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+.ftr .news{display:flex;gap:0;margin-top:22px;max-width:380px;border-bottom:1px solid var(--ink)}
+.ftr .news input{flex:1;min-width:0;border:0;background:transparent;height:46px;font-size:16px}
+.ftr .news input:focus{outline:none}
+.ftr .news button{background:none;border:0;cursor:pointer;font-weight:400;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+.ftr .bot{border-top:1px solid var(--line);padding-block:22px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;letter-spacing:.06em;color:var(--muted)}
+@media (max-width:900px){.ftr .top{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.ftr .top{grid-template-columns:1fr}}
+
+/* install app bar */
+.appbar{position:fixed;left:0;right:0;bottom:0;z-index:70;background:var(--bg);border-top:1px solid var(--line);box-shadow:0 -10px 30px rgba(0,0,0,.08);padding:14px var(--gut) calc(14px + env(safe-area-inset-bottom,0px))}
+.appbar .in{max-width:760px;margin:0 auto;display:flex;align-items:center;gap:14px}
+.appbar img{width:48px;height:48px;border-radius:11px;border:1px solid var(--line2);flex:0 0 auto}
+.appbar .tx{flex:1;min-width:0;display:grid;gap:2px}
+.appbar b{white-space:nowrap;font-family:var(--hf);font-weight:400;font-size:16px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.appbar span{font-size:14px;line-height:1.45;color:var(--text)}
+.appbar .share{display:inline-block;width:16px;height:16px;vertical-align:-3px;color:var(--navy)}
+.appbar .btn{height:44px;padding:0 20px;font-size:12.5px;flex:0 0 auto}
+.appbar .x{background:none;border:0;cursor:pointer;color:var(--muted);width:32px;height:32px;display:grid;place-items:center;flex:0 0 auto;padding:0}
+.appbar .x svg{width:18px;height:18px}
+.ftr .bot{padding-bottom:calc(22px + env(safe-area-inset-bottom,0px))}
+.pwa-only{display:none}
+html.can-install .pwa-only{display:block}
+html.standalone .hide-standalone{display:none!important}
+/* app mode: bottom tab bar (installed app and store app) */
+.tabbar{display:none}
+html.appmode .tabbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:55;background:var(--bg);border-top:1px solid var(--line2);padding-bottom:env(safe-area-inset-bottom,0px)}
+.tabbar a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;height:58px;color:var(--muted);cursor:pointer;position:relative;-webkit-tap-highlight-color:transparent}
+.tabbar a svg{width:23px;height:23px}
+.tabbar a span{font-weight:400;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+.tabbar a.on{color:var(--navy)}
+.tabbar a.on::before{content:"";position:absolute;top:0;left:30%;right:30%;height:2px;background:var(--navy)}
+.tabbar .n{position:absolute;top:6px;left:calc(50% + 6px);font-size:10px;line-height:16px;min-width:16px;height:16px;border-radius:8px;background:var(--navy);color:#fff;text-align:center;font-weight:700;padding:0 4px;letter-spacing:0}
+.tabbar .n[data-n="0"]{display:none}
+html.appmode body{padding-bottom:calc(58px + env(safe-area-inset-bottom,0px))}
+html.appmode .appbar,html.appmode .pwa-only,html.appmode .tools a[data-go="wishlist"],html.appmode .tools .wa-ic{display:none!important}
+html.appmode .toast{bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+html.appmode .ftr .bot{padding-bottom:22px}
+html.appmode .slider{height:calc(100vh - 58px - env(safe-area-inset-bottom,0px));height:calc(100svh - 58px - env(safe-area-inset-bottom,0px))}
+html.p-android header.hdr{padding-top:0}
+/* film modal + toast */
+.modal{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.92);display:grid;place-items:center;padding:calc(env(safe-area-inset-top,0px) + 56px) var(--gut) 40px}
+.modal video{width:min(1280px,100%);max-height:80vh;background:#000}
+.modal .x{position:absolute;top:calc(env(safe-area-inset-top,0px) + 14px);right:var(--gut);background:none;border:0;color:#fff;cursor:pointer;font-weight:400;font-size:13px;letter-spacing:.18em;text-transform:uppercase;display:flex;gap:10px;align-items:center}
+.modal .x svg{width:22px;height:22px}
+.toast{position:fixed;left:50%;bottom:calc(26px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:#fff;padding:14px 22px;font-size:14px;letter-spacing:.08em;z-index:95}
+.mt-s{margin-top:18px}.mt-m{margin-top:32px}
+</style>
+</head>
+<body>
+
+
+<header class="hdr" id="hdr">
+  <div class="in">
+    <a class="logo" data-go="home" aria-label="CREST CITY home"><img class="lc" src="img/logo_color.png" alt="CREST · Dream Build Live"><img class="lw" src="img/logo_white.png" alt="CREST · Dream Build Live"></a>
+    <nav class="main" aria-label="Main">
+      <a data-go="about">About us</a>
+      <a data-go="community">Community</a>
+      <a data-go="properties">Properties</a>
+      <a data-go="masterplan">Masterplan</a>
+      <a data-go="news">News</a>
+    </nav>
+    <div class="tools">
+      <span class="lang" title="Arabic and French to follow">ENG</span>
+      <button class="ic film-ic" data-film aria-label="Watch the CREST CITY film"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2.5" y="6" width="13" height="12" rx="1"/><path d="M15.5 10.5 21.5 7v10l-6-3.5"/></svg></button>
+      <a class="ic wa-ic" data-go="contact" aria-label="WhatsApp our sales team"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4.5 19.5l1.1-3.7A8.3 8.3 0 1 1 8.4 18.6z"/><path d="M9.2 8.6c.3-.6.9-.5 1.1 0l.6 1.4c.1.3 0 .5-.2.7l-.5.5c.6 1.2 1.6 2.2 2.9 2.9l.5-.5c.2-.2.4-.3.7-.2l1.4.6c.5.2.6.8 0 1.1-.9.7-2 .8-3.3.1a8.3 8.3 0 0 1-3.6-3.6c-.6-1.2-.4-2.3.4-3z"/></svg></a>
+      <a class="ic" data-go="wishlist" aria-label="Saved properties"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-9.2-9A5 5 0 0 1 12 6a5 5 0 0 1 9.2 5c-2.2 4.6-9.2 9-9.2 9z"/></svg><span class="n" id="wcount" data-n="0">0</span></a>
+      <button class="ic burger" id="burger" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+    </div>
+    <a class="btn cta" data-go="contact">Get in touch</a>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" hidden>
+  <div class="top"><img src="img/logo_color.png" alt="CREST"><button class="ic" id="dclose" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 5l14 14M19 5L5 19"/></svg></button></div>
+  <a class="dl" data-go="home">Home</a>
+  <a class="dl" data-go="about">About us</a>
+  <a class="dl" data-go="community">Community</a>
+  <a class="dl" data-go="properties">Properties</a>
+  <a class="dl" data-go="masterplan">Masterplan</a>
+  <a class="dl" data-go="news">News</a>
+  <a class="dl" data-go="wishlist">Saved properties</a>
+  <a class="dl" data-film>Watch the film</a>
+  <a class="dl pwa-only" data-install>Install the app</a>
+  <a class="btn" data-go="contact">Get in touch</a>
+</div>
+
+<main id="app"></main>
+
+<footer class="ftr">
+  <div class="wrap top">
+    <div>
+      <a data-go="home" aria-label="CREST CITY home"><img src="img/logo_color.png" alt="CREST · Dream Build Live"></a>
+      <p class="mt-s" style="max-width:36ch">A gated community of Signature Villas, apartments and a commercial street, developed by Crest Development Group in Djibouti.</p>
+      <form class="news" id="fnews"><input id="fnews-email" type="email" placeholder="Email for launch news" aria-label="Email for launch news" required><button>Subscribe</button></form>
+    </div>
+    <div><h4>The Crest</h4><ul><li><a data-go="about">About us</a></li><li><a data-go="news">News</a></li><li><a data-go="contact">Contact</a></li><li><a data-go="wishlist">Saved properties</a></li><li class="pwa-only"><a data-install>Get the app</a></li></ul></div>
+    <div><h4>CREST CITY</h4><ul><li><a data-go="properties" data-type="villa">Signature Villas</a></li><li><a data-go="properties" data-type="apartment">Apartments</a></li><li><a data-go="community">Community</a></li><li><a data-go="masterplan">Masterplan</a></li></ul></div>
+    <div><h4>Sales gallery</h4><ul><li>Avenue Mahamoud Haid<br>Plateau du Marabout, Djibouti</li><li>Saturday to Thursday<br>8:00–17:00</li></ul></div>
+  </div>
+  <div class="wrap bot"><span>© 2026 Crest Development Group – CDG SARL</span><span>Preview: availability, news and contact numbers are placeholders</span></div>
+</footer>
+
+<div class="modal" id="film" hidden><button class="x" id="filmx">Close <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 5l14 14M19 5L5 19"/></svg></button><video id="filmv" controls playsinline preload="none" poster="img/hero_poster.jpg"><source src="media/hero.mp4" type="video/mp4"></video></div>
+<nav class="tabbar" id="tabbar" aria-label="App sections">
+  <a data-go="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg><span>Home</span></a>
+  <a data-go="properties"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3.5" y="4" width="7" height="7"/><rect x="13.5" y="4" width="7" height="7"/><rect x="3.5" y="14" width="7" height="6"/><rect x="13.5" y="14" width="7" height="6"/></svg><span>Homes</span></a>
+  <a data-go="masterplan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3.5 6.5 9 4l6 2.5L20.5 4v13.5L15 20l-6-2.5-5.5 2.5z"/><path d="M9 4v13.5M15 6.5V20"/></svg><span>Masterplan</span></a>
+  <a data-go="wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-9.2-9A5 5 0 0 1 12 6a5 5 0 0 1 9.2 5c-2.2 4.6-9.2 9-9.2 9z"/></svg><span>Saved</span><b class="n" id="tcount" data-n="0">0</b></a>
+  <a data-go="contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3.5" y="5.5" width="17" height="13"/><path d="m4 6 8 6.5L20 6"/></svg><span>Contact</span></a>
+</nav>
+<div class="appbar" id="appbar" hidden role="dialog" aria-label="Install the CREST CITY app"><div class="in"><img src="icons/icon-192.png" alt=""><div class="tx"><b>CREST CITY app</b><span id="appbar-msg">One tap from your home screen.</span></div><button class="btn" id="appbar-go">Install</button><button class="x" id="appbar-x" aria-label="Not now"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 5l14 14M19 5L5 19"/></svg></button></div></div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(function () {
+  "use strict";
+  const $ = (s, r) => (r || document).querySelector(s);
+  const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+  const img = (n) => "img/" + n + ".jpg";
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const HEART = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-9.2-9A5 5 0 0 1 12 6a5 5 0 0 1 9.2 5c-2.2 4.6-9.2 9-9.2 9z"/></svg>';
+  const PLAY = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12-7.5z"/></svg>';
+  const PAUSE = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>';
+  const LARR = '<svg viewBox="0 0 58 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M57 8H1M8 1 1 8l7 7"/></svg>';
+  const RARR = '<svg viewBox="0 0 58 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M1 8h56M50 1l7 7-7 7"/></svg>';
+
+  /* ---------- data ---------- */
+  const STATUS = { available: "Available", reserved: "Reserved", sold: "Sold" };
+  const SCOL = { available: "#2F7D52", reserved: "#C08A24", sold: "#9C3A3A" };
+  const SOLD = ["A03", "A07", "B02", "C05", "D01", "B09"];
+  const RES = ["A04", "A10", "A12", "B05", "B06", "C02", "C08", "D04"];
+  const ROWS = [
+    { r: "A", label: "Row A", n: 13, x0: 315, w: 71.9, y: 58, h: 92 },
+    { r: "B", label: "Row B", n: 10, x0: 440, w: 78.5, y: 185, h: 62 },
+    { r: "C", label: "Row C", n: 10, x0: 440, w: 78.5, y: 249, h: 86 },
+    { r: "D", label: "Row D", n: 5, x0: 908, w: 85, y: 400, h: 74 }
+  ];
+  const VIMG = ["villa_front", "villa_pair", "villa_street", "villa_close", "villa_cover", "solar", "entrance_villa"];
+  const AIMG = ["activity", "commercial", "boulevard", "shopfront", "parking", "pergola"];
+  const UNITS = [];
+  let k = 0;
+  const pad = (n) => String(n).padStart(2, "0");
+  ROWS.forEach((R) => {
+    for (let i = 1; i <= R.n; i++) {
+      const id = R.r + pad(i);
+      const s = k++ % VIMG.length;
+      UNITS.push({
+        id, code: R.r + "-" + pad(i), type: "villa", row: R.r, rowLabel: R.label,
+        name: "Villa " + R.r + "-" + pad(i), status: SOLD.includes(id) ? "sold" : RES.includes(id) ? "reserved" : "available",
+        rect: { x: R.x0 + (i - 1) * R.w + 3, y: R.y + 3, w: R.w - 6, h: R.h - 6 },
+        imgs: VIMG.slice(s).concat(VIMG.slice(0, s)).slice(0, 5), beds: 5, built: 291.2, plot: 295.2
+      });
+    }
+  });
+  const APRES = ["AP03", "AP08"], APSOLD = ["AP01"];
+  for (let i = 1; i <= 11; i++) {
+    const id = "AP" + pad(i), tA = i <= 6, s = (i - 1) % AIMG.length;
+    UNITS.push({
+      id, code: "AP-" + pad(i), type: "apartment", row: "AP", rowLabel: "Residences",
+      name: "Apartment AP-" + pad(i), status: APSOLD.includes(id) ? "sold" : APRES.includes(id) ? "reserved" : "available",
+      apType: tA ? "A" : "B", beds: tA ? 3 : null, built: tA ? 127 : 96.7,
+      imgs: AIMG.slice(s).concat(AIMG.slice(0, s)).slice(0, 5)
+    });
+  }
+  const byId = (id) => UNITS.find((u) => u.id === id);
+
+  const NEWS = [
+    { d: "3 June 2026", t: "Crest Development Group incorporates as CDG SARL", img: "villa_cover", x: "Active in Djibouti since 2024, Crest Development Group is now incorporated as CDG SARL, the company that will deliver CREST CITY.", m: "Incorporation gives buyers, partners and banks a single legal counterpart for the project, from reservation contracts to handover." },
+    { d: "August 2026", t: "The CREST CITY masterplan", img: "aerial", x: "38 Signature Villas, apartments, a commercial street and an activity center on a 23,765 m² gated site.", m: "Palm-lined walkways connect every home to the central plaza, the playgrounds and the shops, with visitor parking kept at the edge of the community." },
+    { d: "September 2026", t: "Signature Villas, designed around family life", img: "villa_close", x: "Five bedrooms, a majlis, a maid's suite and a foyer at the entrance, over three levels.", m: "Each villa keeps guest and family areas apart, separates the service spaces, and has a private two-car driveway." },
+    { d: "September 2026", t: "Solar power for every common area", img: "solar", x: "Rooftop solar supplies the lighting and shared services across CREST CITY.", m: "Solar-powered common areas lower service charges for residents and keep shared spaces running." },
+    { d: "Coming soon", t: "News from the site", img: "site", x: "Photos and progress milestones from the site will be published here.", m: "Buyers will also follow the progress of their own home in the buyer portal once construction starts." },
+    { d: "Coming soon", t: "The Crest app for buyers and residents", img: "pergola", x: "One app to follow construction, pay installments and, after handover, manage life in the community.", m: "The app will launch on iOS and Android after the website." }
+  ];
+  const COMM = [
+    ["villa_street", "Signature Villas", "38 family homes on quiet avenues", "properties", "villa"],
+    ["commercial", "Apartments", "11 homes in two sizes", "properties", "apartment"],
+    ["shopfront", "Commercial Street", "Shops, cafés and services", "community", ""],
+    ["activity", "Activity Center", "Clubhouse, events and sports", "community", ""],
+    ["playground", "Playgrounds", "Shaded play beside the lawns", "community", ""],
+    ["pergola", "Gardens & Walkways", "Palm-lined paths to every home", "community", ""],
+    ["solar", "Solar Community", "Solar power for the common areas", "community", ""]
+  ];
+
+  const SLIDES = [
+    ["gate", "A gated community in Djibouti", "Welcome to CREST CITY", "Signature Villas, apartments and a commercial street behind one secure entrance.", "community", "50% 30%", "", "Discover the community"],
+    ["villa_front", "Latest launch", "Signature Villas", "Five bedrooms, a majlis and a maid's suite over three levels.", "properties", "50% 50%", "villa", "View villas"],
+    ["boulevard", "The heart of the community", "The Central Boulevard", "Palm-lined walkways linking homes, shops and the activity center.", "community", "50% 60%", "", "Explore amenities"],
+    ["aerial", "Interactive masterplan", "Find your home", "See every villa and its availability on the masterplan.", "masterplan", "50% 50%", "", "Explore the masterplan"],
+    ["solar", "Sustainability", "Powered by the sun", "Solar energy for every common area across CREST CITY.", "about", "50% 40%", "", "About The Crest"]
+  ];
+  /* ---------- state ---------- */
+  let wish = new Set();
+  try { const w = JSON.parse(localStorage.getItem("crest-wish") || "[]"); if (Array.isArray(w)) wish = new Set(w.filter(byId)); } catch (e) {}
+  const saveWish = () => { try { localStorage.setItem("crest-wish", JSON.stringify([...wish])); } catch (e) {} updWish(); };
+  const updWish = () => { ["#wcount", "#tcount"].forEach((q) => { const c = $(q); if (c) { c.textContent = wish.size; c.dataset.n = wish.size; } }); };
+  const F = { type: "all", status: "all", row: "all", size: "all", sort: "rec" };
+  let mpFilter = "all", mpSel = null, contactUnit = "", cur = "home", paused = false, wasPaused = false;
+  const reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- pieces ---------- */
+  const eb = (t) => '<div class="eyebrow">' + t + "</div>";
+  const st = (s) => '<span class="st ' + s + '">' + STATUS[s] + "</span>";
+  const capOf = (u) => u.type === "villa" ? "5 bedrooms · " + u.built + " m² · " + u.rowLabel : (u.beds ? u.beds + " bedrooms · " : "Type " + u.apType + " · ") + u.built + " m² · Residences";
+  const ucard = (u) => '<article class="ucard"><div class="m" data-unit="' + u.id + '"><img loading="lazy" src="' + img(u.imgs[0]) + '" alt="' + esc(u.name) + '"><button class="save' + (wish.has(u.id) ? " on" : "") + '" data-heart="' + u.id + '" aria-label="Save ' + esc(u.name) + '">' + HEART + "</button></div>" + st(u.status) + '<h3 data-unit="' + u.id + '">' + esc(u.name) + '</h3><div class="cap">' + capOf(u) + "</div></article>";
+  const story = (n) => '<article class="story" data-more><div class="m"><img loading="lazy" src="' + img(n.img) + '" alt=""></div><div class="small">' + n.d + '</div><div class="cap">' + esc(n.t) + '</div><p class="more">' + esc(n.x) + " " + esc(n.m) + "</p></article>";
+  const comm = (c) => '<a class="comm" data-go="' + c[3] + '"' + (c[4] ? ' data-type="' + c[4] + '"' : "") + '><div class="m"><img loading="lazy" src="' + img(c[0]) + '" alt=""></div><h3>' + c[1] + '</h3><div class="cap">' + c[2] + "</div></a>";
+  const carousel = (id, title, eyebrow, items, extra) => '<section class="sec"><div class="wrap"><div class="head"><div class="l">' + eb(eyebrow) + '<h2 class="h-xl">' + title + "</h2></div>" +
+    '<div class="car-nav" data-car="' + id + '"><button data-dir="-1" aria-label="Previous">' + LARR + '</button><button data-dir="1" aria-label="Next">' + RARR + "</button></div></div>" +
+    '<div class="track" id="' + id + '">' + items + "</div>" + (extra || "") + "</div></section>";
+  const phero = (im, crumb, h) => '<section class="phero"><img src="' + img(im) + '" alt=""><div class="wrap"><div class="crumb">' + crumb + "</div><h1>" + h + "</h1></div></section>";
+  const reg = () => '<section class="sec paper"><div class="wrap"><div class="reg">' + eb("Register") + '<h2 class="h-xl">Register your interest</h2><p>Be the first to hear about new releases, payment plans and site visits.</p><a class="btn mt-s" data-go="contact">Get in touch</a></div></div></section>';
+
+  function mapSVG(o) {
+    o = o || {};
+    let s = '<svg viewBox="0 0 1440 849" preserveAspectRatio="none" aria-label="CREST CITY masterplan">';
+    UNITS.filter((u) => u.type === "villa").forEach((u) => {
+      const r = u.rect;
+      if (o.highlight && o.highlight !== u.id) { s += '<rect x="' + r.x + '" y="' + r.y + '" width="' + r.w + '" height="' + r.h + '" fill="#fff" fill-opacity=".1" stroke="#fff" stroke-opacity=".5" stroke-width="1.2"/>'; return; }
+      const dim = o.filter && o.filter !== "all" && u.status !== o.filter;
+      s += '<g class="lot' + (dim ? " dim" : "") + (o.sel === u.id || o.highlight === u.id ? " sel" : "") + '" data-lot="' + u.id + '" tabindex="0" role="button" aria-label="Villa ' + u.code + ", " + STATUS[u.status] + '"><rect x="' + r.x + '" y="' + r.y + '" width="' + r.w + '" height="' + r.h + '" fill="' + SCOL[u.status] + '" fill-opacity=".55"/>' +
+        (o.labels ? '<text class="lotlbl" x="' + (r.x + r.w / 2) + '" y="' + (r.y + r.h / 2 + 5) + '" text-anchor="middle">' + u.code + "</text>" : "") + "</g>";
+    });
+    [[215, 470, "ACTIVITY CENTER"], [560, 548, "COMMERCIAL STREET"], [795, 452, "CENTRAL PLAZA"], [318, 292, "PLAYGROUND"], [515, 440, "VISITOR PARKING"]].forEach((z) => {
+      const w = z[2].length * 11.6 + 26;
+      s += '<g pointer-events="none"><rect x="' + (z[0] - w / 2) + '" y="' + (z[1] - 16) + '" width="' + w + '" height="30" fill="#fff" fill-opacity=".92"/><text class="zone" x="' + z[0] + '" y="' + (z[1] + 5) + '" text-anchor="middle" fill="#0A0A0A">' + z[2] + "</text></g>";
+    });
+    return s + "</svg>";
+  }
+
+  /* ---------- pages ---------- */
+  const P = {};
+  P.home = () => {
+    const avail = UNITS.filter((u) => u.status === "available");
+    const feat = avail.filter((u) => u.type === "villa").filter((u, i) => i % 3 === 0).slice(0, 5).concat(avail.filter((u) => u.type === "apartment").slice(0, 2));
+    return '<section class="slider on-dark" id="hs" aria-roledescription="carousel" aria-label="CREST CITY highlights" tabindex="0">' +
+      SLIDES.map((d, i) => '<div class="slide ' + (i % 2 ? "zo" : "zi") + (i === 0 ? " on" : "") + '" style="--ox:' + d[5] + '" aria-hidden="' + (i ? "true" : "false") + '"><div class="ph"><img src="' + img(d[0]) + '" alt="' + esc(d[2]) + '"></div>' +
+        '<div class="scap"><div class="wrap"><div class="kick">' + d[1] + '</div><' + (i ? "h2" : "h1") + ' class="stitle">' + d[2] + "</" + (i ? "h2" : "h1") + '><p class="sdesc">' + d[3] + '</p><a class="tlink white" data-go="' + d[4] + '"' + (d[6] ? ' data-type="' + d[6] + '"' : "") + ">" + d[7] + "</a></div></div></div>").join("") +
+      '<div class="sl-ui"><div class="wrap"><div class="bars">' + SLIDES.map((d, i) => '<button class="bar' + (i === 0 ? " on" : "") + '" data-sl="' + i + '" aria-label="Show slide ' + (i + 1) + ": " + esc(d[2]) + '"><i></i></button>').join("") +
+      '<span class="count"><b id="slc">01</b> / ' + pad(SLIDES.length) + '</span></div><div class="ctrl"><button class="round" data-sdir="-1" aria-label="Previous slide">' + LARR.replace('viewBox="0 0 58 16"', 'viewBox="0 0 58 16" class="ar"') + '</button><button class="round" data-sdir="1" aria-label="Next slide">' + RARR.replace('viewBox="0 0 58 16"', 'viewBox="0 0 58 16" class="ar"') + '</button><button class="round" id="slp" aria-label="Pause slideshow">' + PAUSE + "</button></div></div></div></section>" +
+      '<section class="sec intro"><div class="wrap"><h2 class="h-xl">Premium living, planned for Djibouti</h2><div class="body"><p>CREST CITY brings 38 Signature Villas, modern apartments and a commercial street together in one gated, solar-powered community. Palm-lined avenues connect every home to the central plaza, the activity center, the playgrounds and the shops, so daily life stays within a short walk.</p><p>Every home is designed around the way families live in Djibouti, with a majlis for guests, separate family spaces, room for household staff and shade throughout.</p></div>' +
+      '<form class="search" id="hsearch"><div class="fld"><label for="hs-type">Property type</label><select id="hs-type"><option value="all">All properties</option><option value="villa">Signature Villas</option><option value="apartment">Apartments</option></select></div>' +
+      '<div class="fld"><label for="hs-status">Availability</label><select id="hs-status"><option value="all">Any</option><option value="available">Available</option><option value="reserved">Reserved</option></select></div>' +
+      '<div class="fld"><label for="hs-size">Size</label><select id="hs-size"><option value="all">Any size</option><option value="small">Under 130 m²</option><option value="large">290 m² and above</option></select></div>' +
+      '<button class="btn" type="submit">Search properties</button></form></div></section>' +
+      '<section class="sec"><div class="wrap duo"><div>' + eb("New") + '<h2 class="h-xl">The CREST CITY film</h2><p class="sub">Walk through the community from the comfort of your home.</p><a class="filmcard" data-film><div class="m"><img src="' + img("hero_poster") + '" alt="Villa avenue at CREST CITY"><span class="play">' + PLAY + '</span></div><div class="cap">Signature Villas, the central plaza and the commercial street, seen from the ground and from the air.</div></a></div>' +
+      '<div><div class="head" style="margin-bottom:0"><div class="l"><div class="eyebrow" style="visibility:hidden" aria-hidden="true">News</div><h2 class="h-xl">Discover our news</h2></div><a class="tlink" data-go="news">View all</a></div><p class="sub">Milestones, construction progress and community life.</p><div class="pair">' + NEWS.slice(0, 2).map(story).join("") + "</div></div></div></section>" +
+      carousel("c-comm", "Life at CREST CITY", "Community", COMM.map(comm).join("")) +
+      '<section class="sec paper"><div class="wrap feature"><div class="m"><img loading="lazy" src="' + img("villa_front") + '" alt="Signature Villa"></div><div class="t">' + eb("Latest launch") + '<h2 class="h-xl">Signature Villas</h2><p>Three-level family homes with five bedrooms, three living rooms including a majlis, a maid\'s suite and a private two-car driveway. Four layout options, each designed around Djiboutian family life.</p>' +
+      '<dl class="specs"><div><dt>Bedrooms</dt><dd>5</dd></div><div><dt>Built area</dt><dd>291.2 m²</dd></div><div><dt>Plot</dt><dd>295.2 m²</dd></div><div><dt>Levels</dt><dd>Ground, first, attic</dd></div></dl><div class="btns mt-s"><a class="btn" data-go="properties" data-type="villa">View villas</a><a class="btn line" data-go="contact">Book a visit</a></div></div></div></section>' +
+      '<section class="banner on-dark"><img loading="lazy" src="' + img("aerial") + '" alt=""><div class="wrap">' + '<div class="eyebrow" style="justify-content:center">Masterplan</div><h2 class="h-xl">Find your home on the masterplan</h2><p>See every villa and its availability, then open the details and book a visit.</p><a class="btn white" data-go="masterplan">Explore the masterplan</a></div></section>' +
+      carousel("c-units", "Available now", "Properties", feat.map(ucard).join(""), '<div class="mt-m"><a class="tlink" data-go="properties">All properties</a></div>') + reg();
+  };
+
+  P.community = () => {
+    const sp = (im, e, h, p, rev, link) => '<section class="sec' + (rev ? " paper" : "") + '"><div class="wrap feature' + (rev ? " rev" : "") + '"><div class="m"><img loading="lazy" src="' + img(im) + '" alt=""></div><div class="t">' + eb(e) + '<h2 class="h-xl">' + h + "</h2><p>" + p + "</p>" + (link || "") + "</div></div></section>";
+    const a = (h, p) => "<div><h3>" + h + "</h3><p>" + p + "</p></div>";
+    return phero("boulevard", "Community", "Everything you need, behind one gate") +
+      '<section class="sec intro"><div class="wrap"><h2 class="h-xl">A complete community</h2><div class="body"><p>CREST CITY brings Signature Villas, apartments, a commercial street and community facilities together on a 23,765 m² gated site. Palm-lined walkways link every home to the central plaza, the playgrounds and the shops.</p></div>' +
+      '<div class="stats"><div><b>23,765 m²</b><span>Gated site</span></div><div><b>38</b><span>Signature Villas</span></div><div><b>11</b><span>Apartments</span></div><div><b>100%</b><span>Solar common areas</span></div></div></div></section>' +
+      sp("villa_street", "Homes", "Signature Villas", "38 three-level villas on quiet residential avenues, each with five bedrooms, a majlis, a maid's suite and a private driveway.", true, '<a class="tlink" data-go="properties" data-type="villa">View villas</a>') +
+      sp("shopfront", "Retail", "Commercial Street", "Shops, cafés and services along a shaded street, with visitor parking close by.", false) +
+      sp("activity", "Community", "Activity Center", "A clubhouse for gatherings, classes, events and sports, run for residents and their families.", true) +
+      sp("playground", "Families", "Playgrounds and sports", "Children's playgrounds beside open lawns, with sports facilities for every age.", false) +
+      sp("pergola", "Outdoors", "Walkways and gardens", "Shaded pergolas, planted gardens and pedestrian paths designed for Djibouti's climate.", true) +
+      '<section class="sec"><div class="wrap"><div class="head"><div class="l">' + eb("Amenities") + '<h2 class="h-xl">Built into every day</h2></div></div><div class="amen">' +
+      a("Mosque", "A community mosque within walking distance of every home.") + a("Security", "Controlled access at the entrance and integrated security, day and night.") +
+      a("Solar energy", "Solar power for lighting and shared services.") + a("Smart homes", "Smart home systems in every villa.") +
+      a("Fiber internet", "High-speed fiber across the community.") + a("Visitor parking", "Dedicated parking for guests and shoppers.") +
+      a("Sports", "Courts and activity spaces for residents.") + a("Green spaces", "Gardens and palm-lined avenues throughout.") + "</div></div></section>" +
+      '<section class="banner on-dark"><img loading="lazy" src="' + img("solar") + '" alt=""><div class="wrap"><div class="eyebrow" style="justify-content:center">Sustainability</div><h2 class="h-xl">Powered by the sun</h2><p>Rooftop solar supplies the common areas across CREST CITY, lowering service charges and keeping shared spaces running.</p></div></section>' + reg();
+  };
+
+  function filtered() {
+    const L = UNITS.filter((u) => (F.type === "all" || u.type === F.type) && (F.status === "all" || u.status === F.status) && (F.row === "all" || u.row === F.row) && (F.size === "all" || (F.size === "small" ? u.built < 130 : u.built >= 290)));
+    const rank = { available: 0, reserved: 1, sold: 2 };
+    if (F.sort === "rec") L.sort((a, b) => rank[a.status] - rank[b.status]);
+    if (F.sort === "big") L.sort((a, b) => b.built - a.built);
+    if (F.sort === "small") L.sort((a, b) => a.built - b.built);
+    return L;
+  }
+  const opt = (v, t, cv) => '<option value="' + v + '"' + (cv === v ? " selected" : "") + ">" + t + "</option>";
+  P.properties = () => {
+    const L = filtered();
+    return phero("villa_pair", "Properties", "Find your home at CREST CITY") +
+      '<section class="sec"><div class="wrap"><form class="filters" id="pfilters">' +
+      '<div class="fld"><label for="pf-type">Property type</label><select id="pf-type">' + opt("all", "All properties", F.type) + opt("villa", "Signature Villas", F.type) + opt("apartment", "Apartments", F.type) + "</select></div>" +
+      '<div class="fld"><label for="pf-status">Availability</label><select id="pf-status">' + opt("all", "Any", F.status) + opt("available", "Available", F.status) + opt("reserved", "Reserved", F.status) + opt("sold", "Sold", F.status) + "</select></div>" +
+      '<div class="fld"><label for="pf-row">Location</label><select id="pf-row">' + opt("all", "Anywhere", F.row) + ROWS.map((R) => opt(R.r, "Villas, " + R.label, F.row)).join("") + opt("AP", "Residences", F.row) + "</select></div>" +
+      '<div class="fld"><label for="pf-size">Size</label><select id="pf-size">' + opt("all", "Any size", F.size) + opt("small", "Under 130 m²", F.size) + opt("large", "290 m² and above", F.size) + "</select></div>" +
+      '<div class="fld"><label for="pf-sort">Sort by</label><select id="pf-sort">' + opt("rec", "Availability", F.sort) + opt("big", "Largest first", F.sort) + opt("small", "Smallest first", F.sort) + opt("num", "Unit number", F.sort) + "</select></div></form>" +
+      '<div class="resline"><span class="small">' + L.length + " of " + UNITS.length + ' homes</span><a class="tlink" data-go="masterplan">View on masterplan</a></div>' +
+      (L.length ? '<div class="ugrid">' + L.map(ucard).join("") + "</div>" : '<div class="empty"><h3 class="h-l">No homes match these filters</h3><p>Try a different availability or size.</p><button class="btn line" id="pf-reset">Clear filters</button></div>') +
+      "</div></section>" + reg();
+  };
+
+  P.unit = (id) => {
+    const u = byId(id);
+    if (!u) return P.properties();
+    const v = u.type === "villa";
+    const facts = v ? [["Bedrooms", "5"], ["Living rooms", "3, including majlis"], ["Built area", "291.2 m²"], ["Plot", "295.2 m²"], ["Levels", "Ground, first, attic"], ["Parking", "Two-car driveway"], ["Maid's suite", "Yes"], ["Location", u.rowLabel]]
+      : [["Type", "Apartment " + u.apType], ["Area", u.built + " m²"], ["Bedrooms", u.beds ? String(u.beds) : "On request"], ["Building", "Two-floor residence"], ["Location", "Residences"], ["Common areas", "Solar powered"]];
+    const feats = v ? ["Foyer at the entrance", "Majlis for guests", "Maid's suite with bathroom", "Separate family and guest areas", "Private two-car driveway", "Smart home systems", "Solar-supported air conditioning", "Fiber internet"]
+      : ["A short walk to the shops", "Access to all community amenities", "Controlled access, day and night", "Solar-powered common areas", "Fiber internet", "Visitor parking nearby"];
+    const sim = UNITS.filter((x) => x.type === u.type && x.id !== u.id && x.status === "available").slice(0, 6);
+    const dl = (arr) => '<dl class="specs">' + arr.map((f) => "<div><dt>" + f[0] + "</dt><dd>" + f[1] + "</dd></div>").join("") + "</dl>";
+    return '<div class="wrap"><nav class="crumbs"><a data-go="home">Home</a><span>/</span><a data-go="properties">Properties</a><span>/</span><span>' + esc(u.name) + "</span></nav>" +
+      '<div class="detail"><div><div class="gal"><div class="main"><img id="gmain" src="' + img(u.imgs[0]) + '" alt="' + esc(u.name) + '"></div><div class="th">' +
+      u.imgs.map((m, i) => '<button data-gi="' + i + '" class="' + (i === 0 ? "on" : "") + '" aria-label="Photo ' + (i + 1) + '"><img loading="lazy" src="' + img(m) + '" alt=""></button>').join("") + "</div></div>" +
+      '<div class="dsec">' + eb("Overview") + "<p>" + (v ? "A three-level Signature Villa in " + u.rowLabel + ". The ground floor holds the foyer, majlis, living room, kitchen and a maid's suite. The first floor has the bedrooms, including the master suite, and the attic adds flexible family space. Four layout options are available; the figures here are for Layout 2."
+        : "An apartment in one of the two-floor residential buildings, a short walk from the shops, the activity center and the central plaza. Type " + u.apType + " offers " + u.built + " m² of living space.") + "</p></div>" +
+      '<div class="dsec">' + eb("Features") + '<ul class="plain">' + feats.map((f) => "<li>" + f + "</li>").join("") + "</ul></div>" +
+      '<div class="dsec">' + eb("Floor plans") + '<div class="plan"><img loading="lazy" src="' + img(v ? "floorplan" : "apt_plan") + '" alt="Floor plan"></div><p class="note">' + (v ? "Ground, first and attic floors. Dimensions in meters. Detailed plans are shared by the sales team." : "Typical apartment layout. Detailed plans are shared by the sales team.") + "</p></div>" +
+      '<div class="dsec">' + eb("Location") + '<div class="mp-scroll"><div class="mp"><img src="' + img("aerial") + '" alt="CREST CITY aerial view">' + mapSVG(v ? { highlight: u.id } : {}) + "</div></div></div></div>" +
+      '<aside class="aside">' + st(u.status) + "<h1>" + esc(u.name) + '</h1><div class="cap">' + (v ? "Signature Villa · Layout options 1–4" : "Apartment · Type " + u.apType) + "</div>" + dl(facts) +
+      '<div class="price"><span class="small">Price</span><b>On request</b></div>' +
+      (u.status === "sold" ? '<p class="muted">This home is sold. Similar homes are listed below.</p><a class="btn full" data-go="properties" data-type="' + u.type + '">See available homes</a>'
+        : '<a class="btn full" data-book="' + u.id + '">Book a visit</a><a class="btn line full" data-book="' + u.id + '">WhatsApp sales</a>') +
+      '<div class="btns" style="gap:28px"><button class="tlink" data-heart="' + u.id + '">' + (wish.has(u.id) ? "Saved to shortlist" : "Save to shortlist") + '</button><button class="tlink" data-share="' + u.id + '">Share</button></div></aside></div></div>' +
+      (sim.length ? carousel("c-sim", "Similar homes", "You may also like", sim.map(ucard).join("")) : "") + reg();
+  };
+
+  P.masterplan = () => {
+    const V = UNITS.filter((u) => u.type === "villa");
+    const cnt = (s) => V.filter((u) => u.status === s).length;
+    if (!mpSel) mpSel = V.find((u) => u.status === "available").id;
+    const tab = (v, t, c, n) => '<button class="' + (mpFilter === v ? "on" : "") + '" data-mpf="' + v + '">' + (c ? '<i style="background:' + c + '"></i>' : "") + t + " (" + n + ")</button>";
+    return '<section class="sec"><div class="wrap"><div class="head"><div class="l">' + eb("Masterplan") + '<h1 class="h-xl">Choose your villa</h1><p class="sub">Select a villa to see its details and availability.</p></div></div>' +
+      '<div class="tabs">' + tab("all", "All villas", "", V.length) + tab("available", "Available", SCOL.available, cnt("available")) + tab("reserved", "Reserved", SCOL.reserved, cnt("reserved")) + tab("sold", "Sold", SCOL.sold, cnt("sold")) + "</div>" +
+      '<div class="mp-layout"><div><div class="mp-scroll"><div class="mp" id="mpmap"><img src="' + img("aerial") + '" alt="CREST CITY aerial masterplan">' + mapSVG({ filter: mpFilter, sel: mpSel, labels: true }) + '<div class="mp-tip" id="mptip" hidden></div></div></div>' +
+      '<p class="note">Availability shown is illustrative for this preview. On the live site it updates when the sales team reserves or sells a villa.</p></div>' +
+      '<aside class="mside" id="mpside">' + mpSide(mpSel) + "</aside></div></div></section>" +
+      '<section class="sec paper"><div class="wrap feature"><div class="m"><img loading="lazy" src="' + img("commercial") + '" alt=""></div><div class="t">' + eb("Residences") + '<h2 class="h-xl">Apartments</h2><p>11 apartments in two sizes, 127 m² and 96.7 m², in two-floor residential buildings close to the shops and the activity center.</p><div><a class="btn" data-go="properties" data-type="apartment">View apartments</a></div></div></div></section>';
+  };
+  function mpSide(id) {
+    const u = byId(id);
+    return '<div class="m"><img src="' + img(u.imgs[0]) + '" alt=""></div>' + st(u.status) + "<h3>Villa " + u.code + '</h3><dl class="specs"><div><dt>Bedrooms</dt><dd>5</dd></div><div><dt>Built area</dt><dd>291.2 m²</dd></div><div><dt>Plot</dt><dd>295.2 m²</dd></div><div><dt>Location</dt><dd>' + u.rowLabel + "</dd></div></dl>" +
+      '<a class="btn full" data-unit="' + u.id + '">View villa</a>' + (u.status !== "sold" ? '<a class="btn line full" data-book="' + u.id + '">Book a visit</a>' : "");
+  }
+
+  P.about = () => phero("entrance_villa", "About us", "Crest Development Group") +
+    '<section class="sec"><div class="wrap feature rev"><div class="m" style="aspect-ratio:3/4"><img loading="lazy" src="' + img("villa_cover") + '" alt="Signature Villa"></div><div class="t">' + eb("Who we are") + '<h2 class="h-xl">Building homes for Djibouti\'s families</h2><p>Crest Development Group has been active in Djibouti since 2024 and was incorporated as CDG SARL in June 2026. Our first community, CREST CITY, brings family villas, apartments, shops and shared amenities together in one gated, solar-powered neighbourhood.</p><p>We design for the way families here live: a majlis for guests kept apart from family areas, space for household staff, shade and greenery outdoors, and homes built for the climate.</p></div></div></section>' +
+    '<section class="sec paper"><div class="wrap"><div class="head"><div class="l">' + eb("Our promise") + '</div></div><div class="words"><div><b>Dream</b><p>Communities planned as a whole, with homes, shops, green space and services designed together from the start.</p></div><div><b>Build</b><p>Careful construction, solar energy and smart systems, with clear progress updates for every buyer.</p></div><div><b>Live</b><p>A secure, well-run community with the amenities families use every day, long after handover.</p></div></div></div></section>' +
+    '<section class="sec"><div class="wrap"><div class="head"><div class="l">' + eb("Milestones") + '<h2 class="h-xl">Our journey</h2></div></div><div class="miles"><div><small>2024</small><b>Work begins in Djibouti</b><p>Crest Development Group starts preparing CREST CITY.</p></div><div><small>June 2026</small><b>Incorporated as CDG SARL</b><p>The company behind CREST CITY is formally established.</p></div><div><small>2026</small><b>Masterplan and villa designs</b><p>38 Signature Villas, apartments and a commercial street.</p></div><div><small>Next</small><b>Sales launch and construction</b><p>Buyers follow the progress of their own home online.</p></div></div></div></section>' + reg();
+
+  P.news = () => phero("site", "News", "News and updates") +
+    '<section class="sec"><div class="wrap"><p class="note" style="margin:0 0 36px">Sample articles for this preview. The Crest team publishes real updates from the content manager.</p><div class="ugrid">' + NEWS.map(story).join("") + "</div></div></section>" + reg();
+
+  P.contact = () => {
+    const today = new Date().toISOString().slice(0, 10);
+    const uopts = '<option value="">Any home</option>' + UNITS.filter((u) => u.status !== "sold").map((u) => opt(u.id, u.name, contactUnit)).join("");
+    return phero("villa_close", "Contact", "Book a visit or register your interest") +
+      '<section class="sec"><div class="wrap contact"><div id="cwrap">' + eb("Enquiry") + '<form class="form mt-s" id="cform" novalidate>' +
+      '<div class="fld"><label for="cf-name">Full name</label><input id="cf-name" autocomplete="name" required></div>' +
+      '<div class="fld"><label for="cf-phone">Phone / WhatsApp</label><input id="cf-phone" type="tel" autocomplete="tel" placeholder="+253" required></div>' +
+      '<div class="fld"><label for="cf-email">Email</label><input id="cf-email" type="email" autocomplete="email"></div>' +
+      '<div class="fld"><label for="cf-int">Interested in</label><select id="cf-int"><option>A Signature Villa</option><option>An apartment</option><option>A commercial unit</option><option>General information</option></select></div>' +
+      '<div class="fld"><label for="cf-unit">Home</label><select id="cf-unit">' + uopts + "</select></div>" +
+      '<div class="fld"><label for="cf-date">Preferred visit date</label><input id="cf-date" type="date" min="' + today + '"></div>' +
+      '<div class="fld full"><label for="cf-msg">Message</label><textarea id="cf-msg"></textarea></div>' +
+      '<p class="full err" id="cf-err" hidden>Please enter your name and a phone number so we can reach you.</p>' +
+      '<div class="full"><button class="btn" type="submit">Send request</button></div></form></div>' +
+      '<div class="cinfo"><div><span class="small">Sales gallery</span><p>Avenue Mahamoud Haid, Plateau du Marabout, Djibouti</p></div><div><span class="small">Opening hours</span><p>Saturday to Thursday, 8:00–17:00</p></div>' +
+      '<div><span class="small">Phone and WhatsApp</span><div class="copy"><code id="cphone">+253 XX XX XX XX</code><button data-copy="cphone">Copy</button></div></div>' +
+      '<div><span class="small">Email</span><div class="copy"><code id="cmail">sales@ (to be confirmed)</code><button data-copy="cmail">Copy</button></div></div>' +
+      '<p class="note">Phone and email are placeholders until The Crest confirms them.</p></div></div></section>';
+  };
+
+  P.wishlist = () => {
+    const L = UNITS.filter((u) => wish.has(u.id));
+    return '<section class="sec"><div class="wrap"><div class="head"><div class="l">' + eb("Your shortlist") + '<h1 class="h-xl">Saved properties</h1></div></div>' +
+      (L.length ? '<div class="ugrid">' + L.map(ucard).join("") + "</div>" : '<div class="empty"><h3 class="h-l">No saved properties yet</h3><p>Use the heart on any villa or apartment to keep it here.</p><a class="btn" data-go="properties">Browse properties</a></div>') + "</div></section>";
+  };
+
+  /* ---------- router ---------- */
+  const HERO = { home: 1, community: 1, properties: 1, about: 1, news: 1, contact: 1 };
+  function render() {
+    const isUnit = cur.indexOf("unit-") === 0;
+    $("#app").innerHTML = isUnit ? P.unit(cur.slice(5).toUpperCase()) : (P[cur] || P.home)();
+    document.body.dataset.hero = !isUnit && HERO[P[cur] ? cur : "home"] ? "1" : "";
+    const base = isUnit ? "properties" : cur;
+    $$("nav.main a").forEach((a) => a.classList.toggle("on", a.dataset.go === base));
+    $$("#tabbar a").forEach((a) => a.classList.toggle("on", a.dataset.go === base));
+    $("#drawer").hidden = true;
+    window.scrollTo(0, 0);
+    onScroll();
+    startSlider();
+    $$(".track").forEach(updCar);
+  }
+  function go(r) { cur = r; try { if (location.hash.slice(1) !== r) history.pushState(null, "", "#" + r); } catch (e) {} render(); }
+  window.addEventListener("popstate", () => { cur = location.hash.slice(1) || "home"; render(); });
+  window.addEventListener("hashchange", () => { const h = location.hash.slice(1) || "home"; if (h !== cur) { cur = h; render(); } });
+  function onScroll() { $("#hdr").classList.toggle("solid", window.scrollY > 40); if (typeof syncStatusBar === "function") syncStatusBar(); }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  /* ---------- hero slider ---------- */
+  const DUR = 7000;
+  let sIdx = 0, sEl = 0, sLast = 0, sRaf = 0;
+  function startSlider() {
+    cancelAnimationFrame(sRaf); sIdx = 0; sEl = 0; sLast = 0;
+    if (!$("#hs")) return;
+    if (reduce) paused = true;
+    syncPause();
+    const tick = (t) => {
+      if (!$("#hs")) return;
+      if (!sLast) sLast = t;
+      const dt = t - sLast; sLast = t;
+      if (!paused && !document.hidden) sEl += dt;
+      if (sEl >= DUR) { showSlide(sIdx + 1); }
+      const i = $('#hs .bar.on i'); if (i) i.style.transform = "scaleX(" + Math.min(sEl / DUR, 1) + ")";
+      sRaf = requestAnimationFrame(tick);
+    };
+    sRaf = requestAnimationFrame(tick);
+  }
+  function showSlide(n) {
+    const sl = $$("#hs .slide"); if (!sl.length) return;
+    n = (n + sl.length) % sl.length;
+    sl.forEach((el, i) => { el.classList.remove("prev"); if (i === sIdx && i !== n) el.classList.add("prev"); el.classList.toggle("on", i === n); el.setAttribute("aria-hidden", i === n ? "false" : "true"); });
+    $$("#hs .bar").forEach((b, i) => { b.classList.toggle("on", i === n); b.classList.toggle("done", i < n); b.querySelector("i").style.transform = i < n ? "scaleX(1)" : "scaleX(0)"; });
+    sIdx = n; sEl = 0;
+    $("#slc").textContent = pad(n + 1);
+  }
+  function syncPause() { const b = $("#slp"); if (b) { b.innerHTML = paused ? PLAY : PAUSE; b.setAttribute("aria-label", paused ? "Play slideshow" : "Pause slideshow"); } $("#hs") && $("#hs").classList.toggle("paused", paused); }
+  function updCar(t) { const n = $('[data-car="' + t.id + '"]'); if (!n) return; const [p, x] = n.querySelectorAll("button"); p.disabled = t.scrollLeft < 8; x.disabled = t.scrollLeft + t.clientWidth > t.scrollWidth - 8; }
+  document.addEventListener("scroll", (e) => { if (e.target.classList && e.target.classList.contains("track")) updCar(e.target); }, true);
+  function toast(t) { const el = $("#toast"); el.textContent = t; el.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => (el.hidden = true), 2600); }
+  function openFilm() { const m = $("#film"), v = $("#filmv"); m.hidden = false; $("#drawer").hidden = true; wasPaused = paused; paused = true; syncPause(); v.currentTime = 0; const p = v.play(); if (p && p.catch) p.catch(() => {}); $("#filmx").focus(); }
+  function closeFilm() { const v = $("#filmv"); v.pause(); $("#film").hidden = true; paused = wasPaused; syncPause(); }
+
+  /* ---------- events ---------- */
+  document.addEventListener("click", (e) => {
+    const t = e.target;
+    const h = t.closest("[data-heart]");
+    if (h) {
+      e.preventDefault(); e.stopPropagation();
+      const id = h.dataset.heart;
+      if (wish.has(id)) { wish.delete(id); toast("Removed from your shortlist"); } else { wish.add(id); toast("Saved to your shortlist"); }
+      saveWish();
+      if (typeof haptic === "function") haptic();
+      $$('[data-heart="' + id + '"]').forEach((b) => { b.classList.toggle("on", wish.has(id)); if (b.classList.contains("tlink")) b.textContent = wish.has(id) ? "Saved to shortlist" : "Save to shortlist"; });
+      if (cur === "wishlist") render();
+      return;
+    }
+    if (t.closest("[data-film]")) { e.preventDefault(); openFilm(); return; }
+    if (t.closest("#filmx") || t.id === "film") { closeFilm(); return; }
+    if (t.closest("#slp")) { paused = !paused; syncPause(); return; }
+    const sd = t.closest("[data-sdir]"); if (sd) { showSlide(sIdx + (+sd.dataset.sdir)); return; }
+    const sb = t.closest("[data-sl]"); if (sb) { showSlide(+sb.dataset.sl); return; }
+    const b = t.closest("[data-book]");
+    if (b) { e.preventDefault(); contactUnit = b.dataset.book; go("contact"); return; }
+    const u = t.closest("[data-unit]");
+    if (u) { e.preventDefault(); go("unit-" + u.dataset.unit.toLowerCase()); return; }
+    const g = t.closest("[data-go]");
+    if (g) { e.preventDefault(); if (g.dataset.type) Object.assign(F, { type: g.dataset.type, status: "all", row: "all", size: "all" }); go(g.dataset.go); return; }
+    const cn = t.closest("[data-car] button");
+    if (cn) { const tr = $("#" + cn.parentNode.dataset.car); const card = tr.firstElementChild; tr.scrollBy({ left: (+cn.dataset.dir) * (card.getBoundingClientRect().width + 28), behavior: reduce ? "auto" : "smooth" }); return; }
+    const gi = t.closest("[data-gi]");
+    if (gi) { const u2 = byId(cur.slice(5).toUpperCase()); $("#gmain").src = img(u2.imgs[+gi.dataset.gi]); $$("[data-gi]").forEach((x) => x.classList.toggle("on", x === gi)); return; }
+    const mf = t.closest("[data-mpf]");
+    if (mf) { mpFilter = mf.dataset.mpf; const y = window.scrollY; render(); window.scrollTo(0, y); onScroll(); return; }
+    const lot = t.closest("[data-lot]");
+    if (lot) { if ($("#mpside")) selectLot(lot.dataset.lot); else go("unit-" + lot.dataset.lot.toLowerCase()); return; }
+    const m = t.closest("[data-more]");
+    if (m) { m.classList.toggle("open"); return; }
+    const c = t.closest("[data-copy]");
+    if (c) { const txt = $("#" + c.dataset.copy).textContent; try { navigator.clipboard.writeText(txt).then(() => toast("Copied"), () => selText(c.dataset.copy)); } catch (er) { selText(c.dataset.copy); } return; }
+    if (t.closest("#burger")) { $("#drawer").hidden = false; return; }
+    if (t.closest("#dclose")) { $("#drawer").hidden = true; return; }
+    if (t.closest("#pf-reset")) { Object.assign(F, { type: "all", status: "all", row: "all", size: "all" }); render(); }
+  });
+  function selText(id) { const r = document.createRange(); r.selectNodeContents($("#" + id)); const s = getSelection(); s.removeAllRanges(); s.addRange(r); toast("Selected, ready to copy"); }
+  function selectLot(id) {
+    mpSel = id;
+    $$("#mpmap .lot").forEach((g) => g.classList.toggle("sel", g.dataset.lot === id));
+    const side = $("#mpside"); side.innerHTML = mpSide(id);
+    if (window.innerWidth < 1100) side.scrollIntoView({ block: "nearest", behavior: reduce ? "auto" : "smooth" });
+  }
+  document.addEventListener("keydown", (e) => {
+    const lot = e.target.closest && e.target.closest("[data-lot]");
+    if (lot && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); if ($("#mpside")) selectLot(lot.dataset.lot); else go("unit-" + lot.dataset.lot.toLowerCase()); }
+    if (e.target.id === "hs" && (e.key === "ArrowLeft" || e.key === "ArrowRight")) { showSlide(sIdx + (e.key === "ArrowRight" ? 1 : -1)); }
+    if (e.key === "Escape") { $("#drawer").hidden = true; if (!$("#film").hidden) closeFilm(); }
+  });
+  document.addEventListener("mousemove", (e) => {
+    const tip = $("#mptip"); if (!tip) return;
+    const lot = e.target.closest && e.target.closest("#mpmap [data-lot]");
+    if (!lot) { tip.hidden = true; return; }
+    const u = byId(lot.dataset.lot), box = $("#mpmap").getBoundingClientRect();
+    tip.textContent = "Villa " + u.code + " · " + STATUS[u.status];
+    tip.style.left = e.clientX - box.left + "px"; tip.style.top = e.clientY - box.top + "px"; tip.hidden = false;
+  });
+  document.addEventListener("change", (e) => {
+    const t = e.target;
+    if (t.closest("#pfilters")) {
+      F.type = $("#pf-type").value; F.status = $("#pf-status").value; F.row = $("#pf-row").value; F.size = $("#pf-size").value; F.sort = $("#pf-sort").value;
+      if (F.row === "AP" && F.type === "villa") F.type = "all";
+      if (ROWS.some((R) => R.r === F.row) && F.type === "apartment") F.type = "all";
+      const y = window.scrollY; render(); window.scrollTo(0, y); onScroll();
+    }
+    if (t.id === "cf-unit") contactUnit = t.value;
+  });
+  document.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const f = e.target;
+    if (f.id === "hsearch") { F.type = $("#hs-type").value; F.status = $("#hs-status").value; F.size = $("#hs-size").value; F.row = "all"; go("properties"); }
+    if (f.id === "fnews") { f.reset(); toast("Thank you. You are on the list for launch news."); }
+    if (f.id === "cform") {
+      const n = $("#cf-name").value.trim(), p = $("#cf-phone").value.trim();
+      if (!n || p.replace(/\D/g, "").length < 6) { $("#cf-err").hidden = false; (n ? $("#cf-phone") : $("#cf-name")).focus(); return; }
+      const u = byId($("#cf-unit").value), d = $("#cf-date").value;
+      $("#cwrap").innerHTML = '<div class="done">' + eb("Request received") + '<h2 class="h-l">Thank you, ' + esc(n.split(" ")[0]) + "</h2><p>Your request" + (u ? " for " + esc(u.name) : "") + (d ? " (visit on " + esc(new Date(d + "T12:00").toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })) + ")" : "") + " is recorded in this preview.</p><p class=\"note\">On the live site, requests go straight to the sales team's CRM and the buyer receives a WhatsApp and email confirmation.</p><div><a class=\"tlink\" data-go=\"properties\">Keep browsing</a></div></div>";
+      contactUnit = "";
+    }
+  });
+
+  let sx = null;
+  document.addEventListener("touchstart", (e) => { sx = e.target.closest && e.target.closest("#hs") ? e.touches[0].clientX : null; }, { passive: true });
+  document.addEventListener("touchend", (e) => { if (sx === null) return; const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 45) showSlide(sIdx + (dx < 0 ? 1 : -1)); sx = null; }, { passive: true });
+
+  /* ---------- installable app (PWA) ---------- */
+  const PWA = !!window.CREST_PWA;
+  const isStandalone = () => (window.matchMedia && matchMedia("(display-mode: standalone)").matches) || navigator.standalone === true;
+  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  const isSafari = /safari/i.test(navigator.userAgent) && !/crios|fxios|edgios|chrome|android/i.test(navigator.userAgent);
+  let deferredPrompt = null;
+  const lsGet = (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } };
+  const lsSet = (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} };
+  if (PWA) {
+    if (isStandalone()) document.documentElement.classList.add("standalone");
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => { navigator.serviceWorker.register("sw.js").catch(() => {}); });
+    }
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault(); deferredPrompt = e;
+      document.documentElement.classList.add("can-install");
+      maybeShowBar(false);
+    });
+    window.addEventListener("appinstalled", () => { deferredPrompt = null; hideBar(); document.documentElement.classList.remove("can-install"); toast("CREST CITY is on your home screen"); });
+    if (isIOS && isSafari && !isStandalone()) {
+      document.documentElement.classList.add("can-install");
+      setTimeout(() => maybeShowBar(true), 6000);
+    }
+  }
+  function maybeShowBar(ios) {
+    if (isStandalone()) return;
+    const last = +(lsGet("crest-appbar-dismissed") || 0);
+    if (Date.now() - last < 7 * 864e5) return;
+    showBar(ios);
+  }
+  function showBar(ios) {
+    const bar = $("#appbar");
+    if (ios) {
+      $("#appbar-msg").innerHTML = 'Tap <svg class="share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v12M7.5 7.5 12 3l4.5 4.5"/><path d="M6 11H5v10h14V11h-1"/></svg> Share, then <b style="font-family:var(--bf);font-size:14px;letter-spacing:0;text-transform:none;font-weight:700">Add to Home Screen</b>.';
+      $("#appbar-go").hidden = true;
+    } else {
+      $("#appbar-msg").textContent = "One tap from your home screen.";
+      $("#appbar-go").hidden = false;
+    }
+    bar.hidden = false;
+  }
+  function hideBar() { const b = $("#appbar"); if (b) b.hidden = true; }
+  async function doInstall() {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      try { await deferredPrompt.userChoice; } catch (e) {}
+      deferredPrompt = null; hideBar();
+    } else if (isIOS) { showBar(true); }
+  }
+  document.addEventListener("click", (e) => {
+    if (e.target.closest("[data-install]")) { e.preventDefault(); $("#drawer").hidden = true; doInstall(); }
+    else if (e.target.closest("#appbar-go")) { doInstall(); }
+    else if (e.target.closest("#appbar-x")) { lsSet("crest-appbar-dismissed", String(Date.now())); hideBar(); }
+  });
+
+  /* ---------- native app (Capacitor) + installed-app mode ---------- */
+  const SITE_URL = "https://crest-city.netlify.app/";
+  const Cap = window.Capacitor;
+  const NATIVE = !!(Cap && Cap.isNativePlatform && Cap.isNativePlatform());
+  const NP = (Cap && Cap.Plugins) || {};
+  const PLATFORM = NATIVE && Cap.getPlatform ? Cap.getPlatform() : "web";
+  if (NATIVE || (PWA && isStandalone())) document.documentElement.classList.add("appmode");
+  if (NATIVE) document.documentElement.classList.add("native", "p-" + PLATFORM);
+  let lastBar = "";
+  function syncStatusBar() {
+    return; // status bar is a solid navy band on both platforms (see capacitor.config.json)
+    const onImage = document.body.dataset.hero === "1" && !$("#hdr").classList.contains("solid");
+    const style = onImage ? "DARK" : "LIGHT";
+    if (style !== lastBar) { lastBar = style; NP.StatusBar.setStyle({ style }).catch(() => {}); }
+  }
+  function haptic() { if (NATIVE && NP.Haptics) NP.Haptics.impact({ style: "LIGHT" }).catch(() => {}); }
+  async function shareUnit(id) {
+    const u = byId(id); if (!u) return;
+    const url = SITE_URL + "#unit-" + id.toLowerCase();
+    const data = { title: u.name + " · CREST CITY", text: u.name + " at CREST CITY, Djibouti: " + capOf(u) + ".", url };
+    try {
+      if (NATIVE && NP.Share) { await NP.Share.share(Object.assign({ dialogTitle: "Share this home" }, data)); return; }
+      if (navigator.share) { await navigator.share(data); return; }
+    } catch (e) { if (e && e.name === "AbortError") return; }
+    try { await navigator.clipboard.writeText(url); toast("Link copied"); } catch (e) { toast(url); }
+  }
+  document.addEventListener("click", (e) => { const b = e.target.closest("[data-share]"); if (b) { e.preventDefault(); shareUnit(b.dataset.share); } });
+  if (NATIVE) {
+    if (NP.StatusBar) { NP.StatusBar.setStyle({ style: "DARK" }).catch(() => {}); if (PLATFORM === "android") NP.StatusBar.setBackgroundColor({ color: "#13294B" }).catch(() => {}); }
+    if (NP.App) NP.App.addListener("backButton", () => {
+      if (!$("#film").hidden) { closeFilm(); return; }
+      if (!$("#drawer").hidden) { $("#drawer").hidden = true; return; }
+      if (cur !== "home") { if (history.length > 1) history.back(); else go("home"); }
+      else NP.App.exitApp();
+    });
+    // Push notifications: switch on once Firebase (Android) and an APNs key (iOS) are set up.
+    if (window.CREST_PUSH && NP.PushNotifications) {
+      NP.PushNotifications.requestPermissions().then((p) => { if (p.receive === "granted") NP.PushNotifications.register(); }).catch(() => {});
+      NP.PushNotifications.addListener("pushNotificationActionPerformed", (a) => { const r = a && a.notification && a.notification.data && a.notification.data.route; if (r) go(r); });
+    }
+  }
+
+  /* ---------- boot ---------- */
+  updWish();
+  cur = location.hash.slice(1) || "home";
+  render();
+  if (NATIVE && NP.SplashScreen) setTimeout(() => NP.SplashScreen.hide().catch(() => {}), 250);
+})();
+
+</script>
+
+</body>
+</html>
