@@ -108,7 +108,7 @@ body:not([data-hero="1"]) #app{padding-top:calc(var(--hdr) + env(safe-area-inset
 .slide.on{opacity:1;visibility:visible;transition:opacity 1.6s ease;z-index:2}
 .slide.prev{visibility:visible;z-index:1}
 .slide .ph{position:absolute;inset:0;overflow:hidden}
-.slide .ph img{width:100%;height:100%;object-fit:cover;transform-origin:var(--ox,50% 50%);will-change:transform}
+.slide .ph img{width:100%;height:100%;object-fit:cover;object-position:var(--ox,50% 50%);transform-origin:var(--ox,50% 50%);will-change:transform}
 .slide.zi.on .ph img,.slide.zi.prev .ph img{animation:kbIn 9s ease-out forwards}
 .slide.zo.on .ph img,.slide.zo.prev .ph img{animation:kbOut 9s ease-out forwards}
 .slider.paused .slide .ph img{animation-play-state:paused}
