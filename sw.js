@@ -1,4 +1,4 @@
-const VERSION = "crest-8c6320094a";
+const VERSION = "crest-20260929a";
 const PRECACHE = ["./", "index.html", "manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png", "icons/apple-touch-icon.png", "img/logo_color.png", "img/logo_white.png", "img/hero_poster.jpg", "img/gate.jpg", "img/villa_front.jpg", "img/boulevard.jpg", "img/aerial.jpg", "img/solar.jpg"];
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(VERSION).then((c) => c.addAll(PRECACHE)).then(() => self.skipWaiting()));

@@ -351,7 +351,7 @@ dl.specs dd{margin:0;color:var(--ink);text-align:right;font-variant-numeric:tabu
 
 /* footer */
 footer.ftr{background:var(--paper);color:var(--text);font-size:16px;line-height:1.7}
-.ftr .top{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:40px;padding-block:clamp(56px,6vw,88px) 48px}
+.ftr .top{display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:40px;padding-block:clamp(56px,6vw,88px) 48px}
 .ftr .top img{height:42px;width:auto}
 .ftr h4{font-family:var(--bf);font-weight:400;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);margin-bottom:18px}
 .ftr ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
@@ -403,6 +403,51 @@ html.p-android header.hdr{padding-top:0}
 .modal .x svg{width:22px;height:22px}
 .toast{position:fixed;left:50%;bottom:calc(26px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:#fff;padding:14px 22px;font-size:14px;letter-spacing:.08em;z-index:95}
 .mt-s{margin-top:18px}.mt-m{margin-top:32px}
+
+/* owners portal, brokers, financing */
+.amen .tlink{margin-top:6px;font-size:13.5px}
+.portal{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(28px,4vw,72px);align-items:start}
+@media (max-width:980px){.portal{grid-template-columns:minmax(0,1fr)}}
+.panel{border:1px solid var(--line);background:var(--bg);padding:clamp(22px,2.4vw,36px);display:grid;gap:22px;align-content:start}
+.panel.dark{background:var(--navy);border-color:var(--navy);color:#fff}
+.panel.dark h3,.panel.dark .cap{color:#fff}
+.panel.dark .small{color:rgba(255,255,255,.7)}
+.panel h3{font-size:clamp(24px,2.2vw,32px);text-transform:uppercase;line-height:1.2}
+.prow{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.prow b{font-family:var(--hf);font-weight:400;font-size:24px;color:var(--ink);font-variant-numeric:tabular-nums}
+.prog{height:6px;background:var(--line2);overflow:hidden}
+.prog i{display:block;height:100%;background:var(--st-av)}
+ul.stages{list-style:none;margin:0;padding:0;display:grid}
+ul.stages li{display:flex;justify-content:space-between;gap:14px;padding:12px 0;border-bottom:1px solid var(--line2);font-size:16px}
+ul.stages li span{display:inline-flex;align-items:center;gap:10px}
+ul.stages li span::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--line);flex:0 0 auto}
+ul.stages li.done span::before{background:var(--st-av)}
+ul.stages li.active span::before{background:var(--st-re)}
+ul.stages li em{font-style:normal;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+table.sched{width:100%;border-collapse:collapse;font-size:16px}
+table.sched th{text-align:left;font-weight:400;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding:0 0 10px;border-bottom:1px solid var(--ink)}
+table.sched td{padding:13px 0;border-bottom:1px solid var(--line);vertical-align:top}
+table.sched td:last-child,table.sched th:last-child{text-align:right;font-variant-numeric:tabular-nums}
+table.sched td small{display:block;font-size:13px;color:var(--muted)}
+table.sched tr.due td{font-weight:400;color:var(--ink)}
+table.sched tfoot td{border-bottom:0;font-weight:400;color:var(--ink)}
+.chip{display:inline-block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:3px 8px;border:1px solid currentColor;margin-left:8px;vertical-align:1px}
+.chip.paid{color:var(--st-av)}.chip.due{color:var(--st-re)}
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:22px clamp(16px,2vw,28px)}
+.calc .out{grid-column:1/-1;border-top:1px solid var(--ink);padding-top:18px;display:grid;gap:10px}
+.calc .out b{font-family:var(--hf);font-weight:400;font-size:clamp(30px,3vw,42px);color:var(--ink);line-height:1.1;font-variant-numeric:tabular-nums}
+@media (max-width:520px){.calc{grid-template-columns:1fr}}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2vw,36px)}
+.trio a{display:grid;gap:14px;align-content:start;cursor:pointer}
+.trio .m{aspect-ratio:4/3;overflow:hidden;background:var(--paper)}
+.trio img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.trio a:hover img{transform:scale(1.04)}
+.trio h3{font-size:clamp(22px,2vw,28px);text-transform:uppercase;line-height:1.25}
+.trio p{font-size:16px;line-height:1.65}
+@media (max-width:860px){.trio{grid-template-columns:1fr}}
+nav.main a,.hdr .cta{white-space:nowrap}
+@media (max-width:1720px) and (min-width:1181px){nav.main{gap:clamp(14px,1.4vw,24px);margin-right:clamp(14px,1.4vw,24px)}nav.main a{font-size:13px;letter-spacing:.1em}.tools .lang,.tools .film-ic{display:none}.hdr .cta{padding:0 20px;font-size:13px;letter-spacing:.12em}}
+@media (max-width:1320px) and (min-width:1181px){.tools .wa-ic{display:none}nav.main a{letter-spacing:.06em}}
 </style>
 </head>
 <body>
@@ -416,7 +461,9 @@ html.p-android header.hdr{padding-top:0}
       <a data-go="community">Community</a>
       <a data-go="properties">Properties</a>
       <a data-go="masterplan">Masterplan</a>
-      <a data-go="news">News</a>
+      <a data-go="owners">Owners</a>
+      <a data-go="brokers">Brokers</a>
+      <a data-go="financing">Financing</a>
     </nav>
     <div class="tools">
       <span class="lang" title="Arabic and French to follow">ENG</span>
@@ -436,6 +483,9 @@ html.p-android header.hdr{padding-top:0}
   <a class="dl" data-go="community">Community</a>
   <a class="dl" data-go="properties">Properties</a>
   <a class="dl" data-go="masterplan">Masterplan</a>
+  <a class="dl" data-go="owners">Owners portal</a>
+  <a class="dl" data-go="brokers">Brokers</a>
+  <a class="dl" data-go="financing">Financing</a>
   <a class="dl" data-go="news">News</a>
   <a class="dl" data-go="wishlist">Saved properties</a>
   <a class="dl" data-film>Watch the film</a>
@@ -453,6 +503,7 @@ html.p-android header.hdr{padding-top:0}
       <form class="news" id="fnews"><input id="fnews-email" type="email" placeholder="Email for launch news" aria-label="Email for launch news" required><button>Subscribe</button></form>
     </div>
     <div><h4>The Crest</h4><ul><li><a data-go="about">About us</a></li><li><a data-go="news">News</a></li><li><a data-go="contact">Contact</a></li><li><a data-go="wishlist">Saved properties</a></li><li class="pwa-only"><a data-install>Get the app</a></li></ul></div>
+    <div><h4>Partners</h4><ul><li><a data-go="owners">Owners portal</a></li><li><a data-go="brokers">Brokers</a></li><li><a data-go="financing">Financing</a></li><li><a data-go="financing">Banks and investors</a></li></ul></div>
     <div><h4>CREST CITY</h4><ul><li><a data-go="properties" data-type="villa">Signature Villas</a></li><li><a data-go="properties" data-type="apartment">Apartments</a></li><li><a data-go="community">Community</a></li><li><a data-go="masterplan">Masterplan</a></li></ul></div>
     <div><h4>Sales gallery</h4><ul><li>Avenue Mahamoud Haid<br>Plateau du Marabout, Djibouti</li><li>Saturday to Thursday<br>8:00–17:00</li></ul></div>
   </div>
@@ -570,6 +621,7 @@ html.p-android header.hdr{padding-top:0}
     '<div class="car-nav" data-car="' + id + '"><button data-dir="-1" aria-label="Previous">' + LARR + '</button><button data-dir="1" aria-label="Next">' + RARR + "</button></div></div>" +
     '<div class="track" id="' + id + '">' + items + "</div>" + (extra || "") + "</div></section>";
   const phero = (im, crumb, h) => '<section class="phero"><img src="' + img(im) + '" srcset="' + srcset(im) + '" sizes="100vw" alt=""><div class="wrap"><div class="crumb">' + crumb + "</div><h1>" + h + "</h1></div></section>";
+  const trio = (im, h, p, to, link) => '<a data-go="' + to + '"><div class="m"><img loading="lazy" src="' + img(im) + '" srcset="' + srcset(im) + '" sizes="(max-width:860px) 100vw, 33vw" alt=""></div><h3>' + h + "</h3><p>" + p + '</p><span class="tlink">' + link + "</span></a>";
   const reg = () => '<section class="sec paper"><div class="wrap"><div class="reg">' + eb("Register") + '<h2 class="h-xl">Register your interest</h2><p>Be the first to hear about new releases, payment plans and site visits.</p><a class="btn mt-s" data-go="contact">Get in touch</a></div></div></section>';
 
   function mapSVG(o) {
@@ -610,7 +662,12 @@ html.p-android header.hdr{padding-top:0}
       '<section class="sec paper"><div class="wrap feature"><div class="m"><img loading="lazy" src="' + img("villa_front") + '" alt="Signature Villa"></div><div class="t">' + eb("Latest launch") + '<h2 class="h-xl">Signature Villas</h2><p>Three-level family homes with five bedrooms, three living rooms including a majlis, a maid\'s suite and a private two-car driveway. Four layout options, each designed around Djiboutian family life.</p>' +
       '<dl class="specs"><div><dt>Bedrooms</dt><dd>5</dd></div><div><dt>Built area</dt><dd>291.2 m²</dd></div><div><dt>Plot</dt><dd>295.2 m²</dd></div><div><dt>Levels</dt><dd>Ground, first, attic</dd></div></dl><div class="btns mt-s"><a class="btn" data-go="properties" data-type="villa">View villas</a><a class="btn line" data-go="contact">Book a visit</a></div></div></div></section>' +
       '<section class="banner on-dark"><img loading="lazy" src="' + img("aerial") + '" alt=""><div class="wrap">' + '<div class="eyebrow" style="justify-content:center">Masterplan</div><h2 class="h-xl">Find your home on the masterplan</h2><p>See every villa and its availability, then open the details and book a visit.</p><a class="btn white" data-go="masterplan">Explore the masterplan</a></div></section>' +
-      carousel("c-units", "Available now", "Properties", feat.map(ucard).join(""), '<div class="mt-m"><a class="tlink" data-go="properties">All properties</a></div>') + reg();
+      carousel("c-units", "Available now", "Properties", feat.map(ucard).join(""), '<div class="mt-m"><a class="tlink" data-go="properties">All properties</a></div>') +
+      '<section class="sec paper"><div class="wrap"><div class="head"><div class="l">' + eb("One platform") + '<h2 class="h-xl">From first click to front door</h2><p class="sub">For buyers, residents and the partners who help families buy.</p></div></div><div class="trio">' +
+      trio("pergola", "Owners portal", "Follow construction, see your payment schedule and documents, then book amenities and gate passes once you move in.", "owners", "Explore the portal") +
+      trio("villa_street", "Brokers", "Register your agency, see live availability and give your clients a clear path to their CREST CITY home.", "brokers", "Become a partner broker") +
+      trio("aerial", "Financing", "Payment plans and home finance for buyers, and partnership opportunities for banks and investors.", "financing", "Financing and partners") +
+      "</div></div></section>" + reg();
   };
 
   P.community = () => {
@@ -715,7 +772,7 @@ html.p-android header.hdr{padding-top:0}
       '<div class="fld"><label for="cf-name">Full name</label><input id="cf-name" autocomplete="name" required></div>' +
       '<div class="fld"><label for="cf-phone">Phone / WhatsApp</label><input id="cf-phone" type="tel" autocomplete="tel" placeholder="+253" required></div>' +
       '<div class="fld"><label for="cf-email">Email</label><input id="cf-email" type="email" autocomplete="email"></div>' +
-      '<div class="fld"><label for="cf-int">Interested in</label><select id="cf-int"><option>A Signature Villa</option><option>An apartment</option><option>A commercial unit</option><option>General information</option></select></div>' +
+      '<div class="fld"><label for="cf-int">Interested in</label><select id="cf-int"><option>A Signature Villa</option><option>An apartment</option><option>A commercial unit</option><option>Home finance</option><option>Broker partnership</option><option>Bank or investor partnership</option><option>General information</option></select></div>' +
       '<div class="fld"><label for="cf-unit">Home</label><select id="cf-unit">' + uopts + "</select></div>" +
       '<div class="fld"><label for="cf-date">Preferred visit date</label><input id="cf-date" type="date" min="' + today + '"></div>' +
       '<div class="fld full"><label for="cf-msg">Message</label><textarea id="cf-msg"></textarea></div>' +
@@ -733,8 +790,131 @@ html.p-android header.hdr{padding-top:0}
       (L.length ? '<div class="ugrid">' + L.map(ucard).join("") + "</div>" : '<div class="empty"><h3 class="h-l">No saved properties yet</h3><p>Use the heart on any villa or apartment to keep it here.</p><a class="btn" data-go="properties">Browse properties</a></div>') + "</div></section>";
   };
 
+  /* ---------- owners portal, brokers, financing ---------- */
+  // Illustrative milestone plan; final terms are set in each sale agreement.
+  const PLAN = [["Reservation deposit", "On reservation", 10], ["Sale agreement", "On signing", 10], ["Foundations complete", "Construction milestone", 20], ["Structure complete", "Construction milestone", 20], ["Finishes complete", "Construction milestone", 20], ["Handover", "On receiving the keys", 20]];
+  const STAGES = [["Site preparation", "done"], ["Foundations", "done"], ["Structure", "done"], ["Brickwork", "active", "70%"], ["Electrical and plumbing", "next"], ["Finishes", "next"], ["Handover", "next"]];
+  const DJF = 177.721; // Djibouti franc, fixed peg to the US dollar
+  let ownTab = "prospect";
+  const card = (h, p, link) => "<div><h3>" + h + "</h3><p>" + p + "</p>" + (link || "") + "</div>";
+  const lead = (id, kind, title, fields, btn) => '<div class="leadwrap">' + eb(kind) + '<h2 class="h-xl">' + title + '</h2><form class="form lead mt-s" id="' + id + '" novalidate>' + fields +
+    '<p class="full err" hidden>Please enter your name and a phone number or email so we can reach you.</p><div class="full"><button class="btn" type="submit">' + btn + "</button></div></form></div>";
+  const fin = (id, lbl, attrs) => '<div class="fld"><label for="' + id + '">' + lbl + '</label><input id="' + id + '" ' + (attrs || "") + "></div>";
+  const fsel = (id, lbl, opts, full) => '<div class="fld' + (full ? " full" : "") + '"><label for="' + id + '">' + lbl + '</label><select id="' + id + '">' + opts.map((o) => "<option>" + o + "</option>").join("") + "</select></div>";
+  const ftxt = (id, lbl) => '<div class="fld full"><label for="' + id + '">' + lbl + '</label><textarea id="' + id + '"></textarea></div>';
+  const planTable = (withStatus) => '<table class="sched"><thead><tr><th>Milestone</th><th>Share of price</th></tr></thead><tbody>' +
+    PLAN.map((p, i) => '<tr class="' + (withStatus && i === 3 ? "due" : "") + '"><td>' + p[0] + (withStatus ? (i < 3 ? '<span class="chip paid">Paid</span>' : i === 3 ? '<span class="chip due">Due</span>' : "") : "") + "<small>" + p[1] + "</small></td><td>" + p[2] + "%</td></tr>").join("") +
+    "</tbody><tfoot><tr><td>Total</td><td>100%</td></tr></tfoot></table>";
+
+  function ownPanel() {
+    if (ownTab === "buyer") {
+      return '<div class="portal"><div class="panel dark"><div class="small">Buyer portal · sample record</div><h3>My Villa B-04</h3><div class="cap">Signature Villa · Layout 2 · 291.2 m²</div>' +
+        '<div class="prow"><span class="small">Construction progress</span><b style="color:#fff">62%</b></div><div class="prog" style="background:rgba(255,255,255,.2)"><i style="width:62%"></i></div>' +
+        '<p style="color:rgba(255,255,255,.88)">Brickwork is 70% finished and electrical cabling is under way. New site photos are posted with every milestone.</p>' +
+        '<ul class="stages" style="--line2:rgba(255,255,255,.18)">' + STAGES.map((s) => '<li class="' + s[1] + '"><span>' + s[0] + "</span><em style=\"color:rgba(255,255,255,.7)\">" + (s[1] === "done" ? "Complete" : s[1] === "active" ? s[2] + " done" : "Upcoming") + "</em></li>").join("") + "</ul></div>" +
+        '<div class="panel"><div class="prow"><span class="small">Payment schedule</span><span class="chip due" style="margin:0">Next: structure complete</span></div>' + planTable(true) +
+        '<p class="muted" style="font-size:16px">Pay each milestone by bank transfer or mobile wallet and download the receipt straight away.</p>' +
+        '<div class="small">Documents</div><ul class="stages"><li class="done"><span>Reservation form</span><em>PDF</em></li><li class="done"><span>Sale agreement</span><em>PDF</em></li><li class="done"><span>Payment receipts (3)</span><em>PDF</em></li><li class="done"><span>Site photos</span><em>Gallery</em></li><li><span>Handover certificate</span><em>At handover</em></li></ul>' +
+        '<div class="btns"><button class="btn" data-soon>Sign in to the buyer portal</button><a class="btn line" data-go="contact">Talk to your advisor</a></div></div></div>' +
+        '<p class="note">Sample buyer record for this preview. Each buyer sees only their own home, payments and documents after signing in.</p>';
+    }
+    if (ownTab === "resident") {
+      return '<div class="amen">' +
+        card("Gate passes", "Send a digital pass to guests, drivers and deliveries, and see who arrives at the gate.") +
+        card("Move-in and move-out", "Book the loading slot and service lift, and register movers in advance.") +
+        card("Home services", "Order cleaning, AC servicing, pest control and handyman visits from approved providers.") +
+        card("Service requests", "Report a fault with a photo, follow the job and rate the visit when it is done.") +
+        card("Amenity booking", "Reserve the activity center, courts and event spaces for your family.") +
+        card("Service charges", "See your statement and pay community service charges online.") +
+        card("Community news", "Notices from management, prayer times at the mosque and upcoming events.") +
+        card("Security", "Reach the security desk instantly, day and night.") + "</div>" +
+        '<div class="btns mt-m"><button class="btn" data-soon>Resident sign-in</button><a class="tlink" data-go="community">See the amenities</a></div>';
+    }
+    return '<div class="amen">' +
+      card("Browse every home", "Filter villas and apartments by availability, size and location.", '<a class="tlink" data-go="properties">View homes</a>') +
+      card("Live masterplan", "See which villas are available, reserved or sold before you visit.", '<a class="tlink" data-go="masterplan">Open the masterplan</a>') +
+      card("Save a shortlist", "Tap the heart on any home and compare your favourites later.", '<a class="tlink" data-go="wishlist">Saved properties</a>') +
+      card("Book a visit", "Choose a home and a date, and the sales team confirms by WhatsApp.", '<a class="tlink" data-go="contact">Book a visit</a>') +
+      card("Watch the film", "Walk through the community from the comfort of your home.", '<a class="tlink" data-film>Play the film</a>') +
+      card("Plan your finance", "See the payment plan and estimate a monthly payment.", '<a class="tlink" data-go="financing">Payment plan</a>') +
+      card("Share a home", "Send any villa or apartment to family by WhatsApp or email.", '<a class="tlink" data-go="properties">Find a home</a>') +
+      card("Install the app", "Keep CREST CITY one tap away on your phone.", '<a class="tlink" data-install>Get the app</a>') + "</div>";
+  }
+  P.owners = () => {
+    const tb = (v, t) => '<button class="' + (ownTab === v ? "on" : "") + '" data-own="' + v + '" role="tab" aria-selected="' + (ownTab === v) + '">' + t + "</button>";
+    return phero("pergola", "Owners portal", "One platform, from first click to front door") +
+      '<section class="sec intro"><div class="wrap"><h2 class="h-xl">Your home, from search to handover and beyond</h2><div class="body"><p>The CREST CITY platform follows each family through the whole journey. Prospects explore and book visits, buyers follow the construction of their own home and pay each milestone online, and residents manage daily life in the community from one place, on the web and in the app.</p></div>' +
+      '<div class="miles mt-m"><div><small>01 · Explore</small><b>Find your home</b><p>Browse, compare and book a visit.</p></div><div><small>02 · Reserve</small><b>Secure it</b><p>Reserve, sign and receive your documents.</p></div><div><small>03 · Build</small><b>Watch it rise</b><p>Progress, photos and milestone payments.</p></div><div><small>04 · Live</small><b>Move in</b><p>Gate passes, services and amenities.</p></div></div></div></section>' +
+      '<section class="sec paper"><div class="wrap"><div class="tabs" role="tablist">' + tb("prospect", "Prospects") + tb("buyer", "Buyers") + tb("resident", "Residents") + '</div><div id="ownpanel">' + ownPanel() + "</div></div></section>" + reg();
+  };
+
+  P.brokers = () => phero("villa_street", "Brokers", "Sell CREST CITY with us") +
+    '<section class="sec intro"><div class="wrap"><h2 class="h-xl">A partner programme for real estate brokers</h2><div class="body"><p>CREST CITY welcomes licensed agencies and independent brokers in Djibouti, the Gulf, Europe and North America who work with families and the Djiboutian diaspora. Partner brokers get live availability, a full sales kit and a dedicated desk at the sales gallery.</p></div>' +
+    '<div class="stats"><div><b>49</b><span>Homes for sale</span></div><div><b>38</b><span>Signature Villas</span></div><div><b>11</b><span>Apartments</span></div><div><b>1</b><span>Gated community</span></div></div></div></section>' +
+    '<section class="sec"><div class="wrap"><div class="head"><div class="l">' + eb("Why partner") + '<h2 class="h-xl">Everything you need to close</h2></div></div><div class="amen">' +
+    card("Clear commission", "Commission is set out in a written agency agreement and paid on the milestones agreed in it.") +
+    card("Protected leads", "Register a client once and the sale is credited to you for the agreed period.") +
+    card("Live availability", "The masterplan shows which villas are available, reserved or sold, so you never offer a home that is gone.", '<a class="tlink" data-go="masterplan">Open the masterplan</a>') +
+    card("Sales kit", "The film, photography, floor plans, specifications and the payment plan, ready to share.", '<a class="tlink" data-film>Play the film</a>') +
+    card("Broker desk", "A named contact at the sales gallery for visits, reservations and paperwork.") +
+    card("Diaspora ready", "Remote viewings, digital documents and online payments for buyers abroad.") +
+    card("Finance support", "Introduce clients to the payment plan and to partner banks for home finance.", '<a class="tlink" data-go="financing">Financing</a>') +
+    card("Broker portal", "Track your registered clients, reservation status and commission statements online.") + "</div></div></section>" +
+    '<section class="sec paper"><div class="wrap"><div class="head"><div class="l">' + eb("How it works") + '<h2 class="h-xl">Four steps to your first sale</h2></div></div>' +
+    '<div class="miles"><div><small>Step 1</small><b>Apply</b><p>Send your agency details with the form below.</p></div><div><small>Step 2</small><b>Sign</b><p>Review and sign the agency agreement with The Crest.</p></div><div><small>Step 3</small><b>Register clients</b><p>Register each client before their first visit.</p></div><div><small>Step 4</small><b>Close and get paid</b><p>Commission follows the signed sale agreement.</p></div></div></div></section>' +
+    '<section class="sec"><div class="wrap contact">' +
+    lead("fbroker", "Broker registration", "Apply to become a partner broker",
+      fin("br-agency", "Agency name", 'autocomplete="organization"') + fin("br-name", "Your full name", 'autocomplete="name" required') +
+      fin("br-phone", "Phone / WhatsApp", 'type="tel" autocomplete="tel" placeholder="+253"') + fin("br-email", "Email", 'type="email" autocomplete="email"') +
+      fin("br-country", "Country", 'autocomplete="country-name"') + fin("br-lic", "Trade licence or RC number", "") +
+      fsel("br-market", "Main market", ["Djibouti", "Gulf countries", "Europe", "North America", "Horn of Africa", "Other"]) +
+      fsel("br-vol", "Clients you could introduce in a year", ["1 to 5", "6 to 15", "16 to 30", "More than 30"]) + ftxt("br-msg", "About your agency"), "Send application") +
+    '<div class="cinfo"><div><span class="small">Broker desk</span><p>Sales gallery, Avenue Mahamoud Haid, Plateau du Marabout, Djibouti</p></div><div><span class="small">What we send you</span><p>The agency agreement, the sales kit and your broker portal access once your application is approved.</p></div><div><span class="small">Already a partner?</span><div><button class="tlink" data-soon>Broker portal sign-in</button></div></div><p class="note">Commission terms are agreed individually in each agency agreement.</p></div></div></section>';
+
+  P.financing = () => phero("aerial", "Financing", "Financing and investment partners") +
+    '<section class="sec intro"><div class="wrap"><h2 class="h-xl">Finance for buyers, partnership for banks</h2><div class="body"><p>CREST CITY is planned to be straightforward to finance. Buyers pay in milestones tied to construction progress and can combine the plan with a home loan. Banks, lenders and investors can work with us on mortgages, construction finance, collection accounts and co-investment.</p></div></div></section>' +
+    '<section class="sec paper"><div class="wrap"><div class="head"><div class="l">' + eb("For buyers") + '<h2 class="h-xl">Payment plan and home finance</h2><p class="sub">Pay as your home is built, and estimate your monthly loan payment.</p></div></div>' +
+    '<div class="portal"><div class="panel">' + '<div class="small">Milestone payment plan</div>' + planTable(false) + '<p class="note" style="margin:0">Indicative plan. Final amounts and dates are set in each sale agreement.</p></div>' +
+    '<div class="panel"><div class="small">Home loan estimate</div><form class="calc" id="calc" onsubmit="return false">' +
+    fin("lc-price", "Home price (USD)", 'type="number" min="0" step="1000" inputmode="numeric" placeholder="Enter a price"') + fin("lc-down", "Down payment (%)", 'type="number" min="0" max="90" step="1" value="20"') +
+    fin("lc-rate", "Interest rate (% a year)", 'type="number" min="0" max="30" step="0.1" value="8"') + fin("lc-years", "Term (years)", 'type="number" min="1" max="30" step="1" value="20"') +
+    '<div class="out" id="lc-out"><span class="small">Estimated monthly payment</span><b>Enter a price</b></div></form>' +
+    '<p class="note" style="margin:0">An estimate only, not a loan offer. Rates and terms come from the lending bank. Amounts in Djibouti francs use the fixed rate of ' + DJF + ' DJF per US dollar.</p><div class="btns"><a class="btn line" data-go="contact">Ask about home finance</a></div></div></div></div></section>' +
+    '<section class="banner on-dark"><img loading="lazy" src="' + img("solar") + '" alt=""><div class="wrap"><div class="eyebrow" style="justify-content:center">For banks and investors</div><h2 class="h-xl">A community planned to be bankable</h2><p>A single legal developer, a gated master-planned site, a mix of villas, apartments and retail, and solar-powered common areas that keep running costs low.</p></div></section>' +
+    '<section class="sec"><div class="wrap"><div class="head"><div class="l">' + eb("Opportunities") + '<h2 class="h-xl">How institutions can take part</h2></div></div><div class="amen">' +
+    card("Mortgage partnerships", "Offer home loans to CREST CITY buyers, with pre-approved units and a simple referral process from the sales gallery.") +
+    card("Construction finance", "Finance the build of the villas, apartments and commercial street, secured on project milestones.") +
+    card("Escrow and collections", "Hold buyer payments in a dedicated project account and release them against certified construction progress.") +
+    card("Co-investment", "Take part in CREST CITY or in future phases alongside Crest Development Group.") +
+    card("Commercial street", "Lease or invest in retail and service units along the commercial street.") +
+    card("Insurance", "Construction all-risk cover during the build and home insurance for owners.") +
+    card("Payment channels", "Bank transfer and mobile wallet collection for milestone payments and service charges.") +
+    card("Diaspora banking", "Accounts and transfers for Djiboutian buyers living abroad.") + "</div></div></section>" +
+    '<section class="sec paper"><div class="wrap feature"><div class="m"><img loading="lazy" src="' + img("gate") + '" srcset="' + srcset("gate") + '" sizes="(max-width:900px) 100vw, 50vw" alt="CREST CITY entrance"></div><div class="t">' + eb("Project facts") + '<h2 class="h-xl">CREST CITY at a glance</h2>' +
+    '<dl class="specs"><div><dt>Developer</dt><dd>Crest Development Group – CDG SARL</dd></div><div><dt>Incorporated</dt><dd>June 2026, Djibouti</dd></div><div><dt>Active in Djibouti</dt><dd>Since 2024</dd></div><div><dt>Investment framework</dt><dd>Djibouti Investment Code, Regime B</dd></div><div><dt>Banker</dt><dd>CAC International Bank</dd></div><div><dt>Site</dt><dd>23,765 m², gated</dd></div><div><dt>Homes</dt><dd>38 villas · 11 apartments</dd></div><div><dt>Retail</dt><dd>Commercial street</dd></div><div><dt>Energy</dt><dd>Solar common areas</dd></div></dl>' +
+    '<p class="note" style="margin:0">A detailed information pack and data room are available to qualified institutions under a confidentiality agreement.</p></div></div></section>' +
+    '<section class="sec"><div class="wrap contact">' +
+    lead("ffin", "Partnership enquiry", "Talk to us about partnering",
+      fin("fi-org", "Institution", 'autocomplete="organization"') + fin("fi-name", "Your full name", 'autocomplete="name" required') +
+      fin("fi-role", "Position", 'autocomplete="organization-title"') + fin("fi-email", "Email", 'type="email" autocomplete="email"') +
+      fin("fi-phone", "Phone", 'type="tel" autocomplete="tel" placeholder="+253"') +
+      fsel("fi-type", "Type of institution", ["Commercial bank", "Mortgage lender", "Development finance institution", "Investment fund or family office", "Insurance company", "Other"]) +
+      fsel("fi-int", "Main interest", ["Mortgage partnership", "Construction finance", "Escrow and collections", "Co-investment", "Commercial street", "Insurance", "Other"], true) +
+      ftxt("fi-msg", "Message"), "Send enquiry") +
+    '<div class="cinfo"><div><span class="small">Partnerships</span><p>Crest Development Group – CDG SARL<br>Avenue Mahamoud Haid, Plateau du Marabout, Djibouti</p></div><div><span class="small">What happens next</span><p>Our team replies within two working days and arranges a meeting and, where relevant, access to the information pack.</p></div><div><span class="small">Buying a home?</span><div><a class="tlink" data-go="contact">Contact the sales team</a></div></div></div></div></section>';
+
+  function updCalc() {
+    const o = $("#lc-out"); if (!o) return;
+    const price = +$("#lc-price").value, down = Math.min(Math.max(+$("#lc-down").value || 0, 0), 100), rate = Math.max(+$("#lc-rate").value || 0, 0), yrs = Math.max(+$("#lc-years").value || 0, 0);
+    if (!price || !yrs) { o.innerHTML = '<span class="small">Estimated monthly payment</span><b>' + (price ? "Enter a term" : "Enter a price") + "</b>"; return; }
+    const L = price * (1 - down / 100), n = yrs * 12, r = rate / 1200;
+    const M = r ? L * r / (1 - Math.pow(1 + r, -n)) : L / n;
+    const usd = (v) => "$" + Math.round(v).toLocaleString("en-US"), djf = (v) => Math.round(v * DJF).toLocaleString("en-US") + " DJF";
+    o.innerHTML = '<span class="small">Estimated monthly payment</span><b>' + usd(M) + '</b><span class="muted">' + djf(M) + " a month · loan " + usd(L) + " · down payment " + usd(price - L) + "</span>";
+  }
+
   /* ---------- router ---------- */
-  const HERO = { home: 1, community: 1, properties: 1, about: 1, news: 1, contact: 1 };
+  const HERO = { home: 1, community: 1, properties: 1, about: 1, news: 1, contact: 1, owners: 1, brokers: 1, financing: 1 };
   function render() {
     const isUnit = cur.indexOf("unit-") === 0;
     $("#app").innerHTML = isUnit ? P.unit(cur.slice(5).toUpperCase()) : (P[cur] || P.home)();
@@ -820,6 +1000,9 @@ html.p-android header.hdr{padding-top:0}
     if (mf) { mpFilter = mf.dataset.mpf; const y = window.scrollY; render(); window.scrollTo(0, y); onScroll(); return; }
     const lot = t.closest("[data-lot]");
     if (lot) { if ($("#mpside")) selectLot(lot.dataset.lot); else go("unit-" + lot.dataset.lot.toLowerCase()); return; }
+    const ow = t.closest("[data-own]");
+    if (ow) { ownTab = ow.dataset.own; $$("[data-own]").forEach((x) => { const on = x === ow; x.classList.toggle("on", on); x.setAttribute("aria-selected", on); }); $("#ownpanel").innerHTML = ownPanel(); return; }
+    if (t.closest("[data-soon]")) { toast("Sign-in opens with the sales launch"); return; }
     const m = t.closest("[data-more]");
     if (m) { m.classList.toggle("open"); return; }
     const c = t.closest("[data-copy]");
@@ -859,11 +1042,20 @@ html.p-android header.hdr{padding-top:0}
     }
     if (t.id === "cf-unit") contactUnit = t.value;
   });
+  document.addEventListener("input", (e) => { if (e.target.closest && e.target.closest("#calc")) updCalc(); });
   document.addEventListener("submit", (e) => {
     e.preventDefault();
     const f = e.target;
     if (f.id === "hsearch") { F.type = $("#hs-type").value; F.status = $("#hs-status").value; F.size = $("#hs-size").value; F.row = "all"; go("properties"); }
     if (f.id === "fnews") { f.reset(); toast("Thank you. You are on the list for launch news."); }
+    if (f.classList.contains("lead")) {
+      const nm = f.querySelector("input[required]"), ph = f.querySelector('input[type="tel"]'), em = f.querySelector('input[type="email"]');
+      const n = nm.value.trim(), okPhone = ph && ph.value.replace(/\D/g, "").length >= 6, okMail = em && /\S+@\S+\.\S+/.test(em.value);
+      if (!n || (!okPhone && !okMail)) { f.querySelector(".err").hidden = false; (n ? ph : nm).focus(); return; }
+      const org = f.querySelector('input[autocomplete="organization"]'), who = org && org.value.trim() ? " from " + esc(org.value.trim()) : "";
+      const broker = f.id === "fbroker";
+      f.closest(".leadwrap").innerHTML = '<div class="done">' + eb(broker ? "Application received" : "Enquiry received") + '<h2 class="h-l">Thank you, ' + esc(n.split(" ")[0]) + "</h2><p>Your " + (broker ? "broker application" : "partnership enquiry") + who + ' is recorded in this preview.</p><p class="note">On the live site it goes straight to the ' + (broker ? "broker desk" : "partnerships team") + ", and you receive an email confirmation.</p><div><a class=\"tlink\" data-go=\"" + (broker ? "masterplan" : "about") + "\">" + (broker ? "View live availability" : "About The Crest") + "</a></div></div>";
+    }
     if (f.id === "cform") {
       const n = $("#cf-name").value.trim(), p = $("#cf-phone").value.trim();
       if (!n || p.replace(/\D/g, "").length < 6) { $("#cf-err").hidden = false; (n ? $("#cf-phone") : $("#cf-name")).focus(); return; }
