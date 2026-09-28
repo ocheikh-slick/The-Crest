@@ -437,6 +437,11 @@ table.sched tfoot td{border-bottom:0;font-weight:400;color:var(--ink)}
 .calc .out{grid-column:1/-1;border-top:1px solid var(--ink);padding-top:18px;display:grid;gap:10px}
 .calc .out b{font-family:var(--hf);font-weight:400;font-size:clamp(30px,3vw,42px);color:var(--ink);line-height:1.1;font-variant-numeric:tabular-nums}
 @media (max-width:520px){.calc{grid-template-columns:1fr}}
+.chk{display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.6;cursor:pointer}
+.chk input{width:18px;height:18px;margin:4px 0 0;accent-color:var(--navy);flex:0 0 auto}
+.aside .tlink{justify-self:start}
+.mside .tlink{justify-self:start}
+@media print{header.hdr,footer.ftr,.tabbar,.appbar,.phero,.sec:not(:has(#eoiwrap)),.cinfo{display:none!important}body:not([data-hero="1"]) #app,#app{padding-top:0!important}}
 .trio{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2vw,36px)}
 .trio a{display:grid;gap:14px;align-content:start;cursor:pointer}
 .trio .m{aspect-ratio:4/3;overflow:hidden;background:var(--paper)}
@@ -483,6 +488,7 @@ nav.main a,.hdr .cta{white-space:nowrap}
   <a class="dl" data-go="community">Community</a>
   <a class="dl" data-go="properties">Properties</a>
   <a class="dl" data-go="masterplan">Masterplan</a>
+  <a class="dl" data-go="eoi">Expression of interest</a>
   <a class="dl" data-go="owners">Owners portal</a>
   <a class="dl" data-go="brokers">Brokers</a>
   <a class="dl" data-go="financing">Financing</a>
@@ -504,7 +510,7 @@ nav.main a,.hdr .cta{white-space:nowrap}
     </div>
     <div><h4>The Crest</h4><ul><li><a data-go="about">About us</a></li><li><a data-go="news">News</a></li><li><a data-go="contact">Contact</a></li><li><a data-go="wishlist">Saved properties</a></li><li class="pwa-only"><a data-install>Get the app</a></li></ul></div>
     <div><h4>Partners</h4><ul><li><a data-go="owners">Owners portal</a></li><li><a data-go="brokers">Brokers</a></li><li><a data-go="financing">Financing</a></li><li><a data-go="financing">Banks and investors</a></li></ul></div>
-    <div><h4>CREST CITY</h4><ul><li><a data-go="properties" data-type="villa">Signature Villas</a></li><li><a data-go="properties" data-type="apartment">Apartments</a></li><li><a data-go="community">Community</a></li><li><a data-go="masterplan">Masterplan</a></li></ul></div>
+    <div><h4>CREST CITY</h4><ul><li><a data-go="properties" data-type="villa">Signature Villas</a></li><li><a data-go="properties" data-type="apartment">Apartments</a></li><li><a data-go="community">Community</a></li><li><a data-go="masterplan">Masterplan</a></li><li><a data-go="eoi">Expression of interest</a></li></ul></div>
     <div><h4>Sales gallery</h4><ul><li>Avenue Mahamoud Haid<br>Plateau du Marabout, Djibouti</li><li>Saturday to Thursday<br>8:00–17:00</li></ul></div>
   </div>
   <div class="wrap bot"><span>© 2026 Crest Development Group – CDG SARL</span><span>Preview: availability, news and contact numbers are placeholders</span></div>
@@ -622,7 +628,7 @@ nav.main a,.hdr .cta{white-space:nowrap}
     '<div class="track" id="' + id + '">' + items + "</div>" + (extra || "") + "</div></section>";
   const phero = (im, crumb, h) => '<section class="phero"><img src="' + img(im) + '" srcset="' + srcset(im) + '" sizes="100vw" alt=""><div class="wrap"><div class="crumb">' + crumb + "</div><h1>" + h + "</h1></div></section>";
   const trio = (im, h, p, to, link) => '<a data-go="' + to + '"><div class="m"><img loading="lazy" src="' + img(im) + '" srcset="' + srcset(im) + '" sizes="(max-width:860px) 100vw, 33vw" alt=""></div><h3>' + h + "</h3><p>" + p + '</p><span class="tlink">' + link + "</span></a>";
-  const reg = () => '<section class="sec paper"><div class="wrap"><div class="reg">' + eb("Register") + '<h2 class="h-xl">Register your interest</h2><p>Be the first to hear about new releases, payment plans and site visits.</p><a class="btn mt-s" data-go="contact">Get in touch</a></div></div></section>';
+  const reg = () => '<section class="sec paper"><div class="wrap"><div class="reg">' + eb("Register") + '<h2 class="h-xl">Register your interest</h2><p>Be the first to hear about new releases, payment plans and site visits, or submit a non-binding Expression of Interest (EOI) to join the priority list before launch.</p><div class="btns mt-s" style="justify-content:center"><a class="btn" data-eoi>Submit an EOI</a><a class="btn line" data-go="contact">Get in touch</a></div></div></div></section>';
 
   function mapSVG(o) {
     o = o || {};
@@ -733,7 +739,7 @@ nav.main a,.hdr .cta{white-space:nowrap}
       '<aside class="aside">' + st(u.status) + "<h1>" + esc(u.name) + '</h1><div class="cap">' + (v ? "Signature Villa · Layout options 1–4" : "Apartment · Type " + u.apType) + "</div>" + dl(facts) +
       '<div class="price"><span class="small">Price</span><b>On request</b></div>' +
       (u.status === "sold" ? '<p class="muted">This home is sold. Similar homes are listed below.</p><a class="btn full" data-go="properties" data-type="' + u.type + '">See available homes</a>'
-        : '<a class="btn full" data-book="' + u.id + '">Book a visit</a><a class="btn line full" data-book="' + u.id + '">WhatsApp sales</a>') +
+        : '<a class="btn full" data-book="' + u.id + '">Book a visit</a><a class="btn line full" data-eoi="' + u.id + '">Submit an EOI</a><a class="tlink" data-book="' + u.id + '">WhatsApp sales</a>') +
       '<div class="btns" style="gap:28px"><button class="tlink" data-heart="' + u.id + '">' + (wish.has(u.id) ? "Saved to shortlist" : "Save to shortlist") + '</button><button class="tlink" data-share="' + u.id + '">Share</button></div></aside></div></div>' +
       (sim.length ? carousel("c-sim", "Similar homes", "You may also like", sim.map(ucard).join("")) : "") + reg();
   };
@@ -753,7 +759,7 @@ nav.main a,.hdr .cta{white-space:nowrap}
   function mpSide(id) {
     const u = byId(id);
     return '<div class="m"><img loading="lazy" src="' + img(u.imgs[0]) + '" srcset="' + srcset(u.imgs[0]) + '" sizes="(max-width:600px) 100vw, (max-width:1000px) 50vw, 380px" alt=""></div>' + st(u.status) + "<h3>Villa " + u.code + '</h3><dl class="specs"><div><dt>Bedrooms</dt><dd>5</dd></div><div><dt>Built area</dt><dd>291.2 m²</dd></div><div><dt>Plot</dt><dd>295.2 m²</dd></div><div><dt>Location</dt><dd>' + u.rowLabel + "</dd></div></dl>" +
-      '<a class="btn full" data-unit="' + u.id + '">View villa</a>' + (u.status !== "sold" ? '<a class="btn line full" data-book="' + u.id + '">Book a visit</a>' : "");
+      '<a class="btn full" data-unit="' + u.id + '">View villa</a>' + (u.status !== "sold" ? '<a class="btn line full" data-book="' + u.id + '">Book a visit</a>' + (u.status === "available" ? '<a class="tlink" data-eoi="' + u.id + '">Submit an EOI</a>' : "") : "");
   }
 
   P.about = () => phero("entrance_villa", "About us", "Crest Development Group") +
@@ -794,6 +800,7 @@ nav.main a,.hdr .cta{white-space:nowrap}
   // Illustrative milestone plan; final terms are set in each sale agreement.
   const PLAN = [["Reservation deposit", "On reservation", 10], ["Sale agreement", "On signing", 10], ["Foundations complete", "Construction milestone", 20], ["Structure complete", "Construction milestone", 20], ["Finishes complete", "Construction milestone", 20], ["Handover", "On receiving the keys", 20]];
   const STAGES = [["Site preparation", "done"], ["Foundations", "done"], ["Structure", "done"], ["Brickwork", "active", "70%"], ["Electrical and plumbing", "next"], ["Finishes", "next"], ["Handover", "next"]];
+  const BANKS = [["Salaam African Bank", "Islamic banking."], ["CAC International Bank", "Banker to Crest Development Group."], ["Saba African Bank", "Islamic banking."], ["BCIMR", "Banque pour le Commerce et l'Industrie – Mer Rouge."], ["Bank of Africa Mer Rouge", "BOA Mer Rouge, part of the Bank of Africa group."], ["Exim Bank Djibouti", "EXIM, commercial banking."], ["East Africa Bank", "EAB, commercial banking."]];
   const DJF = 177.721; // Djibouti franc, fixed peg to the US dollar
   let ownTab = "prospect";
   const card = (h, p, link) => "<div><h3>" + h + "</h3><p>" + p + "</p>" + (link || "") + "</div>";
@@ -830,14 +837,16 @@ nav.main a,.hdr .cta{white-space:nowrap}
         card("Security", "Reach the security desk instantly, day and night.") + "</div>" +
         '<div class="btns mt-m"><button class="btn" data-soon>Resident sign-in</button><a class="tlink" data-go="community">See the amenities</a></div>';
     }
-    return '<div class="amen">' +
+    return '<div class="portal" style="margin-bottom:clamp(40px,4vw,64px)"><div class="panel dark"><div class="small">Before launch</div><h3>Expression of Interest (EOI)</h3><p style="color:rgba(255,255,255,.9)">' + EOI_TXT + ' It puts you on the priority list for your preferred home.</p><div class="btns"><a class="btn white" data-eoi>Submit an EOI</a></div></div>' +
+      '<div class="panel"><div class="small">How it works</div><ul class="stages"><li class="done"><span>Submit your EOI online</span><em>2 minutes</em></li><li class="done"><span>Receive your EOI reference</span><em>Instantly</em></li><li><span>Priority invitation from sales</span><em>Before launch</em></li><li><span>Reserve and sign</span><em>At launch</em></li></ul><p class="muted" style="font-size:16px">Non-binding: no commitment to buy, and no specific home is reserved until you sign at launch.</p><a class="tlink" data-go="eoi">Learn more about EOIs</a></div></div>' +
+      '<div class="amen">' +
       card("Browse every home", "Filter villas and apartments by availability, size and location.", '<a class="tlink" data-go="properties">View homes</a>') +
       card("Live masterplan", "See which villas are available, reserved or sold before you visit.", '<a class="tlink" data-go="masterplan">Open the masterplan</a>') +
       card("Save a shortlist", "Tap the heart on any home and compare your favourites later.", '<a class="tlink" data-go="wishlist">Saved properties</a>') +
       card("Book a visit", "Choose a home and a date, and the sales team confirms by WhatsApp.", '<a class="tlink" data-go="contact">Book a visit</a>') +
       card("Watch the film", "Walk through the community from the comfort of your home.", '<a class="tlink" data-film>Play the film</a>') +
       card("Plan your finance", "See the payment plan and estimate a monthly payment.", '<a class="tlink" data-go="financing">Payment plan</a>') +
-      card("Share a home", "Send any villa or apartment to family by WhatsApp or email.", '<a class="tlink" data-go="properties">Find a home</a>') +
+      card("Submit an EOI", "Register a non-binding expression of interest and join the priority list.", '<a class="tlink" data-eoi>Submit an EOI</a>') +
       card("Install the app", "Keep CREST CITY one tap away on your phone.", '<a class="tlink" data-install>Get the app</a>') + "</div>";
   }
   P.owners = () => {
@@ -891,8 +900,10 @@ nav.main a,.hdr .cta{white-space:nowrap}
     card("Payment channels", "Bank transfer and mobile wallet collection for milestone payments and service charges.") +
     card("Diaspora banking", "Accounts and transfers for Djiboutian buyers living abroad.") + "</div></div></section>" +
     '<section class="sec paper"><div class="wrap feature"><div class="m"><img loading="lazy" src="' + img("gate") + '" srcset="' + srcset("gate") + '" sizes="(max-width:900px) 100vw, 50vw" alt="CREST CITY entrance"></div><div class="t">' + eb("Project facts") + '<h2 class="h-xl">CREST CITY at a glance</h2>' +
-    '<dl class="specs"><div><dt>Developer</dt><dd>Crest Development Group – CDG SARL</dd></div><div><dt>Incorporated</dt><dd>June 2026, Djibouti</dd></div><div><dt>Active in Djibouti</dt><dd>Since 2024</dd></div><div><dt>Investment framework</dt><dd>Djibouti Investment Code, Regime B</dd></div><div><dt>Banker</dt><dd>CAC International Bank</dd></div><div><dt>Site</dt><dd>23,765 m², gated</dd></div><div><dt>Homes</dt><dd>38 villas · 11 apartments</dd></div><div><dt>Retail</dt><dd>Commercial street</dd></div><div><dt>Energy</dt><dd>Solar common areas</dd></div></dl>' +
+    '<dl class="specs"><div><dt>Developer</dt><dd>Crest Development Group – CDG SARL</dd></div><div><dt>Incorporated</dt><dd>June 2026, Djibouti</dd></div><div><dt>Active in Djibouti</dt><dd>Since 2024</dd></div><div><dt>Banker</dt><dd>CAC International Bank</dd></div><div><dt>Site</dt><dd>23,765 m², gated</dd></div><div><dt>Homes</dt><dd>38 villas · 11 apartments</dd></div><div><dt>Retail</dt><dd>Commercial street</dd></div><div><dt>Energy</dt><dd>Solar common areas</dd></div></dl>' +
     '<p class="note" style="margin:0">A detailed information pack and data room are available to qualified institutions under a confidentiality agreement.</p></div></div></section>' +
+    '<section class="sec"><div class="wrap"><div class="head"><div class="l">' + eb("Banks in Djibouti") + '<h2 class="h-xl">Banks on the market</h2><p class="sub">Home finance and partnership discussions are open to the banks active in Djibouti.</p></div></div><div class="amen">' +
+    BANKS.map((b) => card(b[0], b[1])).join("") + '</div><p class="note">Listed for buyers\' reference. Partner banks for CREST CITY home finance are announced as agreements are signed.</p></div></section>' +
     '<section class="sec"><div class="wrap contact">' +
     lead("ffin", "Partnership enquiry", "Talk to us about partnering",
       fin("fi-org", "Institution", 'autocomplete="organization"') + fin("fi-name", "Your full name", 'autocomplete="name" required') +
@@ -902,6 +913,45 @@ nav.main a,.hdr .cta{white-space:nowrap}
       fsel("fi-int", "Main interest", ["Mortgage partnership", "Construction finance", "Escrow and collections", "Co-investment", "Commercial street", "Insurance", "Other"], true) +
       ftxt("fi-msg", "Message"), "Send enquiry") +
     '<div class="cinfo"><div><span class="small">Partnerships</span><p>Crest Development Group – CDG SARL<br>Avenue Mahamoud Haid, Plateau du Marabout, Djibouti</p></div><div><span class="small">What happens next</span><p>Our team replies within two working days and arranges a meeting and, where relevant, access to the information pack.</p></div><div><span class="small">Buying a home?</span><div><a class="tlink" data-go="contact">Contact the sales team</a></div></div></div></div></section>';
+
+  let eoiUnit = "";
+  const EOI_TXT = "An Expression of Interest (EOI) is a preliminary, non-binding document you submit to signal serious intent to buy a home at CREST CITY before its official launch.";
+  P.eoi = () => {
+    const uopts = '<option value="">No preference yet</option>' + UNITS.filter((u) => u.status === "available").map((u) => opt(u.id, u.name + " · " + u.built + " m²", eoiUnit)).join("");
+    const pre = byId(eoiUnit), ptype = pre ? (pre.type === "villa" ? "A Signature Villa" : "An apartment") : "";
+    const sel = (id, lbl, opts, cv) => '<div class="fld"><label for="' + id + '">' + lbl + '</label><select id="' + id + '">' + opts.map((o) => "<option" + (o === cv ? " selected" : "") + ">" + o + "</option>").join("") + "</select></div>";
+    return phero("villa_front", "Expression of interest", "Register your intent before launch") +
+      '<section class="sec intro"><div class="wrap"><h2 class="h-xl">What is an EOI?</h2><div class="body"><p>' + EOI_TXT + ' It places you on the priority list, so the sales team contacts you first when prices, payment plans and reservations open.</p><p>Submitting an EOI does not commit you to buy, and it does not reserve a specific home. It tells us which home you would like and how you plan to pay, so we can prepare your offer.</p></div>' +
+      '<div class="miles mt-m"><div><small>Step 1</small><b>Submit your EOI</b><p>Choose the homes you like and how you plan to pay.</p></div><div><small>Step 2</small><b>Get your reference</b><p>You receive an EOI reference straight away.</p></div><div><small>Step 3</small><b>Priority invitation</b><p>We contact you before the public launch.</p></div><div><small>Step 4</small><b>Reserve at launch</b><p>Confirm your home and sign the reservation.</p></div></div></div></section>' +
+      '<section class="sec paper"><div class="wrap"><div class="head"><div class="l">' + eb("Why submit an EOI") + '<h2 class="h-xl">Be first in line</h2></div></div><div class="amen">' +
+      card("Priority access", "EOI holders are invited to reserve before the public launch.") + card("First choice of homes", "Your preferred villa or apartment is noted against your name.") +
+      card("Launch information first", "Prices, payment plans and launch offers reach you before anyone else.") + card("No obligation", "The EOI is non-binding. You decide at launch whether to go ahead.") + "</div></div></section>" +
+      '<section class="sec"><div class="wrap contact"><div class="leadwrap" id="eoiwrap">' + eb("EOI form") + '<h2 class="h-xl">Submit your expression of interest</h2><form class="form mt-s" id="feoi" novalidate>' +
+      fin("eo-name", "Full name", 'autocomplete="name" required') + fin("eo-phone", "Phone / WhatsApp", 'type="tel" autocomplete="tel" placeholder="+253"') +
+      fin("eo-email", "Email", 'type="email" autocomplete="email"') + fin("eo-country", "Country of residence", 'autocomplete="country-name"') +
+      sel("eo-type", "Property type", ["A Signature Villa", "An apartment", "A commercial unit"], ptype) +
+      '<div class="fld"><label for="eo-unit">Preferred home</label><select id="eo-unit">' + uopts + "</select></div>" +
+      sel("eo-pay", "How you plan to pay", ["Milestone payment plan", "Bank home finance", "Cash", "Not decided yet"]) +
+      sel("eo-when", "When you plan to buy", ["At launch", "Within 6 months", "Within a year", "Later"]) +
+      sel("eo-qty", "Number of homes", ["1", "2", "3 or more"]) + fin("eo-broker", "Broker (if any)", 'placeholder="Agency or broker name"') +
+      ftxt("eo-msg", "Anything else we should know") +
+      '<label class="full chk"><input type="checkbox" id="eo-ack"> <span>I understand this Expression of Interest is non-binding, does not reserve a specific home and does not commit me to buy.</span></label>' +
+      '<p class="full err" id="eo-err" hidden></p><div class="full"><button class="btn" type="submit">Submit EOI</button></div></form></div>' +
+      '<div class="cinfo"><div><span class="small">Non-binding</span><p>An EOI is a statement of intent, not a contract. The sale agreement is signed only at reservation.</p></div><div><span class="small">What happens next</span><p>You receive an EOI reference now, and the sales team contacts you before the public launch.</p></div><div><span class="small">Working with a broker?</span><p>Add their name so your broker stays credited for the sale.</p></div><div><span class="small">Questions</span><div><a class="tlink" data-go="contact">Contact the sales team</a></div></div></div></div></section>';
+  };
+  function submitEoi() {
+    const n = $("#eo-name").value.trim(), ph = $("#eo-phone").value.replace(/\D/g, "").length >= 6, em = /\S+@\S+\.\S+/.test($("#eo-email").value), ack = $("#eo-ack").checked, er = $("#eo-err");
+    const msg = !n || (!ph && !em) ? "Please enter your name and a phone number or email so we can reach you." : !ack ? "Please tick the box to confirm you understand the EOI is non-binding." : "";
+    if (msg) { er.textContent = msg; er.hidden = false; (!n ? $("#eo-name") : !ph && !em ? $("#eo-phone") : $("#eo-ack")).focus(); return; }
+    const d = new Date(), ref = "EOI-" + String(d.getFullYear()).slice(2) + pad(d.getMonth() + 1) + "-" + String(Math.floor(1000 + Math.random() * 9000));
+    const u = byId($("#eo-unit").value), v = (id) => esc($(id).value);
+    const rows = [["Reference", ref], ["Name", esc(n)], ["Property type", v("#eo-type")], ["Preferred home", u ? esc(u.name) : "No preference yet"], ["Payment", v("#eo-pay")], ["Timing", v("#eo-when")], ["Homes", v("#eo-qty")]];
+    if ($("#eo-broker").value.trim()) rows.push(["Broker", v("#eo-broker")]);
+    $("#eoiwrap").innerHTML = '<div class="done">' + eb("EOI received") + '<h2 class="h-l">Thank you, ' + esc(n.split(" ")[0]) + '</h2><p>Your expression of interest is recorded. Keep your reference for when the sales team contacts you before launch.</p><dl class="specs">' + rows.map((r) => "<div><dt>" + r[0] + "</dt><dd>" + r[1] + "</dd></div>").join("") + "</dl>" +
+      '<p class="note">Preview: on the live site your EOI goes straight to the sales team and you receive the reference by WhatsApp and email.</p><div class="btns"><button class="btn line" data-print>Print or save</button><a class="tlink" data-go="properties">Keep browsing</a></div></div>';
+    eoiUnit = "";
+    window.scrollTo({ top: $("#eoiwrap").getBoundingClientRect().top + window.scrollY - 100, behavior: reduce ? "auto" : "smooth" });
+  }
 
   function updCalc() {
     const o = $("#lc-out"); if (!o) return;
@@ -914,7 +964,7 @@ nav.main a,.hdr .cta{white-space:nowrap}
   }
 
   /* ---------- router ---------- */
-  const HERO = { home: 1, community: 1, properties: 1, about: 1, news: 1, contact: 1, owners: 1, brokers: 1, financing: 1 };
+  const HERO = { home: 1, community: 1, properties: 1, about: 1, news: 1, contact: 1, owners: 1, brokers: 1, financing: 1, eoi: 1 };
   function render() {
     const isUnit = cur.indexOf("unit-") === 0;
     $("#app").innerHTML = isUnit ? P.unit(cur.slice(5).toUpperCase()) : (P[cur] || P.home)();
@@ -986,6 +1036,9 @@ nav.main a,.hdr .cta{white-space:nowrap}
     if (t.closest("#slp")) { paused = !paused; syncPause(); return; }
     const sd = t.closest("[data-sdir]"); if (sd) { showSlide(sIdx + (+sd.dataset.sdir)); return; }
     const sb = t.closest("[data-sl]"); if (sb) { showSlide(+sb.dataset.sl); return; }
+    const eo = t.closest("[data-eoi]");
+    if (eo) { e.preventDefault(); eoiUnit = eo.dataset.eoi || ""; go("eoi"); return; }
+    if (t.closest("[data-print]")) { window.print(); return; }
     const b = t.closest("[data-book]");
     if (b) { e.preventDefault(); contactUnit = b.dataset.book; go("contact"); return; }
     const u = t.closest("[data-unit]");
@@ -1048,6 +1101,7 @@ nav.main a,.hdr .cta{white-space:nowrap}
     const f = e.target;
     if (f.id === "hsearch") { F.type = $("#hs-type").value; F.status = $("#hs-status").value; F.size = $("#hs-size").value; F.row = "all"; go("properties"); }
     if (f.id === "fnews") { f.reset(); toast("Thank you. You are on the list for launch news."); }
+    if (f.id === "feoi") { submitEoi(); return; }
     if (f.classList.contains("lead")) {
       const nm = f.querySelector("input[required]"), ph = f.querySelector('input[type="tel"]'), em = f.querySelector('input[type="email"]');
       const n = nm.value.trim(), okPhone = ph && ph.value.replace(/\D/g, "").length >= 6, okMail = em && /\S+@\S+\.\S+/.test(em.value);
