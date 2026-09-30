@@ -77,7 +77,7 @@ header.hdr .in{display:flex;align-items:stretch;height:var(--hdr);max-width:none
 .logo img{height:40px;width:auto}
 .logo .lw{display:none}
 nav.main{display:flex;align-items:center;gap:clamp(18px,2.2vw,40px);margin-left:auto;margin-right:clamp(18px,2.4vw,44px)}
-nav.main a{font-weight:400;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);position:relative;padding:6px 0;cursor:pointer}
+nav.main a{font-weight:400;font-size:14px;letter-spacing:.14em;white-space:nowrap;text-transform:uppercase;color:var(--ink);position:relative;padding:6px 0;cursor:pointer}
 nav.main a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:currentColor;transition:right .3s}
 nav.main a:hover::after,nav.main a.on::after{right:0}
 .tools{display:flex;align-items:center;gap:clamp(14px,1.6vw,26px)}
@@ -94,7 +94,7 @@ body[data-hero="1"] header.hdr:not(.solid) .logo .lc{display:none}
 body[data-hero="1"] header.hdr:not(.solid) .logo .lw{display:block}
 body[data-hero="1"] header.hdr:not(.solid)::before{content:"";position:absolute;inset:0 0 -40px;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,0));pointer-events:none;z-index:-1}
 body:not([data-hero="1"]) #app{padding-top:calc(var(--hdr) + env(safe-area-inset-top,0px))}
-@media (max-width:1180px){nav.main{display:none}.burger{display:grid}.tools{margin-left:auto}.tools .lang,.tools .film-ic{display:none}.hdr .cta{display:none}}
+@media (max-width:1240px){nav.main{display:none}.burger{display:grid}.tools{margin-left:auto}.tools .lang,.tools .film-ic{display:none}.hdr .cta{display:none}}
 @media (max-width:600px){:root{--hdr:62px}.logo img{height:32px}.tools .wa-ic{display:none}}
 .drawer{position:fixed;inset:0;z-index:60;background:var(--bg);padding:calc(env(safe-area-inset-top,0px) + 18px) var(--gut) 40px;overflow:auto}
 .drawer .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
@@ -453,6 +453,114 @@ table.sched tfoot td{border-bottom:0;font-weight:400;color:var(--ink)}
 nav.main a,.hdr .cta{white-space:nowrap}
 @media (max-width:1720px) and (min-width:1181px){nav.main{gap:clamp(14px,1.4vw,24px);margin-right:clamp(14px,1.4vw,24px)}nav.main a{font-size:13px;letter-spacing:.1em}.tools .lang,.tools .film-ic{display:none}.hdr .cta{padding:0 20px;font-size:13px;letter-spacing:.12em}}
 @media (max-width:1320px) and (min-width:1181px){.tools .wa-ic{display:none}nav.main a{letter-spacing:.06em}}
+
+/* ===== additions: before/after, gallery, abroad, trust, calculators ===== */
+.ba{position:relative;aspect-ratio:16/9;overflow:hidden;background:#111;--p:50;touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:ew-resize}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba .aft{clip-path:inset(0 0 0 calc(var(--p) * 1%))}
+.ba .lab{position:absolute;top:18px;z-index:3;background:rgba(255,255,255,.94);color:var(--ink);font-weight:400;font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:7px 12px;pointer-events:none}
+.ba .lab.l{left:18px}.ba .lab.r{right:18px}
+.ba .ba-h{position:absolute;top:0;bottom:0;left:calc(var(--p) * 1%);width:44px;margin-left:-22px;z-index:4;background:none;border:0;padding:0;cursor:ew-resize;display:grid;place-items:center}
+.ba .ba-h::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:2px;margin-left:-1px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+.ba .ba-h span{position:relative;width:44px;height:44px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;box-shadow:0 2px 14px rgba(0,0,0,.35)}
+.ba .ba-h svg{width:22px;height:22px}
+.ba .ba-h:focus-visible{outline:2px solid #fff;outline-offset:-6px}
+.ba-cap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:12px;font-size:14px;line-height:1.6;color:var(--muted)}
+
+.gtabs{margin-bottom:32px}
+.ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 28px}
+@media (max-width:1000px){.ggrid{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.ggrid{grid-template-columns:1fr;gap:32px}}
+.gtile{display:grid;gap:14px;align-content:start}
+.gtile .m{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--paper)}
+.gtile .m img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.gtile[data-lb] .m{cursor:zoom-in}
+.gtile[data-lb]:hover .m img{transform:scale(1.04)}
+.gtile h3{font-size:22px;text-transform:uppercase;line-height:1.3}
+.gtile .tag{font-weight:400;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.gtile.gph .m{background:linear-gradient(135deg,#EFEDE8 0%,#DDD9CF 100%);display:grid;place-items:center;color:#8A857A;border:1px solid var(--line2)}
+.gtile.gph .m svg{width:46%;max-width:180px;height:auto;opacity:.75}
+.gtile.gph .m .pl{position:absolute;left:14px;bottom:12px;font-weight:400;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;background:rgba(255,255,255,.9);color:var(--ink);padding:6px 10px}
+.lb{position:fixed;inset:0;z-index:95;background:rgba(0,0,0,.93);display:grid;place-items:center;padding:calc(env(safe-area-inset-top,0px) + 56px) var(--gut) 40px;cursor:zoom-out}
+.lb figure{margin:0;display:grid;gap:14px;justify-items:center;max-width:min(1280px,100%)}
+.lb img{max-height:76vh;width:auto;max-width:100%;object-fit:contain}
+.lb figcaption{color:#fff;font-size:14px;letter-spacing:.14em;text-transform:uppercase;text-align:center}
+.lb .x{position:absolute;top:calc(env(safe-area-inset-top,0px) + 14px);right:var(--gut);background:none;border:0;color:#fff;cursor:pointer;font-weight:400;font-size:13px;letter-spacing:.18em;text-transform:uppercase}
+
+.vid-ph{position:relative;aspect-ratio:16/9;overflow:hidden;background:#111;color:#fff;display:grid;place-items:center;text-align:center}
+.vid-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.vid-ph div{position:relative;display:grid;gap:10px;justify-items:center;padding:24px}
+.vid-ph .vplay{width:68px;height:68px;border-radius:50%;border:1px solid rgba(255,255,255,.85);display:grid;place-items:center}
+.vid-ph .vplay svg{width:26px;height:26px;margin-left:3px}
+.vid-ph video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+.tl{display:grid;gap:0;margin:0;padding:0;list-style:none}
+.tl>li{display:grid;grid-template-columns:200px minmax(0,1fr);gap:18px 36px;border-top:1px solid var(--line);padding:26px 0 30px}
+@media (max-width:760px){.tl>li{grid-template-columns:1fr}}
+.tl h3{font-size:22px;text-transform:uppercase;line-height:1.3}
+.tl .hd{display:grid;gap:8px;align-content:start}
+.tl .slots{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media (max-width:520px){.tl .slots{grid-template-columns:1fr 1fr}}
+.tl .slot{aspect-ratio:4/3;border:1px dashed #BDB8AC;background:repeating-linear-gradient(135deg,#F7F6F2 0 10px,#F0EEE8 10px 20px);display:grid;place-items:center;text-align:center;font-weight:400;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#8A857A;padding:8px;overflow:hidden}
+.tl .slot img{width:100%;height:100%;object-fit:cover}
+.pchip{display:inline-block;width:fit-content;font-weight:400;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;padding:5px 10px;border:1px solid var(--line);color:var(--muted)}
+.pchip.ready,.pchip.done{border-color:var(--st-av);color:var(--st-av)}
+.pchip.active{border-color:var(--st-re);color:var(--st-re)}
+
+.slotbar{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+@media (max-width:640px){.slotbar{grid-template-columns:1fr 1fr}}
+.slotbar button{display:grid;gap:2px;text-align:left;padding:14px 16px;background:var(--bg);border:1px solid var(--line);cursor:pointer;transition:border-color .2s,background .2s}
+.slotbar button:hover{border-color:var(--ink)}
+.slotbar button[disabled]{opacity:.4;cursor:not-allowed}
+.slotbar b{font-family:var(--hf);font-weight:400;font-size:20px;color:var(--ink)}
+.slotbar span{font-size:13px;letter-spacing:.06em;color:var(--muted)}
+.tourbox{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:start}
+@media (max-width:900px){.tourbox{grid-template-columns:minmax(0,1fr)}}
+
+.faq{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line);padding:0}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;align-items:center;padding:22px 0;font-family:var(--hf);font-size:22px;text-transform:uppercase;line-height:1.3;color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--bf);font-weight:300;font-size:28px;line-height:1}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{padding:0 0 26px;max-width:72ch;font-size:17px;line-height:1.7}
+
+.icalc{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:start}
+@media (max-width:980px){.icalc{grid-template-columns:minmax(0,1fr)}}
+.icalc .form{grid-template-columns:1fr 1fr}
+.icalc .res{border:1px solid var(--line);background:var(--bg);padding:28px;display:grid;gap:20px}
+.icalc .res .big{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.icalc .res .big div{display:grid;gap:4px}
+.icalc .res b{font-family:var(--hf);font-weight:400;font-size:clamp(26px,2.6vw,36px);color:var(--ink);line-height:1.2;font-variant-numeric:tabular-nums}
+.icalc table{width:100%;border-collapse:collapse;font-size:15px}
+.icalc th,.icalc td{text-align:left;padding:9px 0;border-top:1px solid var(--line2);font-variant-numeric:tabular-nums}
+.icalc th{font-weight:400;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.icalc td:last-child,.icalc th:last-child{text-align:right}
+
+.tick{display:grid;gap:0;margin:0;padding:0;list-style:none}
+.tick li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 24px;align-items:start;border-top:1px solid var(--line);padding:18px 0}
+.tick li b{font-family:var(--hf);font-weight:400;font-size:20px;text-transform:uppercase;color:var(--ink);line-height:1.3}
+.tick li p{grid-column:1;font-size:16px;line-height:1.6}
+.asks{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(20px,3vw,48px)}
+@media (max-width:760px){.asks{grid-template-columns:1fr}}
+.asks div{border-top:1px solid var(--line);padding:20px 0 26px;display:grid;gap:8px;align-content:start;grid-template-columns:40px minmax(0,1fr)}
+.asks em{font-style:normal;font-family:var(--hf);font-size:26px;color:var(--muted);line-height:1.2}
+.asks p{font-size:17px;line-height:1.6;color:var(--ink)}
+
+.mpzoom{display:flex;gap:8px;margin-bottom:12px;align-items:center}
+.mpzoom button{width:44px;height:44px;border:1px solid var(--ink);background:var(--bg);cursor:pointer;font-size:22px;line-height:1;color:var(--ink)}
+.mpzoom button:hover{background:var(--ink);color:#fff}
+.mpzoom span{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-left:8px}
+.mp .zone.z{cursor:pointer}
+.mp .zn:hover rect,.mp .zn.sel rect{fill:#13294B}
+.mp .zn:hover text,.mp .zn.sel text{fill:#fff}
+.mp-scroll{overflow:auto}
+.zchips{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.zchips button,.zchips span{border:1px solid var(--line);background:var(--bg);padding:8px 14px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);font-weight:400}
+.zchips button{cursor:pointer}
+.zchips button:hover,.zchips button.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.zchips span{color:var(--muted);border-style:dashed}
+.ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
 </style>
 </head>
 <body>
@@ -466,8 +574,8 @@ nav.main a,.hdr .cta{white-space:nowrap}
       <a data-go="community" data-i18n="common.community">Community</a>
       <a data-go="properties" data-i18n="common.properties">Properties</a>
       <a data-go="masterplan" data-i18n="common.masterplan">Masterplan</a>
+      <a data-go="abroad" data-i18n="x.nav_abroad">Buy from abroad</a>
       <a data-go="owners" data-i18n="shell.owners">Owners</a>
-      <a data-go="brokers" data-i18n="common.brokers">Brokers</a>
       <a data-go="financing" data-i18n="common.financing">Financing</a>
     </nav>
     <div class="tools">
@@ -488,6 +596,10 @@ nav.main a,.hdr .cta{white-space:nowrap}
   <a class="dl" data-go="community" data-i18n="common.community">Community</a>
   <a class="dl" data-go="properties" data-i18n="common.properties">Properties</a>
   <a class="dl" data-go="masterplan" data-i18n="common.masterplan">Masterplan</a>
+  <a class="dl" data-go="abroad" data-i18n="x.nav_abroad">Buy from abroad</a>
+  <a class="dl" data-go="gallery" data-i18n="x.gallery">Gallery</a>
+  <a class="dl" data-go="progress" data-i18n="x.progress">Site and progress</a>
+  <a class="dl" data-go="trust" data-i18n="x.trust">Trust center</a>
   <a class="dl" data-go="eoi" data-i18n="eoi.expression_of_interest">Expression of interest</a>
   <a class="dl" data-go="owners" data-i18n="common.owners_portal">Owners portal</a>
   <a class="dl" data-go="brokers" data-i18n="common.brokers">Brokers</a>
@@ -508,9 +620,9 @@ nav.main a,.hdr .cta{white-space:nowrap}
       <p class="mt-s" style="max-width:36ch" data-i18n="shell.footer_about">A gated community of Signature Villas, apartments and a commercial street, developed by Crest Development Group in Djibouti.</p>
       <form class="news" id="fnews"><input id="fnews-email" type="email" placeholder="Email for launch news" data-i18n-ph="shell.email_for_launch_news" aria-label="Email for launch news" data-i18n-aria="shell.email_for_launch_news" required><button data-i18n="shell.subscribe">Subscribe</button></form>
     </div>
-    <div><h4 data-i18n="shell.the_crest">The Crest</h4><ul><li><a data-go="about" data-i18n="about.about_us">About us</a></li><li><a data-go="news" data-i18n="common.news">News</a></li><li><a data-go="contact" data-i18n="contact.contact">Contact</a></li><li><a data-go="wishlist" data-i18n="common.saved_properties">Saved properties</a></li><li class="pwa-only"><a data-install data-i18n="owners.get_the_app">Get the app</a></li></ul></div>
+    <div><h4 data-i18n="shell.the_crest">The Crest</h4><ul><li><a data-go="about" data-i18n="about.about_us">About us</a></li><li><a data-go="news" data-i18n="common.news">News</a></li><li><a data-go="trust" data-i18n="x.trust">Trust center</a></li><li><a data-go="contact" data-i18n="contact.contact">Contact</a></li><li><a data-go="wishlist" data-i18n="common.saved_properties">Saved properties</a></li><li class="pwa-only"><a data-install data-i18n="owners.get_the_app">Get the app</a></li></ul></div>
     <div><h4 data-i18n="shell.partners">Partners</h4><ul><li><a data-go="owners" data-i18n="common.owners_portal">Owners portal</a></li><li><a data-go="brokers" data-i18n="common.brokers">Brokers</a></li><li><a data-go="financing" data-i18n="common.financing">Financing</a></li><li><a data-go="financing" data-i18n="shell.banks_and_investors">Banks and investors</a></li></ul></div>
-    <div><h4>CREST CITY</h4><ul><li><a data-go="properties" data-type="villa" data-i18n="common.signature_villas">Signature Villas</a></li><li><a data-go="properties" data-type="apartment" data-i18n="common.apartments">Apartments</a></li><li><a data-go="community" data-i18n="common.community">Community</a></li><li><a data-go="masterplan" data-i18n="common.masterplan">Masterplan</a></li><li><a data-go="eoi" data-i18n="eoi.expression_of_interest">Expression of interest</a></li></ul></div>
+    <div><h4>CREST CITY</h4><ul><li><a data-go="properties" data-type="villa" data-i18n="common.signature_villas">Signature Villas</a></li><li><a data-go="properties" data-type="apartment" data-i18n="common.apartments">Apartments</a></li><li><a data-go="community" data-i18n="common.community">Community</a></li><li><a data-go="masterplan" data-i18n="common.masterplan">Masterplan</a></li><li><a data-go="abroad" data-i18n="x.nav_abroad">Buy from abroad</a></li><li><a data-go="gallery" data-i18n="x.gallery">Gallery</a></li><li><a data-go="progress" data-i18n="x.progress">Site and progress</a></li><li><a data-go="eoi" data-i18n="eoi.expression_of_interest">Expression of interest</a></li></ul></div>
     <div><h4 data-i18n="contact.sales_gallery">Sales gallery</h4><ul><li data-i18n-html="shell.address_html">Avenue Mahamoud Haid<br>Plateau du Marabout, Djibouti</li><li data-i18n-html="shell.hours_html">Saturday to Thursday<br>8:00–17:00</li></ul></div>
   </div>
   <div class="wrap bot"><span data-i18n="shell.copyright">© 2026 Crest Development Group – CDG SARL</span><span data-i18n="shell.preview_note">Preview: availability, news and contact numbers are placeholders</span></div>
@@ -1355,7 +1467,7 @@ nav.main a,.hdr .cta{white-space:nowrap}
   const saveWish = () => { try { localStorage.setItem("crest-wish", JSON.stringify([...wish])); } catch (e) {} updWish(); };
   const updWish = () => { ["#wcount", "#tcount"].forEach((q) => { const c = $(q); if (c) { c.textContent = wish.size; c.dataset.n = wish.size; } }); };
   const F = { type: "all", status: "all", row: "all", size: "all", sort: "rec" };
-  let mpFilter = "all", mpSel = null, contactUnit = "", cur = "home", paused = false, wasPaused = false;
+  let mpFilter = "all", mpSel = null, contactUnit = "", contactMsg = "", cur = "home", paused = false, wasPaused = false;
   const reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---------- pieces ---------- */
@@ -1382,9 +1494,9 @@ nav.main a,.hdr .cta{white-space:nowrap}
       s += '<g class="lot' + (dim ? " dim" : "") + (o.sel === u.id || o.highlight === u.id ? " sel" : "") + '" data-lot="' + u.id + '" tabindex="0" role="button" aria-label="' + t("map.lot_label", { code: u.code, status: STATUS[u.status] }) + '"><rect x="' + r.x + '" y="' + r.y + '" width="' + r.w + '" height="' + r.h + '" fill="' + SCOL[u.status] + '" fill-opacity=".55"/>' +
         (o.labels ? '<text class="lotlbl" x="' + (r.x + r.w / 2) + '" y="' + (r.y + r.h / 2 + 5) + '" text-anchor="middle">' + u.code + "</text>" : "") + "</g>";
     });
-    [[215, 470, t("map.activity_center")], [560, 548, t("map.commercial_street")], [795, 452, t("map.central_plaza")], [318, 292, t("map.playground")], [515, 440, t("map.visitor_parking")]].forEach((z) => {
-      const w = z[2].length * 11.6 + 26;
-      s += '<g pointer-events="none"><rect x="' + (z[0] - w / 2) + '" y="' + (z[1] - 16) + '" width="' + w + '" height="30" fill="#fff" fill-opacity=".92"/><text class="zone" x="' + z[0] + '" y="' + (z[1] + 5) + '" text-anchor="middle" fill="#0A0A0A">' + z[2] + "</text></g>";
+    ZONES.forEach((zz, zi) => {
+      const zl = t(zz[2]), w = zl.length * 11.6 + 26;
+      s += (o.labels ? '<g class="zn' + (o.zsel === zi ? " sel" : "") + '" data-zone="' + zi + '" tabindex="0" role="button" style="cursor:pointer" aria-label="' + esc(zl) + '">' : '<g pointer-events="none">') + '<rect x="' + (zz[0] - w / 2) + '" y="' + (zz[1] - 16) + '" width="' + w + '" height="30" fill="#fff" fill-opacity=".92"/><text class="zone" x="' + zz[0] + '" y="' + (zz[1] + 5) + '" text-anchor="middle" fill="#0A0A0A">' + zl + "</text></g>";
     });
     return s + "</svg>";
   }
@@ -1406,6 +1518,7 @@ nav.main a,.hdr .cta{white-space:nowrap}
       '<button class="btn" type="submit">' + t("home.search_properties") + '</button></form></div></section>' +
       '<section class="sec"><div class="wrap duo"><div>' + eb(t("home.new")) + '<h2 class="h-xl">' + t("home.the_crest_city_film") + '</h2><p class="sub">' + t("common.walk_through_the_community_from") + '</p><a class="filmcard" data-film><div class="m"><img loading="lazy" src="' + img("hero_poster") + '" srcset="' + srcset("hero_poster") + '" sizes="(max-width:900px) 100vw, 50vw" alt="' + ta("home.villa_avenue_at_crest_city") + '"><span class="play">' + PLAY + '</span></div><div class="cap">' + t("home.signature_villas_the_central_plaza") + '</div></a></div>' +
       '<div><div class="head" style="margin-bottom:0"><div class="l"><div class="eyebrow" style="visibility:hidden" aria-hidden="true">' + t("common.news") + '</div><h2 class="h-xl">' + t("home.discover_our_news") + '</h2></div><a class="tlink" data-go="news">' + t("home.view_all") + '</a></div><p class="sub">' + t("home.milestones_construction_progress_and_community") + '</p><div class="pair">' + NEWS.slice(0, 2).map(story).join("") + "</div></div></div></section>" +
+      '<section class="sec paper"><div class="wrap"><div class="head"><div class="l">' + eb(t("x.site_label")) + '<h2 class="h-xl">' + t("x.plot_to_community") + '</h2><p class="sub">' + t("x.plot_sub") + '</p></div><a class="tlink" data-go="progress">' + t("x.follow_progress") + '</a></div>' + xBa("ba-home") + "</div></section>" +
       carousel("c-comm", t("home.life_at_crest_city"), t("common.community"), COMM.map(comm).join("")) +
       '<section class="sec paper"><div class="wrap feature"><div class="m"><img loading="lazy" src="' + img("villa_front") + '" alt="' + ta("common.signature_villa") + '"></div><div class="t">' + eb(t("home.latest_launch")) + '<h2 class="h-xl">' + t("common.signature_villas") + '</h2><p>' + t("home.three_level_family_homes_with") + '</p>' +
       '<dl class="specs"><div><dt>' + t("common.bedrooms") + '</dt><dd>5</dd></div><div><dt>' + t("common.built_area") + '</dt><dd>' + t("common.291_2_m") + '</dd></div><div><dt>' + t("common.plot") + '</dt><dd>' + t("common.295_2_m") + '</dd></div><div><dt>' + t("common.levels") + '</dt><dd>' + t("common.ground_first_attic") + '</dd></div></dl><div class="btns mt-s"><a class="btn" data-go="properties" data-type="villa">' + t("common.view_villas") + '</a><a class="btn line" data-go="contact">' + t("common.book_a_visit") + '</a></div></div></div></section>' +
@@ -1415,7 +1528,8 @@ nav.main a,.hdr .cta{white-space:nowrap}
       trio("pergola", t("common.owners_portal"), t("home.follow_construction_see_your_payment"), "owners", t("home.explore_the_portal")) +
       trio("villa_street", t("common.brokers"), t("home.register_your_agency_see_live"), "brokers", t("home.become_a_partner_broker")) +
       trio("aerial", t("common.financing"), t("home.payment_plans_and_home_finance"), "financing", t("home.financing_and_partners")) +
-      "</div></div></section>" + reg();
+      "</div></div></section>" +
+      '<section class="banner on-dark"><img loading="lazy" src="' + img("boulevard") + '" alt=""><div class="wrap"><div class="eyebrow" style="justify-content:center">' + t("x.abroad_eyebrow") + '</div><h2 class="h-xl">' + t("x.abroad_band_h") + '</h2><p>' + t("x.abroad_band_p") + '</p><div class="btns" style="justify-content:center"><a class="btn white" data-go="abroad">' + t("x.how_it_works_abroad") + '</a><a class="btn white" data-go="abroad">' + t("x.book_video_tour") + '</a></div></div></section>' + reg();
   };
 
   P.community = () => {
@@ -1493,9 +1607,9 @@ nav.main a,.hdr .cta{white-space:nowrap}
     const tab = (v, t, c, n) => '<button class="' + (mpFilter === v ? "on" : "") + '" data-mpf="' + v + '">' + (c ? '<i style="background:' + c + '"></i>' : "") + t + " (" + n + ")</button>";
     return '<section class="sec"><div class="wrap"><div class="head"><div class="l">' + eb(t("common.masterplan")) + '<h1 class="h-xl">' + t("masterplan.choose_your_villa") + '</h1><p class="sub">' + t("masterplan.select_a_villa_to_see") + '</p></div></div>' +
       '<div class="tabs">' + tab("all", t("masterplan.all_villas"), "", V.length) + tab("available", t("common.available"), SCOL.available, cnt("available")) + tab("reserved", t("common.reserved"), SCOL.reserved, cnt("reserved")) + tab("sold", t("common.sold"), SCOL.sold, cnt("sold")) + "</div>" +
-      '<div class="mp-layout"><div><div class="mp-scroll"><div class="mp" id="mpmap"><img src="' + img("aerial") + '" srcset="' + srcset("aerial") + '" sizes="(max-width:900px) 100vw, 70vw" alt="' + ta("masterplan.crest_city_aerial_masterplan") + '">' + mapSVG({ filter: mpFilter, sel: mpSel, labels: true }) + '<div class="mp-tip" id="mptip" hidden></div></div></div>' +
-      '<p class="note">' + t("masterplan.availability_shown_is_illustrative_for") + '</p></div>' +
-      '<aside class="mside" id="mpside">' + mpSide(mpSel) + "</aside></div></div></section>" +
+      '<div class="mp-layout"><div>' + zoomBar() + '<div class="mp-scroll"><div class="mp" id="mpmap" style="width:' + ZOOMS[mpZoom] + '%"><img src="' + img("aerial") + '" srcset="' + srcset("aerial") + '" sizes="(max-width:900px) 100vw, 70vw" alt="' + ta("masterplan.crest_city_aerial_masterplan") + '">' + mapSVG({ filter: mpFilter, sel: mpSel, labels: true, zsel: mpZone }) + '<div class="mp-tip" id="mptip" hidden></div></div></div>' +
+      '<p class="note">' + t("masterplan.availability_shown_is_illustrative_for") + '</p>' + zoneChips() + '</div>' +
+      '<aside class="mside" id="mpside">' + (mpZone !== null ? zoneSide(mpZone) : mpSide(mpSel)) + "</aside></div></div></section>" +
       '<section class="sec paper"><div class="wrap feature"><div class="m"><img loading="lazy" src="' + img("commercial") + '" alt=""></div><div class="t">' + eb(t("common.residences")) + '<h2 class="h-xl">' + t("common.apartments") + '</h2><p>' + t("masterplan.11_apartments_in_two_sizes") + '</p><div><a class="btn" data-go="properties" data-type="apartment">' + t("masterplan.view_apartments") + '</a></div></div></div></section>';
   };
   function mpSide(id) {
@@ -1523,7 +1637,7 @@ nav.main a,.hdr .cta{white-space:nowrap}
       '<div class="fld"><label for="cf-int">' + t("contact.interested_in") + '</label><select id="cf-int"><option>' + t("common.a_signature_villa") + '</option><option>' + t("common.an_apartment") + '</option><option>' + t("common.a_commercial_unit") + '</option><option>' + t("contact.home_finance") + '</option><option>' + t("contact.broker_partnership") + '</option><option>' + t("contact.bank_or_investor_partnership") + '</option><option>' + t("contact.general_information") + '</option></select></div>' +
       '<div class="fld"><label for="cf-unit">' + t("common.home") + '</label><select id="cf-unit">' + uopts + "</select></div>" +
       '<div class="fld"><label for="cf-date">' + t("contact.preferred_visit_date") + '</label><input id="cf-date" type="date" min="' + today + '"></div>' +
-      '<div class="fld full"><label for="cf-msg">' + t("common.message") + '</label><textarea id="cf-msg"></textarea></div>' +
+      '<div class="fld full"><label for="cf-msg">' + t("common.message") + '</label><textarea id="cf-msg">' + esc(contactMsg) + '</textarea></div>' +
       '<p class="full err" id="cf-err" hidden>' + t("contact.please_enter_your_name_and") + '</p>' +
       '<div class="full"><button class="btn" type="submit">' + t("contact.send_request") + '</button></div></form></div>' +
       '<div class="cinfo"><div><span class="small">' + t("contact.sales_gallery") + '</span><p>' + t("common.avenue_mahamoud_haid_plateau_du") + '</p></div><div><span class="small">' + t("contact.opening_hours") + '</span><p>' + t("contact.saturday_to_thursday_8_00") + '</p></div>' +
@@ -1631,6 +1745,7 @@ nav.main a,.hdr .cta{white-space:nowrap}
     fin("lc-rate", t("financing.interest_rate_a_year"), 'type="number" min="0" max="30" step="0.1" value="8"') + fin("lc-years", t("financing.term_years"), 'type="number" min="1" max="30" step="1" value="20"') +
     '<div class="out" id="lc-out"><span class="small">' + t("financing.estimated_monthly_payment") + '</span><b>' + t("financing.enter_a_price") + '</b></div></form>' +
     '<p class="note" style="margin:0">' + t("financing.estimate_note", { rate: DJF }) + '</p><div class="btns"><a class="btn line" data-go="contact">' + t("financing.ask_about_home_finance") + '</a></div></div></div></div></section>' +
+    '<section class="sec"><div class="wrap"><div class="head"><div class="l">' + eb(t("x.ic_eyebrow")) + '<h2 class="h-xl">' + t("x.plan_h") + '</h2><p class="sub">' + t("x.plan_sub") + '</p></div></div>' + investCalc() + '</div></section>' +
     '<section class="banner on-dark"><img loading="lazy" src="' + img("solar") + '" alt=""><div class="wrap"><div class="eyebrow" style="justify-content:center">' + t("financing.for_banks_and_investors") + '</div><h2 class="h-xl">' + t("financing.a_community_planned_to_be") + '</h2><p>' + t("financing.a_single_legal_developer_a") + '</p></div></section>' +
     '<section class="sec"><div class="wrap"><div class="head"><div class="l">' + eb(t("financing.opportunities")) + '<h2 class="h-xl">' + t("financing.how_institutions_can_take_part") + '</h2></div></div><div class="amen">' +
     card(t("financing.mortgage_partnerships"), t("financing.offer_home_loans_to_crest")) +
@@ -1705,8 +1820,446 @@ nav.main a,.hdr .cta{white-space:nowrap}
     o.innerHTML = '<span class="small">' + t("financing.estimated_monthly_payment") + '</span><b>' + usd(M) + '</b><span class="muted">' + t("financing.calc_detail", { djf: djf(M), loan: usd(L), down: usd(price - L) }) + "</span>";
   }
 
+
+  /* ================= additions: progress, gallery, abroad, trust, calculators ================= */
+  Object.assign(I18N.en, {
+    "x.nav_abroad": "Buy from abroad",
+    "x.gallery": "Gallery",
+    "x.progress": "Site and progress",
+    "x.trust": "Trust center",
+    "x.site_label": "The site",
+    "x.plan_label": "The plan",
+    "x.ba_hint": "Drag the handle to compare the site with the plan.",
+    "x.ba_cap_l": "Left: site photograph.",
+    "x.ba_cap_r": "Right: illustrative render of CREST CITY.",
+    "x.ba_aria": "Comparison slider between the site and the plan",
+    "x.plot_to_community": "From plot to community",
+    "x.plot_sub": "See the land as it stands, then the community planned for it.",
+    "x.follow_progress": "Follow the progress",
+    "x.abroad_eyebrow": "Buying from abroad",
+    "x.abroad_band_h": "Own a home in Djibouti, wherever you live",
+    "x.abroad_band_p": "Book a live video tour in your own time zone, register your interest online and follow every milestone from your phone.",
+    "x.how_it_works_abroad": "How it works",
+    "x.book_video_tour": "Book a video tour",
+
+    "x.ab_hero": "Own a home in Djibouti, wherever you live",
+    "x.ab_intro_h": "Built for buyers who are far away",
+    "x.ab_intro_p1": "Many of our buyers live in North America, Europe, the Gulf and Asia. CREST CITY is planned so that you can see the homes, ask questions, reserve and follow construction without taking a week off work.",
+    "x.ab_intro_p2": "This page describes how we plan to work with overseas buyers. Final terms are set in each sale agreement, and we recommend that you take independent legal advice.",
+    "x.ab_s1": "Explore",
+    "x.ab_s1_h": "See the homes",
+    "x.ab_s1_p": "Browse homes, the masterplan and floor plans, and save a shortlist on any device.",
+    "x.ab_s2": "Meet",
+    "x.ab_s2_h": "Video tour",
+    "x.ab_s2_p": "Book a live video tour with the sales team at a time that works in your time zone.",
+    "x.ab_s3": "Reserve",
+    "x.ab_s3_h": "Register and sign",
+    "x.ab_s3_p": "Submit an expression of interest, then reserve and sign the sale agreement. Ask us about signing remotely or through a representative you appoint.",
+    "x.ab_s4": "Follow",
+    "x.ab_s4_h": "Watch it rise",
+    "x.ab_s4_p": "Follow photos and your payment schedule in the owners portal, then collect your keys or hand them to someone you trust.",
+    "x.tour_eyebrow": "Video tour",
+    "x.tour_h": "Book a live video tour",
+    "x.tour_sub": "Pick a day. Times are shown in your own time zone.",
+    "x.tour_date": "Day (Djibouti date)",
+    "x.tour_tz": "Times shown in your time zone: {tz}",
+    "x.tour_hours": "Our sales gallery is open Saturday to Thursday, 8:00 to 17:00 Djibouti time (UTC+3).",
+    "x.tour_friday": "The sales gallery is closed on Fridays. Please pick another day.",
+    "x.tour_dj": "{time} in Djibouti",
+    "x.tour_msg": "Video tour request: {day} at {dj} Djibouti time ({local} your time).",
+    "x.tour_past": "Not available",
+    "x.plan_eyebrow": "Plan your purchase",
+    "x.plan_h": "Prices, yields and currency",
+    "x.plan_sub": "Work in your own currency. Amounts convert at indicative rates.",
+    "x.trust_band_eyebrow": "Buying with confidence",
+    "x.trust_band_h": "Know who you are buying from",
+    "x.trust_band_p": "See what you can verify today and what we are still finalizing.",
+    "x.open_trust": "Open the trust center",
+    "x.faq_eyebrow": "Questions",
+    "x.faq_h": "Common questions from overseas buyers",
+    "x.faq_note": "General information only. It is not legal or financial advice.",
+    "x.q1": "Can I buy without visiting Djibouti?",
+    "x.a1": "That is the aim. You can tour by video, review documents online and follow construction remotely. Many buyers still choose to visit once before handover. The final steps are confirmed in your sale agreement.",
+    "x.q2": "Which currency do I pay in?",
+    "x.a2": "Prices will be set in US dollars. The Djibouti franc is fixed to the dollar, so that rate does not move. Use the calculator to see euro, pound, Canadian dollar and dirham equivalents at indicative rates. Your bank sets the actual conversion.",
+    "x.q3": "How do I know the developer is genuine?",
+    "x.a3": "The trust center lists the company details you can check and the documents we can show. Always verify them with your own lawyer before you pay anything.",
+    "x.q4": "Can a family member act for me?",
+    "x.a4": "Many overseas buyers ask a relative to visit, view or sign for them. Ask the sales team how a representative can act on your behalf.",
+    "x.q5": "Can I rent the home out?",
+    "x.a5": "As the owner you are free to let the home. Use the calculator to estimate the yield, and ask the sales team about management options for owners who live abroad.",
+    "x.q6": "What happens to my payments before handover?",
+    "x.a6": "Payments follow a milestone plan tied to construction stages (see Financing). How buyer payments are held will be set out in the trust center before sales open.",
+
+    "x.tr_hero": "Know exactly who you are buying from",
+    "x.tr_intro_h": "What you can verify",
+    "x.tr_intro_p": "Buying from a distance takes trust. This page lists what you can check today and what we are still finalizing. An item is marked ready only when we can show the document.",
+    "x.tr_dev": "The developer",
+    "x.tr_legal": "Legal name",
+    "x.tr_inc": "Incorporated",
+    "x.tr_office": "Registered office",
+    "x.tr_bank": "Banker",
+    "x.tr_since": "Active in Djibouti",
+    "x.tr_since_v": "Since 2024",
+    "x.tr_inc_v": "3 June 2026, Djibouti",
+    "x.tr_check": "Verification checklist",
+    "x.tr_ready": "Available on request",
+    "x.tr_pending": "Being finalized",
+    "x.tr_item1": "Company registration",
+    "x.tr_item1_p": "The registration details of Crest Development Group – CDG SARL, which you can check against the commercial register.",
+    "x.tr_item2": "Developer's bank",
+    "x.tr_item2_p": "The bank that holds the company's account. Pay only into an account in the company's name.",
+    "x.tr_item3": "Land title and plot plan",
+    "x.tr_item3_p": "The title for the site and the surveyed plot plan. We will publish it here when it is complete.",
+    "x.tr_item4": "Building permit",
+    "x.tr_item4_p": "The construction permit for the community, once issued.",
+    "x.tr_item5": "Investment approval",
+    "x.tr_item5_p": "The investment approval that applies to the project, and what it means for buyers.",
+    "x.tr_item6": "Buyer payment safeguards",
+    "x.tr_item6_p": "How deposits and milestone payments are held until each stage is complete.",
+    "x.tr_item7": "Independent progress reports",
+    "x.tr_item7_p": "Dated reports and photographs from an engineer who does not work for the developer.",
+    "x.tr_item8": "Legal counsel for buyers",
+    "x.tr_item8_p": "The law firm that prepares the sale agreement, and how you can have it reviewed by your own lawyer.",
+    "x.tr_asof": "Status reviewed {date}. We update this page as documents are completed.",
+    "x.tr_ask_eyebrow": "Before you pay",
+    "x.tr_ask_h": "Five questions to ask any developer",
+    "x.tr_ask1": "Is the land title in the developer's name, and can I see it?",
+    "x.tr_ask2": "Is the building permit issued, and does it match what I am buying?",
+    "x.tr_ask3": "Will my payments go to a company account, never to a person?",
+    "x.tr_ask4": "Will an independent engineer report on progress, with dated photos?",
+    "x.tr_ask5": "Can my own lawyer review the sale agreement before I sign?",
+    "x.tr_ask_p": "We welcome all five questions.",
+    "x.tr_cta": "Ask for the documents pack",
+
+    "x.pr_hero": "Watch CREST CITY take shape",
+    "x.pr_intro_h": "The site, then the plan",
+    "x.pr_intro_p": "Drag the handle to compare the land with the community planned for it. Dated photographs and drone flights will be added here as work progresses.",
+    "x.pr_drone": "Drone flyover",
+    "x.pr_drone_ph": "The first drone flight will be published here.",
+    "x.pr_timeline": "Construction timeline",
+    "x.pr_phase_note": "Each stage shows dated photographs once work on it begins. Status is updated by the site team.",
+    "x.pr_slot": "Photo to come",
+    "x.pr_planned": "Planned",
+    "x.pr_active": "In progress",
+    "x.pr_done": "Complete",
+    "x.ph_survey": "Survey and boundary",
+    "x.ph_survey_p": "Boundary marked, plot surveyed and site cleared.",
+    "x.ph_site": "Site preparation and roads",
+    "x.ph_site_p": "Levelling, internal roads and main utilities.",
+    "x.ph_foundations": "Foundations",
+    "x.ph_foundations_p": "Footings and ground beams for villas, apartments and the commercial street.",
+    "x.ph_structure": "Structure",
+    "x.ph_structure_p": "Columns, floors and roof slabs.",
+    "x.ph_services": "Brickwork and services",
+    "x.ph_services_p": "Walls, electrical, plumbing and solar installation.",
+    "x.ph_finishes": "Finishes and landscaping",
+    "x.ph_finishes_p": "Plaster, paint, fittings, paving and planting.",
+    "x.ph_handover": "Handover",
+    "x.ph_handover_p": "Inspection, keys and move-in.",
+
+    "x.ga_hero": "See how it will look and feel",
+    "x.ga_intro": "Exterior and community views are illustrative renders. Tiles marked In production are placeholders for visuals that are being prepared.",
+    "x.ga_all": "All",
+    "x.ga_exteriors": "Exteriors",
+    "x.ga_interiors": "Interiors",
+    "x.ga_community": "Community",
+    "x.ga_progress": "Site",
+    "x.ga_render": "Illustrative render",
+    "x.ga_inprod": "In production",
+    "x.ga_close": "Close",
+    "x.ga_foyer": "Foyer and shoe-removal area",
+    "x.ga_majlis": "Majlis",
+    "x.ga_living": "Family living room",
+    "x.ga_kitchen": "Kitchen and dining",
+    "x.ga_master": "Master suite",
+    "x.ga_terrace": "Attic terrace",
+    "x.ga_golden": "Villa facade at golden hour",
+    "x.ga_dusk": "Villa avenue at dusk",
+    "x.ga_court": "Shaded courtyard",
+    "x.ga_gate": "Main entrance",
+    "x.ga_boulevard": "Central boulevard",
+    "x.ga_street": "Villa avenue",
+    "x.ga_villa": "Signature Villa",
+    "x.ga_entrance": "Villa entrance",
+    "x.ga_playground": "Playground",
+    "x.ga_activity": "Activity center",
+    "x.ga_shops": "Commercial street",
+    "x.ga_pergola": "Gardens and walkways",
+    "x.ga_solar": "Solar community",
+    "x.ga_aerial": "Masterplan from above",
+    "x.ga_drone": "Drone flyover",
+    "x.ga_site": "The site",
+
+    "x.ic_eyebrow": "Investment calculator",
+    "x.ic_cur": "Currency",
+    "x.ic_price": "Purchase price",
+    "x.ic_rent": "Expected rent per month",
+    "x.ic_occ": "Occupancy (% of the year let)",
+    "x.ic_mgmt": "Management and letting fee (% of rent)",
+    "x.ic_maint": "Maintenance (% of rent)",
+    "x.ic_svc": "Service charge and insurance per year",
+    "x.ic_example": "Try an example",
+    "x.ic_empty": "Enter a purchase price and an expected monthly rent to see the yield.",
+    "x.ic_gross": "Gross yield",
+    "x.ic_net": "Net yield",
+    "x.ic_income": "Net income per year",
+    "x.ic_payback": "Payback",
+    "x.ic_years": "{n} years",
+    "x.ic_nopay": "Not reached",
+    "x.ic_other": "Same amounts in other currencies",
+    "x.ic_col_price": "Price",
+    "x.ic_col_income": "Net per year",
+    "x.ic_rates": "Indicative rates, {date}. The Djibouti franc is fixed to the US dollar. Your bank sets the actual rate.",
+    "x.ic_rates_fb": "Indicative rates, {date}. They refresh when you are online. The Djibouti franc is fixed to the US dollar.",
+    "x.ic_disclaimer": "Illustrative only. Not a price list, an offer or a guarantee of rent. Prices and rents will be confirmed at launch.",
+
+    "x.mp_zoom_in": "Zoom in",
+    "x.mp_zoom_out": "Zoom out",
+    "x.mp_on_plan": "On the plan",
+    "x.mp_also": "Also planned",
+    "x.mp_mosque_pos": "Community mosque: position to be marked on the final plan",
+    "x.mp_view_community": "See the community",
+    "x.mp_amen_hint": "Select a label on the plan to see what is there."
+  });
+
+  /* ----- before / after slider ----- */
+  const ARROWS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg>';
+  const xBa = (id) => '<div class="ba" id="' + id + '" role="group" aria-label="' + ta("x.ba_aria") + '">' +
+    '<img src="' + img("site") + '" srcset="' + srcset("site") + '" sizes="(max-width:900px) 100vw, 1200px" alt="' + ta("x.site_label") + '" loading="lazy">' +
+    '<img class="aft" src="' + img("aerial") + '" srcset="' + srcset("aerial") + '" sizes="(max-width:900px) 100vw, 1200px" alt="' + ta("x.plan_label") + '" loading="lazy">' +
+    '<span class="lab l">' + t("x.site_label") + '</span><span class="lab r">' + t("x.plan_label") + '</span>' +
+    '<button class="ba-h" type="button" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="' + ta("x.ba_aria") + '"><span>' + ARROWS + '</span></button></div>' +
+    '<div class="ba-cap"><span>' + t("x.ba_cap_l") + " " + t("x.ba_cap_r") + '</span><span>' + t("x.ba_hint") + "</span></div>";
+  let baEl = null;
+  const baSet = (el, p) => { p = Math.max(0, Math.min(100, p)); el.style.setProperty("--p", p); const h = el.querySelector(".ba-h"); if (h) h.setAttribute("aria-valuenow", Math.round(p)); };
+  const baFrom = (el, e) => { const r = el.getBoundingClientRect(); baSet(el, ((e.clientX - r.left) / r.width) * 100); };
+  document.addEventListener("pointerdown", (e) => { const b = e.target.closest && e.target.closest(".ba"); if (!b) return; baEl = b; baFrom(b, e); });
+  window.addEventListener("pointermove", (e) => { if (baEl) baFrom(baEl, e); });
+  window.addEventListener("pointerup", () => { baEl = null; });
+  window.addEventListener("pointercancel", () => { baEl = null; });
+  document.addEventListener("keydown", (e) => {
+    const h = e.target.closest && e.target.closest(".ba-h"); if (!h) return;
+    const b = h.closest(".ba"), cur0 = +getComputedStyle(b).getPropertyValue("--p") || 50;
+    if (e.key === "ArrowLeft") { e.preventDefault(); baSet(b, cur0 - 5); }
+    if (e.key === "ArrowRight") { e.preventDefault(); baSet(b, cur0 + 5); }
+    if (e.key === "Home") { e.preventDefault(); baSet(b, 0); }
+    if (e.key === "End") { e.preventDefault(); baSet(b, 100); }
+  });
+
+  /* ----- gallery, progress and the file manifest the team edits (media/gallery.json) ----- */
+  const PH_ICON = {
+    interiors: '<svg viewBox="0 0 120 90" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="14" y="14" width="92" height="62"/><path d="M14 58h92M28 58v-14h64v14M38 44V34h44v10M60 14v20"/></svg>',
+    exteriors: '<svg viewBox="0 0 120 90" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 76h100M22 76V36h46v40M68 76V24h30v52M30 46h10M30 58h10M76 34h14M76 46h14M76 58h14"/></svg>',
+    progress: '<svg viewBox="0 0 120 90" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 76h100M26 76V40l14-8 14 8v36M70 76V52h26v24M58 18l-8 12M58 18h22M80 18v22"/></svg>'
+  };
+  const GAL = [
+    { id: "gate", cat: "exteriors", title: "x.ga_gate", src: "img/gate-1200.jpg", img: "gate" },
+    { id: "golden", cat: "exteriors", title: "x.ga_golden", ph: 1 },
+    { id: "villa_street", cat: "exteriors", title: "x.ga_street", src: "img/villa_street-1200.jpg", img: "villa_street" },
+    { id: "villa_close", cat: "exteriors", title: "x.ga_entrance", src: "img/villa_close-1200.jpg", img: "villa_close" },
+    { id: "dusk", cat: "exteriors", title: "x.ga_dusk", ph: 1 },
+    { id: "villa_front", cat: "exteriors", title: "x.ga_villa", src: "img/villa_front-1200.jpg", img: "villa_front" },
+    { id: "court", cat: "exteriors", title: "x.ga_court", ph: 1 },
+    { id: "foyer", cat: "interiors", title: "x.ga_foyer", ph: 1 },
+    { id: "majlis", cat: "interiors", title: "x.ga_majlis", ph: 1 },
+    { id: "living", cat: "interiors", title: "x.ga_living", ph: 1 },
+    { id: "kitchen", cat: "interiors", title: "x.ga_kitchen", ph: 1 },
+    { id: "master", cat: "interiors", title: "x.ga_master", ph: 1 },
+    { id: "terrace", cat: "interiors", title: "x.ga_terrace", ph: 1 },
+    { id: "boulevard", cat: "community", title: "x.ga_boulevard", src: "img/boulevard-1200.jpg", img: "boulevard" },
+    { id: "playground", cat: "community", title: "x.ga_playground", src: "img/playground-1200.jpg", img: "playground" },
+    { id: "activity", cat: "community", title: "x.ga_activity", src: "img/activity-1200.jpg", img: "activity" },
+    { id: "shopfront", cat: "community", title: "x.ga_shops", src: "img/shopfront-1200.jpg", img: "shopfront" },
+    { id: "pergola", cat: "community", title: "x.ga_pergola", src: "img/pergola-1200.jpg", img: "pergola" },
+    { id: "solar", cat: "community", title: "x.ga_solar", src: "img/solar-1200.jpg", img: "solar" },
+    { id: "aerial", cat: "community", title: "x.ga_aerial", src: "img/aerial-1200.jpg", img: "aerial" },
+    { id: "site", cat: "progress", title: "x.ga_site", src: "img/site-800.jpg", img: "site", photo: 1 },
+    { id: "drone", cat: "progress", title: "x.ga_drone", ph: 1, video: 1 }
+  ];
+  const PHASES = [["survey", "x.ph_survey"], ["site", "x.ph_site"], ["foundations", "x.ph_foundations"], ["structure", "x.ph_structure"], ["services", "x.ph_services"], ["finishes", "x.ph_finishes"], ["handover", "x.ph_handover"]];
+  let MAN = { items: {}, progress: {}, drone: "" }, manP = null, galCat = "all";
+  function loadMan() {
+    if (manP) return manP;
+    manP = fetch("media/gallery.json", { cache: "no-cache" }).then((r) => (r.ok ? r.json() : null)).then((j) => { if (j && typeof j === "object") MAN = Object.assign(MAN, { items: j.items || {}, progress: j.progress || {}, drone: j.drone || "" }); }).catch(() => {}).then(() => {
+      if ($("#ggrid")) $("#ggrid").innerHTML = galGrid();
+      if ($("#tlist")) $("#tlist").innerHTML = tlItems();
+      if ($("#dronebox")) $("#dronebox").innerHTML = droneBox();
+    });
+    return manP;
+  }
+  const galItem = (g) => { const o = MAN.items[g.id] || {}; return Object.assign({}, g, o.src ? { src: o.src, ph: 0 } : {}, o.title ? { titleText: o.title } : {}); };
+  const galTile = (g0) => {
+    const g = galItem(g0), title = g.titleText ? esc(g.titleText) : t(g.title);
+    if (g.ph) return '<article class="gtile gph" data-cat="' + g.cat + '"><div class="m">' + (PH_ICON[g.cat] || PH_ICON.exteriors) + '<span class="pl">' + t("x.ga_inprod") + '</span></div><h3>' + title + '</h3><span class="tag">' + t("x.ga_inprod") + "</span></article>";
+    const thumb = g.img ? '<img loading="lazy" src="' + g.src + '" alt="' + title + '">' : '<img loading="lazy" src="' + esc(g.src) + '" alt="' + title + '">';
+    return '<article class="gtile" data-cat="' + g.cat + '" data-lb="' + esc(g.src) + '" data-cap="' + title + '"><div class="m">' + thumb + '</div><h3>' + title + '</h3><span class="tag">' + (g.photo ? t("x.ga_site") : t("x.ga_render")) + "</span></article>";
+  };
+  const galGrid = () => GAL.filter((g) => galCat === "all" || g.cat === galCat).map(galTile).join("");
+  const phaseInfo = (k) => Object.assign({ status: "planned", date: "", photos: [] }, MAN.progress[k] || {});
+  const tlItems = () => PHASES.map((p, i) => {
+    const f = phaseInfo(p[0]), s = f.status === "done" ? "done" : f.status === "active" ? "active" : "planned";
+    const slots = (f.photos && f.photos.length ? f.photos.slice(0, 6).map((u) => '<div class="slot"><img loading="lazy" src="' + esc(u) + '" alt="' + ta(p[1]) + '"></div>').join("") : [0, 1, 2].map(() => '<div class="slot">' + t("x.pr_slot") + "</div>").join(""));
+    return "<li><div class=\"hd\"><span class=\"small\">" + pad(i + 1) + '</span><h3>' + t(p[1]) + '</h3><span class="pchip ' + s + '">' + t(s === "done" ? "x.pr_done" : s === "active" ? "x.pr_active" : "x.pr_planned") + "</span>" + (f.date ? '<span class="small">' + esc(f.date) + "</span>" : "") + '</div><div><p style="margin-bottom:16px">' + t(p[1] + "_p") + '</p><div class="slots">' + slots + "</div></div></li>";
+  }).join("");
+  const droneBox = () => MAN.drone
+    ? '<div class="vid-ph"><video controls playsinline preload="none" poster="' + img("site") + '"><source src="' + esc(MAN.drone) + '" type="video/mp4"></video></div>'
+    : '<div class="vid-ph"><img src="' + img("site") + '" alt="" loading="lazy"><div><span class="vplay">' + PLAY + '</span><span class="small" style="color:#fff">' + t("x.ga_inprod") + '</span><p>' + t("x.pr_drone_ph") + "</p></div></div>";
+
+  const lbClose = () => { const l = $("#lb"); if (l) l.remove(); };
+  const lbOpen = (src, cap) => { lbClose(); const d = document.createElement("div"); d.className = "lb"; d.id = "lb"; d.setAttribute("role", "dialog"); d.setAttribute("aria-label", cap); d.innerHTML = '<button class="x" type="button">' + t("x.ga_close") + '</button><figure><img src="' + esc(src) + '" alt="' + esc(cap) + '"><figcaption>' + cap + "</figcaption></figure>"; document.body.appendChild(d); };
+
+  P.gallery = () => phero("villa_front", t("x.gallery"), t("x.ga_hero")) +
+    '<section class="sec"><div class="wrap"><p class="sub" style="max-width:70ch;margin-bottom:32px;text-transform:none;letter-spacing:0">' + t("x.ga_intro") + '</p><div class="tabs gtabs" role="tablist">' +
+    [["all", "x.ga_all"], ["exteriors", "x.ga_exteriors"], ["interiors", "x.ga_interiors"], ["community", "x.ga_community"], ["progress", "x.ga_progress"]].map((c) => '<button class="' + (galCat === c[0] ? "on" : "") + '" data-galcat="' + c[0] + '" role="tab" aria-selected="' + (galCat === c[0]) + '">' + t(c[1]) + "</button>").join("") +
+    '</div><div class="ggrid" id="ggrid">' + galGrid() + "</div></div></section>" + reg();
+  P.progress = () => phero("site", t("x.progress"), t("x.pr_hero")) +
+    '<section class="sec intro"><div class="wrap"><h2 class="h-xl">' + t("x.pr_intro_h") + '</h2><div class="body"><p>' + t("x.pr_intro_p") + "</p></div></div></section>" +
+    '<section class="sec"><div class="wrap">' + xBa("ba-main") + "</div></section>" +
+    '<section class="sec paper"><div class="wrap"><div class="head"><div class="l">' + eb(t("x.pr_drone")) + '<h2 class="h-xl">' + t("x.pr_drone") + '</h2></div></div><div id="dronebox">' + droneBox() + "</div></div></section>" +
+    '<section class="sec"><div class="wrap"><div class="head"><div class="l">' + eb(t("x.progress")) + '<h2 class="h-xl">' + t("x.pr_timeline") + '</h2><p class="note" style="margin:0">' + t("x.pr_phase_note") + '</p></div></div><ol class="tl" id="tlist">' + tlItems() + "</ol></div></section>" + reg();
+
+  /* ----- currency rates and investment calculator ----- */
+  const CUR = { USD: "US dollar", EUR: "Euro", GBP: "British pound", CAD: "Canadian dollar", AED: "UAE dirham", DJF: "Djibouti franc" };
+  // USD, AED and DJF are fixed pegs. EUR, GBP and CAD are refreshed live when the calculator opens; the values below are the fallback.
+  const RATES = { USD: 1, EUR: 0.88152, GBP: 0.755961, CAD: 1.418513, AED: 3.6725, DJF: DJF, asof: "30 September 2026", live: false };
+  const fmtC = (v, c) => { try { return new Intl.NumberFormat(LOC.num, { style: "currency", currency: c, maximumFractionDigits: 0 }).format(v); } catch (e) { return c + " " + Math.round(v).toLocaleString(LOC.num); } };
+  const fmtN = (v) => Math.round(v).toLocaleString(LOC.num);
+  let fxP = null;
+  function applyFx(r, d) { ["EUR", "GBP", "CAD"].forEach((k) => { if (isFinite(r[k]) && r[k] > 0.2 && r[k] < 5) RATES[k] = r[k]; }); if (d) RATES.asof = d; RATES.live = true; }
+  function loadRates() {
+    if (fxP) return fxP;
+    try { const c = JSON.parse(sessionStorage.getItem("crest-fx") || "null"); if (c && c.r && Date.now() - c.t < 12 * 3600e3) { applyFx(c.r, c.d); fxP = Promise.resolve(); return fxP; } } catch (e) {}
+    fxP = new Promise((res) => {
+      const ctl = typeof AbortController === "function" ? new AbortController() : null, to = setTimeout(() => ctl && ctl.abort(), 4500);
+      fetch("https://open.er-api.com/v6/latest/USD", ctl ? { signal: ctl.signal } : {}).then((r) => (r.ok ? r.json() : Promise.reject())).then((j) => {
+        if (j && j.result === "success" && j.rates) {
+          const r = { EUR: j.rates.EUR, GBP: j.rates.GBP, CAD: j.rates.CAD }, d = j.time_last_update_utc ? new Date(j.time_last_update_utc).toLocaleDateString(LOC.date, { day: "numeric", month: "long", year: "numeric" }) : "";
+          applyFx(r, d); try { sessionStorage.setItem("crest-fx", JSON.stringify({ t: Date.now(), r, d })); } catch (e) {}
+        }
+      }).catch(() => {}).then(() => { clearTimeout(to); res(); });
+    }).then(() => updInvest());
+    return fxP;
+  }
+  const xfld = (id, lbl, attrs, full) => '<div class="fld' + (full ? " full" : "") + '"><label for="' + id + '">' + lbl + '</label><input id="' + id + '" ' + attrs + "></div>";
+  const investCalc = () => '<div class="icalc" id="ic" data-cur="USD"><form class="form" onsubmit="return false">' +
+    '<div class="fld full"><label for="ic-cur">' + t("x.ic_cur") + '</label><select id="ic-cur">' + Object.keys(CUR).map((c) => '<option value="' + c + '">' + c + " · " + CUR[c] + "</option>").join("") + "</select></div>" +
+    xfld("ic-price", t("x.ic_price"), 'type="number" min="0" step="1000" inputmode="numeric"') + xfld("ic-rent", t("x.ic_rent"), 'type="number" min="0" step="50" inputmode="numeric"') +
+    xfld("ic-occ", t("x.ic_occ"), 'type="number" min="0" max="100" step="1" value="90"') + xfld("ic-mgmt", t("x.ic_mgmt"), 'type="number" min="0" max="100" step="1" value="10"') +
+    xfld("ic-maint", t("x.ic_maint"), 'type="number" min="0" max="100" step="1" value="5"') + xfld("ic-svc", t("x.ic_svc"), 'type="number" min="0" step="50" value="0" inputmode="numeric"') +
+    '<div class="full"><button type="button" class="btn line" data-ic-ex>' + t("x.ic_example") + "</button></div></form>" +
+    '<div class="res" id="ic-out"><p class="muted">' + t("x.ic_empty") + "</p></div></div>";
+  const icRound = (v, step) => Math.round(v / step) * step;
+  function updInvest() {
+    const box = $("#ic"); if (!box) return;
+    const c = $("#ic-cur").value, n = (id) => Math.max(+$(id).value || 0, 0), out = $("#ic-out");
+    const price = n("#ic-price"), rent = n("#ic-rent"), occ = Math.min(n("#ic-occ"), 100), mg = Math.min(n("#ic-mgmt"), 100), mt = Math.min(n("#ic-maint"), 100), svc = n("#ic-svc");
+    if (!price || !rent) { out.innerHTML = '<p class="muted">' + t("x.ic_empty") + "</p>"; return; }
+    const gross = rent * 12 * (occ / 100), net = gross - gross * (mg + mt) / 100 - svc, gy = gross / price * 100, ny = net / price * 100, pay = net > 0 ? price / net : null;
+    const pct = (v) => v.toLocaleString(LOC.num, { maximumFractionDigits: 1 }) + "%";
+    const conv = (v, k) => v * RATES[k] / RATES[c];
+    out.innerHTML = '<div class="big"><div><span class="small">' + t("x.ic_gross") + "</span><b>" + pct(gy) + '</b></div><div><span class="small">' + t("x.ic_net") + "</span><b>" + pct(ny) + '</b></div><div><span class="small">' + t("x.ic_income") + "</span><b>" + fmtC(net, c) + '</b></div><div><span class="small">' + t("x.ic_payback") + "</span><b>" + (pay ? t("x.ic_years", { n: pay.toLocaleString(LOC.num, { maximumFractionDigits: 1 }) }) : t("x.ic_nopay")) + "</b></div></div>" +
+      '<div><span class="small">' + t("x.ic_other") + '</span><table><thead><tr><th></th><th>' + t("x.ic_col_price") + "</th><th>" + t("x.ic_col_income") + "</th></tr></thead><tbody>" +
+      Object.keys(CUR).map((k) => "<tr><td>" + k + "</td><td>" + fmtC(conv(price, k), k) + "</td><td>" + fmtC(conv(net, k), k) + "</td></tr>").join("") + "</tbody></table></div>" +
+      '<p class="note" style="margin:0">' + t(RATES.live ? "x.ic_rates" : "x.ic_rates_fb", { date: RATES.asof }) + "</p><p class=\"note\" style=\"margin:0\">" + t("x.ic_disclaimer") + "</p>";
+  }
+  document.addEventListener("change", (e) => {
+    if (e.target.id !== "ic-cur") return;
+    const box = $("#ic"), from = box.dataset.cur, to = e.target.value, k = RATES[to] / RATES[from];
+    [["#ic-price", 100], ["#ic-rent", 10], ["#ic-svc", 10]].forEach((f) => { const el = $(f[0]); if (el.value !== "") el.value = icRound((+el.value || 0) * k, to === "DJF" ? f[1] * 100 : f[1]); });
+    box.dataset.cur = to; updInvest();
+  });
+  document.addEventListener("input", (e) => { if (e.target.closest && e.target.closest("#ic")) updInvest(); });
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest || !e.target.closest("[data-ic-ex]")) return;
+    const box = $("#ic"), k = RATES[box.dataset.cur];
+    $("#ic-price").value = icRound(250000 * k, box.dataset.cur === "DJF" ? 10000 : 100); $("#ic-rent").value = icRound(1500 * k, box.dataset.cur === "DJF" ? 1000 : 10); $("#ic-svc").value = icRound(600 * k, box.dataset.cur === "DJF" ? 1000 : 10);
+    $("#ic-occ").value = 90; $("#ic-mgmt").value = 10; $("#ic-maint").value = 5; updInvest();
+  });
+
+  /* ----- video tour booking in the buyer's time zone ----- */
+  const TOUR_H = [9, 10, 11, 14, 15, 16];
+  const djDate = (plus) => new Date(Date.now() + 3 * 3600e3 + plus * 864e5).toISOString().slice(0, 10);
+  const userTz = () => { try { return Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC"; } catch (e) { return "UTC"; } };
+  let tourDay = "";
+  function tourButtons(ds) {
+    const p = ds.split("-").map(Number);
+    if (new Date(Date.UTC(p[0], p[1] - 1, p[2])).getUTCDay() === 5) return '<p class="note" style="margin:0">' + t("x.tour_friday") + "</p>";
+    const tf = new Intl.DateTimeFormat(LOC.date, { hour: "2-digit", minute: "2-digit", timeZoneName: "short" }), df = new Intl.DateTimeFormat(LOC.date, { weekday: "short", day: "numeric", month: "short" });
+    return '<div class="slotbar">' + TOUR_H.map((h) => {
+      const at = new Date(Date.UTC(p[0], p[1] - 1, p[2], h - 3, 0)), past = at.getTime() < Date.now() + 2 * 3600e3;
+      return '<button type="button" data-slot="' + at.toISOString() + '" data-dj="' + pad(h) + ':00"' + (past ? " disabled" : "") + "><b>" + tf.format(at) + "</b><span>" + df.format(at) + " · " + (past ? t("x.tour_past") : t("x.tour_dj", { time: pad(h) + ":00" })) + "</span></button>";
+    }).join("") + "</div>";
+  }
+  const tourBox = () => { tourDay = tourDay || djDate(1); return '<div class="tourbox" id="tour"><div><div class="fld"><label for="tour-day">' + t("x.tour_date") + '</label><input id="tour-day" type="date" min="' + djDate(0) + '" value="' + tourDay + '"></div><p class="note">' + t("x.tour_tz", { tz: esc(userTz()) }) + " " + t("x.tour_hours") + '</p></div><div id="tslots">' + tourButtons(tourDay) + "</div></div>"; };
+  document.addEventListener("change", (e) => { if (e.target.id === "tour-day" && e.target.value) { tourDay = e.target.value; $("#tslots").innerHTML = tourButtons(tourDay); } });
+  document.addEventListener("click", (e) => {
+    const b = e.target.closest && e.target.closest("[data-slot]"); if (!b || b.disabled) return;
+    const at = new Date(b.dataset.slot), local = new Intl.DateTimeFormat(LOC.date, { weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", timeZoneName: "short" }).format(at);
+    const dj = new Intl.DateTimeFormat(LOC.date, { timeZone: "Africa/Djibouti", weekday: "long", day: "numeric", month: "long" }).format(at);
+    contactMsg = t("x.tour_msg", { day: dj, dj: b.dataset.dj, local: local }); go("contact");
+  });
+
+  /* ----- buying from abroad ----- */
+  const faq = (n) => "<details><summary>" + t("x.q" + n) + "</summary><p>" + t("x.a" + n) + "</p></details>";
+  P.abroad = () => phero("gate", t("x.abroad_eyebrow"), t("x.ab_hero")) +
+    '<section class="sec intro"><div class="wrap"><h2 class="h-xl">' + t("x.ab_intro_h") + '</h2><div class="body"><p>' + t("x.ab_intro_p1") + "</p><p>" + t("x.ab_intro_p2") + "</p></div>" +
+    '<div class="miles mt-m">' + [1, 2, 3, 4].map((i) => "<div><small>" + pad(i) + " · " + t("x.ab_s" + i) + "</small><b>" + t("x.ab_s" + i + "_h") + "</b><p>" + t("x.ab_s" + i + "_p") + "</p></div>").join("") + "</div></div></section>" +
+    '<section class="sec paper"><div class="wrap"><div class="head"><div class="l">' + eb(t("x.tour_eyebrow")) + '<h2 class="h-xl">' + t("x.tour_h") + '</h2><p class="sub">' + t("x.tour_sub") + "</p></div></div>" + tourBox() + "</div></section>" +
+    '<section class="sec"><div class="wrap"><div class="head"><div class="l">' + eb(t("x.plan_eyebrow")) + '<h2 class="h-xl">' + t("x.plan_h") + '</h2><p class="sub">' + t("x.plan_sub") + "</p></div></div>" + investCalc() + "</div></section>" +
+    '<section class="banner on-dark"><img loading="lazy" src="' + img("entrance_villa") + '" alt=""><div class="wrap"><div class="eyebrow" style="justify-content:center">' + t("x.trust_band_eyebrow") + '</div><h2 class="h-xl">' + t("x.trust_band_h") + "</h2><p>" + t("x.trust_band_p") + '</p><a class="btn white" data-go="trust">' + t("x.open_trust") + "</a></div></section>" +
+    '<section class="sec"><div class="wrap"><div class="head"><div class="l">' + eb(t("x.faq_eyebrow")) + '<h2 class="h-xl">' + t("x.faq_h") + '</h2></div></div><div class="faq">' + [1, 2, 3, 4, 5, 6].map(faq).join("") + '</div><p class="note">' + t("x.faq_note") + "</p></div></section>" + reg();
+
+  /* ----- trust center ----- */
+  // Edit the status of each line as documents are completed: "ready" or "pending". Update TRUST_ASOF when you do.
+  const TRUST_ASOF = "30 September 2026";
+  const TRUST = [["ready", 1], ["ready", 2], ["pending", 3], ["pending", 4], ["pending", 5], ["pending", 6], ["pending", 7], ["pending", 8]];
+  P.trust = () => phero("entrance_villa", t("x.trust"), t("x.tr_hero")) +
+    '<section class="sec intro"><div class="wrap"><h2 class="h-xl">' + t("x.tr_intro_h") + '</h2><div class="body"><p>' + t("x.tr_intro_p") + "</p></div></div></section>" +
+    '<section class="sec paper"><div class="wrap feature"><div class="t">' + eb(t("x.tr_dev")) + '<h2 class="h-xl">' + t("financing.crest_development_group_cdg_sarl") + '</h2><dl class="specs"><div><dt>' + t("x.tr_legal") + "</dt><dd>" + t("financing.crest_development_group_cdg_sarl") + "</dd></div><div><dt>" + t("x.tr_inc") + "</dt><dd>" + t("x.tr_inc_v") + "</dd></div><div><dt>" + t("x.tr_office") + "</dt><dd>" + t("common.avenue_mahamoud_haid_plateau_du") + "</dd></div><div><dt>" + t("x.tr_bank") + "</dt><dd>" + t("financing.cac_international_bank") + "</dd></div><div><dt>" + t("x.tr_since") + "</dt><dd>" + t("x.tr_since_v") + '</dd></div></dl></div><div class="m"><img loading="lazy" src="' + img("gate") + '" srcset="' + srcset("gate") + '" sizes="(max-width:900px) 100vw, 50vw" alt="' + ta("financing.crest_city_entrance") + '"></div></div></section>' +
+    '<section class="sec"><div class="wrap"><div class="head"><div class="l">' + eb(t("x.tr_check")) + '<h2 class="h-xl">' + t("x.tr_check") + '</h2></div></div><ul class="tick">' +
+    TRUST.map((r) => '<li><b>' + t("x.tr_item" + r[1]) + '</b><span class="pchip ' + r[0] + '">' + t(r[0] === "ready" ? "x.tr_ready" : "x.tr_pending") + "</span><p>" + t("x.tr_item" + r[1] + "_p") + "</p></li>").join("") +
+    '</ul><p class="note">' + t("x.tr_asof", { date: TRUST_ASOF }) + "</p></div></section>" +
+    '<section class="sec paper"><div class="wrap"><div class="head"><div class="l">' + eb(t("x.tr_ask_eyebrow")) + '<h2 class="h-xl">' + t("x.tr_ask_h") + '</h2></div></div><div class="asks">' + [1, 2, 3, 4, 5].map((i) => "<div><em>" + i + "</em><p>" + t("x.tr_ask" + i) + "</p></div>").join("") + '</div><p class="note">' + t("x.tr_ask_p") + '</p><div class="ctas mt-s"><a class="btn" data-go="contact">' + t("x.tr_cta") + '</a><a class="btn line" data-go="abroad">' + t("x.nav_abroad") + "</a></div></div></section>";
+
+  /* ----- masterplan: amenity labels, zoom ----- */
+  const ZONES = [[215, 470, "map.activity_center", "activity", "community.a_clubhouse_for_gatherings_classes"], [560, 548, "map.commercial_street", "shopfront", "community.shops_caf_s_and_services"], [795, 452, "map.central_plaza", "boulevard", "home.palm_lined_walkways_linking_homes"], [318, 292, "map.playground", "playground", "community.childrens_playgrounds_beside_open_lawns"], [515, 440, "map.visitor_parking", "parking", "community.dedicated_parking_for_guests_and"]];
+  const ZOOMS = [100, 150, 200];
+  let mpZone = null, mpZoom = 0;
+  const zoneSide = (i) => { const z = ZONES[i]; return '<div class="m"><img loading="lazy" src="' + img(z[3]) + '" srcset="' + srcset(z[3]) + '" sizes="(max-width:600px) 100vw, (max-width:1000px) 50vw, 380px" alt=""></div><span class="small">' + t("x.mp_on_plan") + "</span><h3>" + t(z[2]).toLowerCase().replace(/(^|\s)\S/g, (m) => m.toUpperCase()) + "</h3><p>" + t(z[4]) + '</p><a class="btn line full" data-go="community">' + t("x.mp_view_community") + "</a>"; };
+  const zoneChips = () => '<div class="zchips" aria-label="' + ta("x.mp_on_plan") + '">' + ZONES.map((z, i) => '<button type="button" class="' + (mpZone === i ? "on" : "") + '" data-zoneb="' + i + '">' + t(z[2]) + "</button>").join("") + '<span>' + t("x.mp_mosque_pos") + "</span></div><p class=\"note\">" + t("x.mp_amen_hint") + "</p>";
+  const zoomBar = () => '<div class="mpzoom"><button type="button" data-mpz="-1" aria-label="' + ta("x.mp_zoom_out") + '">−</button><button type="button" data-mpz="1" aria-label="' + ta("x.mp_zoom_in") + '">+</button><span>' + ZOOMS[mpZoom] + "%</span></div>";
+  function selectZone(i) {
+    mpZone = i;
+    $$("#mpmap .zn").forEach((g) => g.classList.toggle("sel", +g.dataset.zone === i));
+    $$("[data-zoneb]").forEach((b) => b.classList.toggle("on", +b.dataset.zoneb === i));
+    $("#mpside").innerHTML = zoneSide(i);
+    if (window.innerWidth < 1100) $("#mpside").scrollIntoView({ block: "nearest", behavior: reduce ? "auto" : "smooth" });
+  }
+  document.addEventListener("click", (e) => {
+    const tg = e.target; if (!tg.closest) return;
+    const z = tg.closest("[data-zone]"), zb = tg.closest("[data-zoneb]");
+    if (z || zb) { e.preventDefault(); selectZone(+(z || zb).dataset[z ? "zone" : "zoneb"]); return; }
+    const zm = tg.closest("[data-mpz]");
+    if (zm) { mpZoom = Math.max(0, Math.min(ZOOMS.length - 1, mpZoom + (+zm.dataset.mpz))); const m = $("#mpmap"); m.style.width = ZOOMS[mpZoom] + "%"; $(".mpzoom span").textContent = ZOOMS[mpZoom] + "%"; return; }
+    const gc = tg.closest("[data-galcat]");
+    if (gc) { galCat = gc.dataset.galcat; $$("[data-galcat]").forEach((b) => { const on = b === gc; b.classList.toggle("on", on); b.setAttribute("aria-selected", on); }); $("#ggrid").innerHTML = galGrid(); return; }
+    const lb = tg.closest("[data-lb]");
+    if (lb) { lbOpen(lb.dataset.lb, lb.dataset.cap); return; }
+    if (tg.closest("#lb")) lbClose();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") lbClose();
+    const z = e.target.closest && e.target.closest("[data-zone]");
+    if (z && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); selectZone(+z.dataset.zone); }
+  });
+  const afterRender = () => {
+    if (cur === "gallery" || cur === "progress" || cur === "home") loadMan();
+    if ($("#ic")) loadRates();
+  };
+
   /* ---------- router ---------- */
-  const HERO = { home: 1, community: 1, properties: 1, about: 1, news: 1, contact: 1, owners: 1, brokers: 1, financing: 1, eoi: 1 };
+  const HERO = { home: 1, community: 1, properties: 1, about: 1, news: 1, contact: 1, owners: 1, brokers: 1, financing: 1, eoi: 1, abroad: 1, trust: 1, progress: 1, gallery: 1 };
   function render() {
     const isUnit = cur.indexOf("unit-") === 0;
     $("#app").innerHTML = isUnit ? P.unit(cur.slice(5).toUpperCase()) : (P[cur] || P.home)();
@@ -1719,6 +2272,7 @@ nav.main a,.hdr .cta{white-space:nowrap}
     onScroll();
     startSlider();
     $$(".track").forEach(updCar);
+    afterRender();
   }
   function go(r) { cur = r; try { if (location.hash.slice(1) !== r) history.pushState(null, "", "#" + r); } catch (e) {} render(); }
   window.addEventListener("popstate", () => { cur = location.hash.slice(1) || "home"; render(); });
@@ -1808,7 +2362,8 @@ nav.main a,.hdr .cta{white-space:nowrap}
   });
   function selText(id) { const r = document.createRange(); r.selectNodeContents($("#" + id)); const s = getSelection(); s.removeAllRanges(); s.addRange(r); toast(t("messages.selected_ready_to_copy")); }
   function selectLot(id) {
-    mpSel = id;
+    mpSel = id; mpZone = null;
+    $$("#mpmap .zn, [data-zoneb]").forEach((g) => g.classList.remove("sel", "on"));
     $$("#mpmap .lot").forEach((g) => g.classList.toggle("sel", g.dataset.lot === id));
     const side = $("#mpside"); side.innerHTML = mpSide(id);
     if (window.innerWidth < 1100) side.scrollIntoView({ block: "nearest", behavior: reduce ? "auto" : "smooth" });
@@ -1857,7 +2412,7 @@ nav.main a,.hdr .cta{white-space:nowrap}
       if (!n || p.replace(/\D/g, "").length < 6) { $("#cf-err").hidden = false; (n ? $("#cf-phone") : $("#cf-name")).focus(); return; }
       const u = byId($("#cf-unit").value), d = $("#cf-date").value;
       $("#cwrap").innerHTML = '<div class="done">' + eb(t("messages.request_received")) + '<h2 class="h-l">' + t("common.thank_you_name", { name: esc(n.split(" ")[0]) }) + "</h2><p>" + t("messages.request_recorded" + (u ? "_home" : "") + (d ? "_date" : ""), { home: u ? esc(u.name) : "", date: d ? esc(new Date(d + "T12:00").toLocaleDateString(LOC.date, { day: "numeric", month: "long", year: "numeric" })) : "" }) + "</p><p class=\"note\">" + t("messages.on_the_live_site_requests") + "</p><div><a class=\"tlink\" data-go=\"properties\">" + t("common.keep_browsing") + "</a></div></div>";
-      contactUnit = "";
+      contactUnit = ""; contactMsg = "";
     }
   });
 

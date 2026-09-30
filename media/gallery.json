@@ -1,0 +1,24 @@
+{
+  "_help": "Edit this file to publish real photos and renders without touching the code. Put image files in img/ (for example img/gallery/majlis.jpg), then set its path as src below. Set a phase status to planned, active or done, add a date, and list photo paths. Put the drone video path in drone.",
+  "items": {
+    "majlis": { "src": "" },
+    "living": { "src": "" },
+    "kitchen": { "src": "" },
+    "master": { "src": "" },
+    "foyer": { "src": "" },
+    "terrace": { "src": "" },
+    "golden": { "src": "" },
+    "dusk": { "src": "" },
+    "court": { "src": "" }
+  },
+  "progress": {
+    "survey": { "status": "planned", "date": "", "photos": [] },
+    "site": { "status": "planned", "date": "", "photos": [] },
+    "foundations": { "status": "planned", "date": "", "photos": [] },
+    "structure": { "status": "planned", "date": "", "photos": [] },
+    "services": { "status": "planned", "date": "", "photos": [] },
+    "finishes": { "status": "planned", "date": "", "photos": [] },
+    "handover": { "status": "planned", "date": "", "photos": [] }
+  },
+  "drone": ""
+}
